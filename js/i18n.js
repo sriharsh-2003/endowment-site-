@@ -76,7 +76,7 @@
     const langBtn = document.getElementById('lang-toggle-btn');
     const langBtnText = document.getElementById('lang-toggle-text');
     if (langBtnText) {
-      // In Arabic mode, the button shows "English" or "EN" to allow switching to English.
+      // In Arabic mode, the button shows "English" to allow switching to English.
       // In English mode, it shows "عربي" to allow switching to Arabic.
       langBtnText.textContent = isArabic ? 'English' : 'عربي';
     }
@@ -110,6 +110,37 @@
     applyLanguage(next);
   }
 
+  /**
+   * Initialize event listeners for language buttons
+   * Uses event delegation to handle buttons robustly
+   */
+  function initButtons() {
+    // Desktop language button
+    const langBtn = document.getElementById('lang-toggle-btn');
+    if (langBtn) {
+      // Remove any existing listeners first to prevent duplicates
+      langBtn.removeEventListener('click', handleLangBtnClick);
+      langBtn.addEventListener('click', handleLangBtnClick);
+    }
+
+    // Mobile language button
+    const mobileLangBtn = document.getElementById('mobile-lang-toggle-btn');
+    if (mobileLangBtn) {
+      // Remove any existing listeners first to prevent duplicates
+      mobileLangBtn.removeEventListener('click', handleLangBtnClick);
+      mobileLangBtn.addEventListener('click', handleLangBtnClick);
+    }
+  }
+
+  /**
+   * Centralized click handler for language buttons
+   */
+  function handleLangBtnClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleLanguage();
+  }
+
   // Expose globally
   window.i18n = {
     getLang: getCurrentLang,
@@ -117,23 +148,15 @@
     toggleLang: toggleLanguage,
   };
 
-  // Run immediately on script load or DOMContentLoaded
+  // Initialize when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       applyLanguage(getCurrentLang());
       initButtons();
     });
   } else {
+    // DOM already loaded when script executes
     applyLanguage(getCurrentLang());
     initButtons();
-  }
-
-  function initButtons() {
-    document.addEventListener('click', (e) => {
-      const button = e.target.closest('#lang-toggle-btn, #mobile-lang-toggle-btn');
-      if (!button) return;
-        e.preventDefault();
-        toggleLanguage();
-    });
   }
 })();
