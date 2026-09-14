@@ -101,6 +101,31 @@
     applyLanguage(next);
   }
 
+  /**
+   * Initialize event listeners for language buttons
+   */
+  function initButtons() {
+    // Desktop language button
+    const langBtn = document.getElementById('lang-toggle-btn');
+    if (langBtn) {
+      langBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleLanguage();
+      });
+    }
+
+    // Mobile language button
+    const mobileLangBtn = document.getElementById('mobile-lang-toggle-btn');
+    if (mobileLangBtn) {
+      mobileLangBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleLanguage();
+      });
+    }
+  }
+
   // Expose globally
   window.i18n = {
     getLang: getCurrentLang,
@@ -108,32 +133,16 @@
     toggleLang: toggleLanguage,
   };
 
-  // Run immediately on script load or DOMContentLoaded
+  // Wait for DOM to be ready, then apply language and init buttons
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       applyLanguage(getCurrentLang());
-      initButtons();
+      // Slight delay to ensure all buttons are in the DOM
+      setTimeout(initButtons, 50);
     });
   } else {
     applyLanguage(getCurrentLang());
-    initButtons();
-  }
-
-  function initButtons() {
-    const langBtn = document.getElementById('lang-toggle-btn');
-    if (langBtn) {
-      langBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        toggleLanguage();
-      });
-    }
-
-    const mobileLangBtn = document.getElementById('mobile-lang-toggle-btn');
-    if (mobileLangBtn) {
-      mobileLangBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        toggleLanguage();
-      });
-    }
+    // Slight delay to ensure all buttons are in the DOM
+    setTimeout(initButtons, 50);
   }
 })();
