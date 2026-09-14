@@ -129,20 +129,11 @@
   }
 
   function initButtons() {
-    const langBtn = document.getElementById('lang-toggle-btn');
-    if (langBtn) {
-      langBtn.addEventListener('click', (e) => {
+    document.addEventListener('click', (e) => {
+      const button = e.target.closest('#lang-toggle-btn, #mobile-lang-toggle-btn');
+      if (!button) return;
         e.preventDefault();
         toggleLanguage();
-      });
-    }
-
-    const mobileLangBtn = document.getElementById('mobile-lang-toggle-btn');
-    if (mobileLangBtn) {
-      mobileLangBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        toggleLanguage();
-      });
-    }
+    });
   }
 })();
