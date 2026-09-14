@@ -14,21 +14,7 @@
 
   async function loadBankDetails() {
     try {
-      const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-        ? `http://${window.location.hostname}:3001/api/bank-details`
-        : '/api/bank-details';
-      let response;
-      try {
-        response = await fetch('/api/bank-details', {cache: 'no-store'});
-        if (!response.ok && apiUrl !== '/api/bank-details' && [404, 502, 503].includes(response.status)) {
-          response = await fetch(apiUrl, {cache: 'no-store'});
-        }
-      } catch (error) {
-        if (apiUrl === '/api/bank-details') throw error;
-        response = await fetch(apiUrl, {cache: 'no-store'});
-      }
-      if (!response.ok) throw new Error(`Bank details request failed: ${response.status}`);
-      const details = await response.json();
+      const details = await window.endowmentStore.getBankDetails();
       const values = {
         'bank-name-val': details.bank_name,
         'bank-beneficiary-val': details.beneficiary_name,
@@ -46,16 +32,19 @@
     }
   }
 
-  function initProgress() {
+  async function initProgress() {
     // Requirements: Progress Bar: Show Raised, Target, and Percentage (default to 0)
     const raisedEl = document.getElementById('raised-amount');
     const targetEl = document.getElementById('target-amount');
     const percentEl = document.getElementById('progress-percentage');
     const barFill = document.getElementById('progress-bar-fill');
 
-    const raised = 0;
+    const donations = window.endowmentStore ? await window.endowmentStore.getDonations() : [];
+    const raised = donations
+      .filter((item) => item.status !== 'cancelled')
+      .reduce((total, item) => total + Number(item.amount), 0);
     const target = 200000;
-    const percentage = 0;
+    const percentage = Math.min(100, Math.round((raised / target) * 100));
 
     if (raisedEl) raisedEl.textContent = raised.toLocaleString();
     if (targetEl) targetEl.textContent = target.toLocaleString();
@@ -113,11 +102,9 @@
         window.showToast?.('Please enter your name and email before continuing.');
         return;
       }
-      fetch('/api/donations', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({name, email, amount})
-      }).catch((error) => console.error('Donation could not be recorded', error));
+      window.endowmentStore.addDonation({name, email, amount})
+        .then(() => initProgress())
+        .catch((error) => console.error('Donation could not be recorded', error));
       modal.classList.add('active');
     });
 

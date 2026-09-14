@@ -4,8 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"node server.mjs\" \"vite --port=3000 --host=0.0.0.0\"",
-    "dev:api": "node server.mjs",
+    "dev": "vite --port=3000 --host=0.0.0.0",
     "build": "vite build && node scripts/copy-static-assets.mjs",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
@@ -19,10 +18,8 @@
     "react": "^19.0.1",
     "react-dom": "^19.0.1",
     "vite": "^6.2.3",
-    "express": "^4.21.2",
     "dotenv": "^17.2.3",
     "motion": "^12.23.24",
-    "better-sqlite3": "^11.10.0",
     "concurrently": "^9.1.2"
   },
   "devDependencies": {
