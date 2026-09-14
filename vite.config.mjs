@@ -1,29 +1,36 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
-import path from 'path';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {defineConfig} from 'vite';
+
+const rootDir = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': path.resolve(rootDir, '.'),
       },
     },
     build: {
       rollupOptions: {
         input: {
-          main: path.resolve(__dirname, 'index.html'),
-          pray: path.resolve(__dirname, 'pray.html'),
-          graveLocator: path.resolve(__dirname, 'grave-locator.html'),
-          knowledgeHub: path.resolve(__dirname, 'knowledge-hub.html'),
-          donate: path.resolve(__dirname, 'donate.html'),
-          privacy: path.resolve(__dirname, 'privacy.html'),
+          main: path.resolve(rootDir, 'index.html'),
+          pray: path.resolve(rootDir, 'pray.html'),
+          graveLocator: path.resolve(rootDir, 'grave-locator.html'),
+          knowledgeHub: path.resolve(rootDir, 'knowledge-hub.html'),
+          donate: path.resolve(rootDir, 'donate.html'),
+          privacy: path.resolve(rootDir, 'privacy.html'),
+          client: path.resolve(rootDir, 'client.html'),
         },
       },
     },
     server: {
+      proxy: {
+        '/api': 'http://localhost:3001',
+      },
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
       // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true',

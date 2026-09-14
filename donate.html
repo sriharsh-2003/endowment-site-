@@ -6,9 +6,10 @@
     <title data-i18n-ar="المساهمة والتبرع | وقف عبدالله العجلان" data-i18n-en="Donate | Abdullah Alajlan Charity">المساهمة والتبرع | وقف عبدالله العجلان</title>
     <meta name="description" data-i18n-ar="ساهم في الصدقة الجارية ومشاريع وقف عبدالله العجلان رحمه الله عبر التحويل البنكي المباشر والتبرع الميسر." data-i18n-en="Support ongoing charity projects in memory of Abdullah Alajlan through direct bank transfer and donations." content="المساهمة والتبرع لوقف عبدالله العجلان" />
     <meta property="og:title" content="Donate | Abdullah Alajlan Charity" />
+    <link rel="icon" type="image/png" href="./assets/abdullah-alajlan-logo.png" />
     
-    <link rel="stylesheet" href="/css/tokens.css" />
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="./css/tokens.css" />
+    <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
     <!-- Sticky Header -->
@@ -16,11 +17,7 @@
       <div class="container header-container">
         <a href="index.html" class="brand-logo" aria-label="Abdullah Alajlan Endowment">
           <div class="brand-emblem">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M12 3v18"/>
-              <path d="M5 12h14"/>
-              <circle cx="12" cy="12" r="9"/>
-            </svg>
+            <img src="./assets/abdullah-alajlan-logo.png" alt="" aria-hidden="true" />
           </div>
           <div class="brand-text">
             <span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Endowment">وقف عبدالله العجلان</span>
@@ -128,7 +125,7 @@
             <div style="text-align: end;">
               <span style="font-size: 0.88rem; color: var(--text-muted); display: block;" data-i18n-ar="الهدف المطلوب للمرحلة" data-i18n-en="Target Goal">الهدف المطلوب للمرحلة</span>
               <div class="progress-metric-val">
-                <span id="target-amount">100,000</span>
+                <span id="target-amount">200,000</span>
                 <span style="font-size: 1rem; color: var(--gold-accent);" data-i18n-ar="ر.س" data-i18n-en="SAR">ر.س</span>
               </div>
             </div>
@@ -187,24 +184,24 @@
               <span data-i18n-ar="المتابعة إلى التبرع" data-i18n-en="Continue to payment">المتابعة إلى التبرع</span>
             </button>
           </div>
-          <p style="font-size: 0.82rem; color: var(--text-muted); text-align: center; margin-top: 0.75rem;" data-i18n-ar="زر توضيحي — يمكنك أيضاً التحويل المباشر عبر الحساب البنكي المعتمد أدناه." data-i18n-en="Demo button — you can also transfer directly using our official bank account below.">
-            زر توضيحي — يمكنك أيضاً التحويل المباشر عبر الحساب البنكي المعتمد أدناه.
+          <p style="font-size: 0.82rem; color: var(--text-muted); text-align: center; margin-top: 0.75rem;" data-i18n-ar="يمكنك أيضاً التحويل المباشر عبر الحساب البنكي المعتمد أدناه." data-i18n-en="You can also transfer directly using our official bank account below.">
+            يمكنك أيضاً التحويل المباشر عبر الحساب البنكي المعتمد أدناه.
           </p>
         </div>
 
         <!-- OFFICIAL ACCREDITATION LOGOS (Enlarged) -->
         <div class="donate-official-logos">
           <div class="donate-logo-card">
-            <img src="/assets/logo_awqaf.svg" alt="الهيئة العامة للأوقاف - AWQAF" class="donate-logo-img" />
+            <img src="./assets/logo_awqaf.svg" alt="الهيئة العامة للأوقاف - AWQAF" class="donate-logo-img" />
           </div>
           <div class="donate-logo-card">
-            <img src="/assets/logo_ncnp.svg" alt="المركز الوطني لتنمية القطاع غير الربحي" class="donate-logo-img" />
+            <img src="./assets/logo_ncnp.svg" alt="المركز الوطني لتنمية القطاع غير الربحي" class="donate-logo-img" />
           </div>
         </div>
 
         <!-- BANK TRANSFER DETAILS SECTION (copyable, editable bank account information) -->
         <div id="bank-details" class="bank-details-card card-gold-accent">
-          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+          <div class="bank-details-heading">
             <div style="width: 38px; height: 38px; border-radius: var(--radius-sm); background-color: var(--gold-glow); display: flex; align-items: center; justify-content: center; color: var(--gold-accent);">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="3" y1="21" x2="21" y2="21"></line>
@@ -222,6 +219,7 @@
                 حساب وقفي رسمي معتمد لدى الهيئة العامة للأوقاف
               </span>
             </div>
+            <a href="client.html?autologin=1" class="btn btn-outline btn-sm bank-client-login" data-i18n-ar="دخول العميل" data-i18n-en="Client login">دخول العميل</a>
           </div>
 
           <div style="margin-top: 1.5rem;">
@@ -243,8 +241,8 @@
             <div class="bank-row">
               <div>
                 <span style="font-size: 0.82rem; color: var(--text-muted); display: block;" data-i18n-ar="اسم المستفيد (الحساب الوقفي)" data-i18n-en="Account Name">اسم المستفيد (الحساب الوقفي)</span>
-                <strong id="bank-beneficiary-val" style="color: var(--text-primary); font-size: 1.05rem;" data-i18n-ar="وقف عبدالله بن إبراهيم العجلان الخيري" data-i18n-en="Abdullah Ibrahim Alajlan Charity">
-                  وقف عبدالله بن إبراهيم العجلان الخيري
+                <strong id="bank-beneficiary-val" style="color: var(--text-primary); font-size: 1.05rem;" data-i18n-ar="وقف عبدالله محمد العجلان الخيري" data-i18n-en="Abdullah Mohammed Alajlan Charity">
+                  وقف عبدالله محمد العجلان الخيري
                 </strong>
               </div>
               <button class="copy-btn" data-copy-target="bank-beneficiary-val" aria-label="Copy Beneficiary Name">
@@ -253,11 +251,11 @@
               </button>
             </div>
 
-            <!-- IBAN Number (Editable / Copyable) -->
+            <!-- IBAN Number (Read-only / Copyable; editable from the client dashboard) -->
             <div class="bank-row">
               <div style="flex: 1; margin-inline-end: 1rem;">
                 <span style="font-size: 0.82rem; color: var(--text-muted); display: block;" data-i18n-ar="رقم الآيبان (IBAN)" data-i18n-en="IBAN Number">رقم الآيبان (IBAN)</span>
-                <input type="text" id="bank-iban-val" class="form-input" style="font-family: monospace; font-size: 1.05rem; font-weight: 700; color: var(--gold-light); margin-top: 0.25rem;" value="SAXXXXXXXXXXXXXXXXXXXX" />
+                <input type="text" id="bank-iban-val" class="form-input" style="font-family: monospace; font-size: 1.05rem; font-weight: 700; color: var(--gold-light); margin-top: 0.25rem;" value="SAXXXXXXXXXXXXXXXXXXXX" readonly aria-readonly="true" />
               </div>
               <button class="copy-btn" data-copy-target="bank-iban-val" aria-label="Copy IBAN">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
@@ -265,11 +263,11 @@
               </button>
             </div>
 
-            <!-- Account Number (Editable / Copyable) -->
+            <!-- Account Number (Read-only / Copyable; editable from the client dashboard) -->
             <div class="bank-row">
               <div style="flex: 1; margin-inline-end: 1rem;">
                 <span style="font-size: 0.82rem; color: var(--text-muted); display: block;" data-i18n-ar="رقم الحساب البنكي" data-i18n-en="Bank Account Number">رقم الحساب البنكي</span>
-                <input type="text" id="bank-account-val" class="form-input" style="font-family: monospace; font-size: 1.05rem; font-weight: 700; color: var(--gold-light); margin-top: 0.25rem;" value="XXXXXXXXXXXXXXXX" />
+                <input type="text" id="bank-account-val" class="form-input" style="font-family: monospace; font-size: 1.05rem; font-weight: 700; color: var(--gold-light); margin-top: 0.25rem;" value="XXXXXXXXXXXXXXXX" readonly aria-readonly="true" />
               </div>
               <button class="copy-btn" data-copy-target="bank-account-val" aria-label="Copy Account Number">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
@@ -317,12 +315,8 @@
           <div class="footer-brand">
             <div class="brand-logo">
               <div class="brand-emblem">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <path d="M12 3v18"/>
-                  <path d="M5 12h14"/>
-                  <circle cx="12" cy="12" r="9"/>
-                </svg>
-              </div>
+            <img src="./assets/abdullah-alajlan-logo.png" alt="" aria-hidden="true" />
+          </div>
               <div class="brand-text">
                 <span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Charity">وقف عبدالله العجلان</span>
                 <span class="brand-sub" data-i18n-ar="صدقة جارية وأثر مبارك" data-i18n-en="Ongoing charity and good deeds">صدقة جارية وأثر مبارك</span>
@@ -357,19 +351,19 @@
             <h4 data-i18n-ar="الجهات المشرفة والشركاء" data-i18n-en="Official Partners">الجهات المشرفة والشركاء</h4>
             <div class="partner-badges">
               <div class="partner-badge" title="الهيئة العامة للأوقاف">
-                <img src="/assets/logo_awqaf.svg" alt="الهيئة العامة للأوقاف - AWQAF" class="partner-badge-img" />
+                <img src="./assets/logo_awqaf.svg" alt="الهيئة العامة للأوقاف - AWQAF" class="partner-badge-img" />
               </div>
 
               <div class="partner-badge" title="المركز الوطني لتنمية القطاع غير الربحي">
-                <img src="/assets/logo_ncnp.svg" alt="المركز الوطني لتنمية القطاع غير الربحي" class="partner-badge-img" />
+                <img src="./assets/logo_ncnp.svg" alt="المركز الوطني لتنمية القطاع غير الربحي" class="partner-badge-img" />
               </div>
             </div>
           </div>
         </div>
 
         <div class="footer-bottom">
-          <div data-i18n-ar="جميع الحقوق محفوظة © 2026 وقف عبدالله بن إبراهيم العجلان رحمه الله." data-i18n-en="All rights reserved © 2026 Abdullah Ibrahim Alajlan Charity.">
-            جميع الحقوق محفوظة © 2026 وقف عبدالله بن إبراهيم العجلان رحمه الله.
+          <div data-i18n-ar="جميع الحقوق محفوظة © 2026 وقف عبدالله محمد العجلان رحمه الله." data-i18n-en="All rights reserved © 2026 Abdullah Mohammed Alajlan Charity.">
+            جميع الحقوق محفوظة © 2026 وقف عبدالله محمد العجلان رحمه الله.
           </div>
           <div style="font-size: 0.82rem; color: var(--gold-accent);" data-i18n-ar="اللهم اجعل هذا العمل خالصاً لوجهك الكريم وثواباً لفقيدنا" data-i18n-en="O Allah, accept this charity and grant mercy to our deceased">
             اللهم اجعل هذا العمل خالصاً لوجهك الكريم وثواباً لفقيدنا
@@ -379,8 +373,8 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="/js/i18n.js"></script>
-    <script src="/js/common.js"></script>
-    <script src="/js/donate.js"></script>
+    <script src="./js/i18n.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/donate.js"></script>
   </body>
 </html>

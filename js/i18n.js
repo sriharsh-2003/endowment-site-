@@ -12,7 +12,12 @@
    * @returns {'ar' | 'en'}
    */
   function getCurrentLang() {
-    const saved = localStorage.getItem(STORAGE_KEY);
+    let saved = null;
+    try {
+      saved = localStorage.getItem(STORAGE_KEY);
+    } catch (error) {
+      // Storage can be unavailable when the page is opened directly from disk.
+    }
     if (saved === 'ar' || saved === 'en') {
       return saved;
     }
@@ -86,7 +91,11 @@
     }
 
     // Save to LocalStorage
-    localStorage.setItem(STORAGE_KEY, lang);
+    try {
+      localStorage.setItem(STORAGE_KEY, lang);
+    } catch (error) {
+      // The language still applies for the current page when storage is unavailable.
+    }
 
     // Dispatch global event for page-specific listeners (e.g. Leaflet map or Prayer logic)
     window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang, isArabic } }));

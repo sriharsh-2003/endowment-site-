@@ -4,15 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title data-i18n-ar="موقع القبر والزيارة | وقف عبدالله العجلان" data-i18n-en="Grave Location & Directions | Abdullah Alajlan Charity">موقع القبر والزيارة | وقف عبدالله العجلان</title>
-    <meta name="description" data-i18n-ar="خريطة مرقد الفقيد عبدالله بن إبراهيم العجلان رحمه الله، مع رقم العمود والصف للحصول على اتجاهات الوصول." data-i18n-en="Interactive map to the grave of Abdullah Alajlan, with column and row numbers and driving directions." content="موقع مرقد الفقيد عبدالله العجلان" />
+    <meta name="description" data-i18n-ar="خريطة مرقد الفقيد عبدالله محمد العجلان رحمه الله، مع رقم العمود والصف للحصول على اتجاهات الوصول." data-i18n-en="Interactive map to the grave of Abdullah Alajlan, with column and row numbers and driving directions." content="موقع مرقد الفقيد عبدالله العجلان" />
     <meta property="og:title" content="Grave Location | Abdullah Alajlan Charity" />
+    <link rel="icon" type="image/png" href="./assets/abdullah-alajlan-logo.png" />
 
     <!-- Leaflet.js CSS (CDN) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/tokens.css" />
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="./css/tokens.css" />
+    <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
     <!-- Sticky Header -->
@@ -20,11 +21,7 @@
       <div class="container header-container">
         <a href="index.html" class="brand-logo" aria-label="Abdullah Alajlan Endowment">
           <div class="brand-emblem">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M12 3v18"/>
-              <path d="M5 12h14"/>
-              <circle cx="12" cy="12" r="9"/>
-            </svg>
+            <img src="./assets/abdullah-alajlan-logo.png" alt="" aria-hidden="true" />
           </div>
           <div class="brand-text">
             <span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Endowment">وقف عبدالله العجلان</span>
@@ -175,6 +172,10 @@
         <!-- Leaflet Map Container -->
         <div class="map-container-wrapper">
           <div id="grave-map" aria-label="Interactive Map of the Grave Location"></div>
+          <div id="map-fallback" class="map-fallback">
+            <strong data-i18n-ar="تعذر تحميل الخريطة التفاعلية" data-i18n-en="The interactive map could not be loaded">تعذر تحميل الخريطة التفاعلية</strong>
+            <a href="https://www.google.com/maps/search/?api=1&query=24.6291,46.7262" target="_blank" rel="noopener noreferrer" data-i18n-ar="فتح الموقع في خرائط جوجل" data-i18n-en="Open location in Google Maps">فتح الموقع في خرائط جوجل</a>
+          </div>
         </div>
 
         <!-- Get Directions Section -->
@@ -213,6 +214,10 @@
                 <span data-i18n-ar="الاتجاهات في خرائط آبل" data-i18n-en="Open in Apple Maps">الاتجاهات في خرائط آبل</span>
               </button>
             </div>
+            <div class="map-direct-links">
+              <a href="https://www.google.com/maps/dir/?api=1&destination=24.6291,46.7262" target="_blank" rel="noopener noreferrer" data-i18n-ar="فتح خرائط جوجل مباشرة" data-i18n-en="Open Google Maps directly">فتح خرائط جوجل مباشرة</a>
+              <a href="https://maps.apple.com/?daddr=24.6291,46.7262" target="_blank" rel="noopener noreferrer" data-i18n-ar="فتح خرائط آبل مباشرة" data-i18n-en="Open Apple Maps directly">فتح خرائط آبل مباشرة</a>
+            </div>
           </div>
         </div>
 
@@ -226,12 +231,8 @@
           <div class="footer-brand">
             <div class="brand-logo">
               <div class="brand-emblem">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <path d="M12 3v18"/>
-                  <path d="M5 12h14"/>
-                  <circle cx="12" cy="12" r="9"/>
-                </svg>
-              </div>
+            <img src="./assets/abdullah-alajlan-logo.png" alt="" aria-hidden="true" />
+          </div>
               <div class="brand-text">
                 <span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Charity">وقف عبدالله العجلان</span>
                 <span class="brand-sub" data-i18n-ar="صدقة جارية ودعاء مستمر" data-i18n-en="Ongoing charity and sincere prayers">صدقة جارية ودعاء مستمر</span>
@@ -266,19 +267,19 @@
             <h4 data-i18n-ar="الجهات المشرفة والشركاء" data-i18n-en="Supervising Entities & Partners">الجهات المشرفة والشركاء</h4>
             <div class="partner-badges">
               <div class="partner-badge" title="الهيئة العامة للأوقاف">
-                <img src="/assets/logo_awqaf.svg" alt="الهيئة العامة للأوقاف - AWQAF" class="partner-badge-img" />
+                <img src="./assets/logo_awqaf.svg" alt="الهيئة العامة للأوقاف - AWQAF" class="partner-badge-img" />
               </div>
 
               <div class="partner-badge" title="المركز الوطني لتنمية القطاع غير الربحي">
-                <img src="/assets/logo_ncnp.svg" alt="المركز الوطني لتنمية القطاع غير الربحي" class="partner-badge-img" />
+                <img src="./assets/logo_ncnp.svg" alt="المركز الوطني لتنمية القطاع غير الربحي" class="partner-badge-img" />
               </div>
             </div>
           </div>
         </div>
 
         <div class="footer-bottom">
-          <div data-i18n-ar="جميع الحقوق محفوظة © 2026 وقف عبدالله بن إبراهيم العجلان رحمه الله." data-i18n-en="All Rights Reserved © 2026 Abdullah Ibrahim Alajlan Charity.">
-            جميع الحقوق محفوظة © 2026 وقف عبدالله بن إبراهيم العجلان رحمه الله.
+          <div data-i18n-ar="جميع الحقوق محفوظة © 2026 وقف عبدالله محمد العجلان رحمه الله." data-i18n-en="All Rights Reserved © 2026 Abdullah Mohammed Alajlan Charity.">
+            جميع الحقوق محفوظة © 2026 وقف عبدالله محمد العجلان رحمه الله.
           </div>
           <div style="font-size: 0.82rem; color: var(--gold-accent);" data-i18n-ar="اللهم اجعل هذا العمل خالصاً لوجهك الكريم وثواباً لفقيدنا" data-i18n-en="O Allah, accept this work sincerely and reward our deceased">
             اللهم اجعل هذا العمل خالصاً لوجهك الكريم وثواباً لفقيدنا
@@ -291,8 +292,8 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     
     <!-- App Scripts -->
-    <script src="/js/i18n.js"></script>
-    <script src="/js/common.js"></script>
-    <script src="/js/grave-locator.js"></script>
+    <script src="./js/i18n.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/grave-locator.js"></script>
   </body>
 </html>

@@ -7,8 +7,8 @@
   // Destination Grave Coordinates (Riyadh Cemetery)
   const GRAVE_LAT = 24.6291;
   const GRAVE_LNG = 46.7262;
-  const GRAVE_TITLE_AR = 'مرقد عبدالله بن إبراهيم العجلان رحمه الله (عمود ٢٠، صف ٥٨)';
-  const GRAVE_TITLE_EN = 'Grave of Abdullah Alajlan (Column 20, Row 58)';
+  const GRAVE_TITLE_AR = 'مرقد عبدالله محمد العجلان رحمه الله (عمود ٢٠، صف ٥٨)';
+  const GRAVE_TITLE_EN = 'Grave of Abdullah Mohammed Alajlan (Column 20, Row 58)';
 
   let mapInstance = null;
   let markerInstance = null;
@@ -34,10 +34,10 @@
       scrollWheelZoom: false
     });
 
-    // Elegant CartoDB or OpenStreetMap tiles with subdued palette
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    // Use OpenStreetMap as the primary source so the map remains available
+    // even when the optional Carto tile service is blocked.
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
-      subdomains: 'abcd',
       maxZoom: 19
     }).addTo(mapInstance);
 
@@ -76,6 +76,9 @@
     const isArabic = (window.i18n ? window.i18n.getLang() : 'ar') === 'ar';
     updateMapPopup(isArabic);
     markerInstance.openPopup();
+    const fallback = document.getElementById('map-fallback');
+    if (fallback) fallback.hidden = true;
+    window.setTimeout(() => mapInstance.invalidateSize(), 0);
   }
 
   function updateMapPopup(isArabic) {
@@ -98,6 +101,13 @@
     const googleBtn = document.getElementById('btn-google-maps');
     const appleBtn = document.getElementById('btn-apple-maps');
 
+    function openMapUrl(url) {
+      const mapWindow = window.open(url, '_blank', 'noopener,noreferrer');
+      if (!mapWindow) {
+        window.location.href = url;
+      }
+    }
+
     if (googleBtn) {
       googleBtn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -108,7 +118,7 @@
         } else {
           url = `https://www.google.com/maps/dir/?api=1&destination=${GRAVE_LAT},${GRAVE_LNG}&travelmode=driving`;
         }
-        window.open(url, '_blank', 'noopener,noreferrer');
+        openMapUrl(url);
       });
     }
 
@@ -122,7 +132,7 @@
         } else {
           url = `https://maps.apple.com/?daddr=${GRAVE_LAT},${GRAVE_LNG}&dirflg=d`;
         }
-        window.open(url, '_blank', 'noopener,noreferrer');
+        openMapUrl(url);
       });
     }
   }

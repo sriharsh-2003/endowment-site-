@@ -136,22 +136,24 @@ p {
 }
 
 .brand-emblem {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-sm);
-  background: var(--primary-forest);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #ffffff;
   border: 1.5px solid var(--warm-gold);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--avatar-cream);
   box-shadow: 0 4px 12px rgba(27, 58, 47, 0.2);
   flex-shrink: 0;
+  overflow: hidden;
 }
 
-.brand-emblem svg {
-  width: 24px;
-  height: 24px;
+.brand-emblem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .brand-text {
@@ -714,6 +716,38 @@ html[dir="ltr"] .mobile-drawer {
   background-color: var(--bg-secondary);
 }
 
+.testimonials-section {
+  padding: 4.5rem 0;
+  background-color: var(--bg-primary);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.testimonial-card {
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.testimonial-card blockquote {
+  margin: 0 0 1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.testimonial-card cite {
+  color: var(--gold-dark);
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 700;
+}
+
 .section-header {
   text-align: center;
   max-width: 640px;
@@ -856,6 +890,25 @@ html[dir="ltr"] .mobile-drawer {
   font-weight: 700;
 }
 
+.quran-audio-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+
+.quran-source-link {
+  color: var(--gold-dark);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.quran-audio-controls audio {
+  display: none;
+}
+
 .pray-action-box {
   max-width: 620px;
   margin: 0 auto;
@@ -921,6 +974,37 @@ html[dir="ltr"] .mobile-drawer {
   z-index: 1;
 }
 
+.map-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-content: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.map-fallback[hidden] {
+  display: none;
+}
+
+.map-fallback a,
+.map-direct-links a {
+  color: var(--gold-dark);
+  font-weight: 700;
+}
+
+.map-direct-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  font-size: 0.88rem;
+}
+
 .grave-info-strip {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -961,6 +1045,30 @@ html[dir="ltr"] .mobile-drawer {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+/* Gravestone memorial on the prayer page */
+.gravestone-card {
+  margin: 0 0 2rem;
+  overflow: hidden;
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: var(--radius-lg);
+  background-color: var(--bg-card);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.gravestone-image {
+  display: block;
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+}
+
+.gravestone-card figcaption {
+  padding: 0.9rem 1rem 1rem;
+  color: var(--gold-accent);
+  font-weight: 700;
 }
 
 /* ==========================================================================
@@ -1115,6 +1223,23 @@ html[dir="ltr"] .mobile-drawer {
   padding: 2rem;
 }
 
+.bank-details-heading {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.bank-client-login {
+  white-space: nowrap;
+}
+
+.bank-details-card input[readonly] {
+  cursor: default;
+  background-color: var(--bg-secondary);
+}
+
 .bank-row {
   display: flex;
   align-items: center;
@@ -1158,11 +1283,46 @@ html[dir="ltr"] .mobile-drawer {
    Footer
    ========================================================================== */
 .site-footer {
+  position: relative;
+  isolation: isolate;
   margin-top: auto;
-  background-color: var(--primary-forest);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 112%, transparent 0 19rem, rgba(201, 168, 97, 0.14) 19.1rem 19.35rem, transparent 19.45rem),
+    radial-gradient(circle at 50% 112%, rgba(201, 168, 97, 0.08) 0 11rem, transparent 11.1rem),
+    var(--primary-forest);
   border-top: 3px solid var(--warm-gold);
   padding: 4.5rem 0 2.5rem;
   color: var(--cream);
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.2;
+  background-image:
+    linear-gradient(45deg, transparent 46%, var(--warm-gold) 47%, var(--warm-gold) 53%, transparent 54%),
+    linear-gradient(-45deg, transparent 46%, var(--warm-gold) 47%, var(--warm-gold) 53%, transparent 54%);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(to bottom, transparent 0, #000 32%, #000 100%);
+}
+
+.site-footer::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -17rem;
+  width: 36rem;
+  height: 36rem;
+  z-index: -1;
+  border: 2px solid rgba(201, 168, 97, 0.35);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow:
+    0 0 0 1rem rgba(201, 168, 97, 0.05),
+    0 0 0 2rem rgba(201, 168, 97, 0.04);
 }
 
 .footer-grid {
@@ -1324,8 +1484,10 @@ html[dir="ltr"] .footer-col h4::after {
 .partner-badge {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
-  padding: 0.65rem 0.85rem;
+  justify-content: center;
+  width: 100%;
+  min-height: 76px;
+  padding: 0.55rem 0.75rem;
   background-color: #ffffff;
   border: 1px solid rgba(194, 168, 130, 0.4);
   border-radius: var(--radius-sm);
@@ -1339,11 +1501,11 @@ html[dir="ltr"] .footer-col h4::after {
 }
 
 .partner-badge-img {
-  height: 38px;
-  width: auto;
-  max-width: 140px;
-  object-fit: contain;
   display: block;
+  width: 100%;
+  max-width: 220px;
+  height: 58px;
+  object-fit: contain;
 }
 
 .partner-badge-icon {
@@ -1385,6 +1547,139 @@ html[dir="ltr"] .footer-col h4::after {
   gap: 1rem;
   font-size: 0.88rem;
   color: var(--cream);
+}
+
+.client-portal {
+  min-height: 75vh;
+  padding: 4rem 0 5rem;
+  background: var(--bg-secondary);
+}
+
+.client-card {
+  max-width: 980px;
+  margin: 0 auto 1.5rem;
+  padding: 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.client-form {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.client-form-grid {
+  max-width: none;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.client-field {
+  min-width: 0;
+}
+
+.client-form-grid .btn,
+.client-form-grid .client-status {
+  grid-column: 1 / -1;
+}
+
+.client-error {
+  min-height: 1.2rem;
+  color: #b42318;
+}
+
+.client-status {
+  color: var(--secondary-green);
+  font-weight: 700;
+}
+
+.client-dashboard[hidden],
+#client-login[hidden] {
+  display: none;
+}
+
+.client-dashboard-header {
+  max-width: 980px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.client-stats {
+  max-width: 980px;
+  margin: 0 auto 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.donation-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 620px;
+}
+
+.donation-table th,
+.donation-table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid var(--border-color);
+  text-align: start;
+}
+
+.donation-table th {
+  color: var(--gold-dark);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 700px) {
+  .client-form-grid,
+  .client-stats {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 600px) {
+    .bank-details-card {
+      padding: 1.25rem;
+    }
+
+    .bank-details-heading {
+      grid-template-columns: auto minmax(0, 1fr);
+    }
+
+    .bank-client-login {
+      grid-column: 1 / -1;
+      width: 100%;
+      margin-top: 0.25rem;
+    }
+
+    .bank-row {
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .bank-row > div {
+      min-width: 0;
+      flex: 1 1 100%;
+    }
+
+    .bank-row .copy-btn {
+      margin-inline-start: auto;
+    }
+  }
+
+  .client-dashboard-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 
 /* Toast Notifications */

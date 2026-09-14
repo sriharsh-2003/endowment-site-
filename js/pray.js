@@ -12,50 +12,59 @@
       ar: 'رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ',
       en: 'Our Lord, forgive me and my parents and the believers the Day the account is established.',
       refAr: 'سورة إبراهيم: ٤١',
-      refEn: 'Surah Ibrahim: 41'
+      refEn: 'Surah Ibrahim: 41',
+      key: '14:41'
     },
     {
       ar: 'رَبِّ اغْفِرْ وَارْحَمْ وَأَنتَ خَيْرُ الرَّاحِمِينَ',
       en: 'My Lord, forgive and have mercy, and You are the best of the merciful.',
       refAr: 'سورة المؤمنون: ١١٨',
-      refEn: 'Surah Al-Mu’minun: 118'
+      refEn: 'Surah Al-Mu’minun: 118',
+      key: '23:118'
     },
     {
       ar: 'وَقُل رَّبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا',
       en: 'And say, "My Lord, have mercy upon them as they brought me up [when I was] small."',
       refAr: 'سورة الإسراء: ٢٤',
-      refEn: 'Surah Al-Isra: 24'
+      refEn: 'Surah Al-Isra: 24',
+      key: '17:24'
     },
     {
       ar: 'وَالَّذِينَ جَاءُوا مِن بَعْدِهِمْ يَقُولُونَ رَبَّنَا اغْفِرْ لَنَا وَلِإِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالإِيمَانِ',
       en: 'And those who came after them say, "Our Lord, forgive us and our brothers who preceded us in faith."',
       refAr: 'سورة الحشر: ١٠',
-      refEn: 'Surah Al-Hashr: 10'
+      refEn: 'Surah Al-Hashr: 10',
+      key: '59:10'
     },
     {
       ar: 'إِنَّ رَحْمَتَ اللَّهِ قَرِيبٌ مِّنَ الْمُحْسِنِينَ',
       en: 'Indeed, the mercy of Allah is near to the doers of good.',
       refAr: 'سورة الأعراف: ٥٦',
-      refEn: 'Surah Al-A’raf: 56'
+      refEn: 'Surah Al-A’raf: 56',
+      key: '7:56'
     },
     {
       ar: 'رَبَّنَا وَآتِنَا مَا وَعَدتَّنَا عَلَىٰ رُسُلِكَ وَلَا تُخْزِنَا يَوْمَ الْقِيَامَةِ ۗ إِنَّكَ لَا تُخْلِفُ الْمِيعَادَ',
       en: 'Our Lord, and grant us what You promised us through Your messengers and do not disgrace us on the Day of Resurrection.',
       refAr: 'سورة آل عمران: ١٩٤',
-      refEn: 'Surah Ali ‘Imran: 194'
+      refEn: 'Surah Ali ‘Imran: 194',
+      key: '3:194'
     }
   ];
 
   let currentVerseIndex = 0;
+  let verseRequestId = 0;
 
   document.addEventListener('DOMContentLoaded', () => {
     initVerseSelector();
+    initQuranAudio();
     initPrayerButton();
     renderCurrentVerse();
 
     // Re-render verse translation if language changes
     window.addEventListener('languageChanged', () => {
       renderCurrentVerse();
+      updateAudioButtonUI(false);
       updatePrayerButtonUI();
     });
   });
@@ -71,6 +80,7 @@
         } while (nextIndex === currentVerseIndex && QURAN_VERSES.length > 1);
         currentVerseIndex = nextIndex;
         renderCurrentVerse();
+        playSelectedVerse();
       });
     }
   }
@@ -87,6 +97,94 @@
     if (verseArEl) verseArEl.textContent = verse.ar;
     if (verseEnEl) verseEnEl.textContent = `"${verse.en}"`;
     if (verseRefEl) verseRefEl.textContent = isArabic ? verse.refAr : verse.refEn;
+
+    const sourceLink = document.getElementById('quran-source-link');
+    if (sourceLink) sourceLink.href = `https://quran.com/${verse.key.replace(':', '/')}`;
+    loadVerseFromQuran(verse);
+  }
+
+  async function loadVerseFromQuran(verse) {
+    const requestId = ++verseRequestId;
+    const arabicEndpoint = `https://api.quran.com/api/v4/verses/by_key/${verse.key}?language=en&fields=text_uthmani&translations=131`;
+
+    try {
+      const response = await fetch(arabicEndpoint);
+      if (!response.ok) throw new Error(`Quran.com request failed: ${response.status}`);
+      const payload = await response.json();
+      if (requestId !== verseRequestId || !payload.verse) return;
+
+      const verseArEl = document.getElementById('quran-verse-arabic');
+      const verseEnEl = document.getElementById('quran-verse-translation');
+      if (verseArEl && payload.verse.text_uthmani) verseArEl.textContent = payload.verse.text_uthmani;
+      if (verseEnEl && payload.verse.translations && payload.verse.translations[0]) {
+        verseEnEl.textContent = `"${payload.verse.translations[0].text.replace(/<[^>]+>/g, '')}"`;
+      }
+    } catch (error) {
+      // The local verified verse remains visible if Quran.com is unavailable.
+      console.warn('Quran.com verse unavailable; using local fallback.', error);
+    }
+  }
+
+  function playSelectedVerse() {
+    const audio = document.getElementById('quran-audio');
+    if (!audio) return;
+    const verse = QURAN_VERSES[currentVerseIndex];
+    const [chapter, verseNumber] = verse.key.split(':');
+    const audioUrl = `https://verses.quran.com/Alafasy/mp3/${chapter.padStart(3, '0')}${verseNumber.padStart(3, '0')}.mp3`;
+    if (audio.src !== audioUrl) {
+      audio.src = audioUrl;
+      audio.load();
+    }
+    audio.play().then(() => {
+      updateAudioButtonUI(true);
+    }).catch(() => {
+      const isArabic = (window.i18n ? window.i18n.getLang() : 'ar') === 'ar';
+      updateAudioButtonUI(false);
+      if (window.showToast) {
+        window.showToast(isArabic ? 'تعذّر تشغيل التلاوة. اضغط مرة أخرى أو تحقق من اتصال الإنترنت.' : 'The recitation could not start. Press again or check your internet connection.');
+      }
+    });
+  }
+
+  function initQuranAudio() {
+    const audioButton = document.getElementById('quran-audio-btn');
+    const audio = document.getElementById('quran-audio');
+    if (audioButton) {
+      audioButton.addEventListener('click', () => {
+        if (audio && !audio.paused) {
+          audio.pause();
+          updateAudioButtonUI(false);
+        } else {
+          playSelectedVerse();
+        }
+      });
+    }
+    if (audio) {
+      audio.addEventListener('ended', () => updateAudioButtonUI(false));
+      audio.addEventListener('error', () => {
+        updateAudioButtonUI(false);
+        const isArabic = (window.i18n ? window.i18n.getLang() : 'ar') === 'ar';
+        if (window.showToast) {
+          window.showToast(isArabic ? 'تعذّر تحميل التلاوة من المصدر.' : 'The recitation source could not be loaded.');
+        }
+      });
+    }
+    updateAudioButtonUI(false);
+  }
+
+  function updateAudioButtonUI(isPlaying) {
+    const audioButton = document.getElementById('quran-audio-btn');
+    if (!audioButton) return;
+    const isArabic = (window.i18n ? window.i18n.getLang() : 'ar') === 'ar';
+    audioButton.setAttribute('aria-label', isPlaying
+      ? (isArabic ? 'إيقاف التلاوة' : 'Pause recitation')
+      : (isArabic ? 'تشغيل التلاوة' : 'Play recitation'));
+    const label = audioButton.querySelector('[data-i18n-ar], [data-i18n-en]');
+    if (label) {
+      label.textContent = isPlaying
+        ? (isArabic ? 'إيقاف التلاوة' : 'Pause recitation')
+        : (isArabic ? 'استماع إلى التلاوة' : 'Play recitation');
+    }
   }
 
   function initPrayerButton() {
