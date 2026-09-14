@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently \"node server.mjs\" \"vite --port=3000 --host=0.0.0.0\"",
     "dev:api": "node server.mjs",
-    "build": "vite build",
+    "build": "vite build && node scripts/copy-static-assets.mjs",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit"
