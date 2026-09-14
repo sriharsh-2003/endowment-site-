@@ -71,7 +71,7 @@
     const langBtn = document.getElementById('lang-toggle-btn');
     const langBtnText = document.getElementById('lang-toggle-text');
     if (langBtnText) {
-      // In Arabic mode, the button shows "English" or "EN" to allow switching to English.
+      // In Arabic mode, the button shows "English" to allow switching to English.
       // In English mode, it shows "عربي" to allow switching to Arabic.
       langBtnText.textContent = isArabic ? 'English' : 'عربي';
     }
@@ -103,27 +103,33 @@
 
   /**
    * Initialize event listeners for language buttons
+   * Uses event delegation to handle buttons robustly
    */
   function initButtons() {
     // Desktop language button
     const langBtn = document.getElementById('lang-toggle-btn');
     if (langBtn) {
-      langBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        toggleLanguage();
-      });
+      // Remove any existing listeners first to prevent duplicates
+      langBtn.removeEventListener('click', handleLangBtnClick);
+      langBtn.addEventListener('click', handleLangBtnClick);
     }
 
     // Mobile language button
     const mobileLangBtn = document.getElementById('mobile-lang-toggle-btn');
     if (mobileLangBtn) {
-      mobileLangBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        toggleLanguage();
-      });
+      // Remove any existing listeners first to prevent duplicates
+      mobileLangBtn.removeEventListener('click', handleLangBtnClick);
+      mobileLangBtn.addEventListener('click', handleLangBtnClick);
     }
+  }
+
+  /**
+   * Centralized click handler for language buttons
+   */
+  function handleLangBtnClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleLanguage();
   }
 
   // Expose globally
@@ -133,16 +139,15 @@
     toggleLang: toggleLanguage,
   };
 
-  // Wait for DOM to be ready, then apply language and init buttons
+  // Initialize when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       applyLanguage(getCurrentLang());
-      // Slight delay to ensure all buttons are in the DOM
-      setTimeout(initButtons, 50);
+      initButtons();
     });
   } else {
+    // DOM already loaded when script executes
     applyLanguage(getCurrentLang());
-    // Slight delay to ensure all buttons are in the DOM
-    setTimeout(initButtons, 50);
+    initButtons();
   }
 })();
