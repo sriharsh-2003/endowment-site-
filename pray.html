@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n-ar="ادعُ له بالرحمة والمغفرة | وقف عبدالله العجلان" data-i18n-en="Pray for Him | Abdullah Alajlan Charity">ادعُ له بالرحمة والمغفرة | وقف عبدالله العجلان</title>
+    <meta name="description" data-i18n-ar="اختر آية كريمة وادعُ للفقيد عبدالله بن إبراهيم العجلان رحمه الله بالرحمة والمغفرة." data-i18n-en="Choose a Quran verse and pray for Abdullah Alajlan. May Allah grant him mercy and Paradise." content="ادعُ له بالرحمة والمغفرة" />
+    <meta property="og:title" content="Pray for him | Abdullah Alajlan Charity" />
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/tokens.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <!-- Sticky Header -->
+    <header class="site-header">
+      <div class="container header-container">
+        <!-- Logo -->
+        <a href="index.html" class="brand-logo" aria-label="Abdullah Alajlan Endowment">
+          <div class="brand-emblem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 3v18"/>
+              <path d="M5 12h14"/>
+              <circle cx="12" cy="12" r="9"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Endowment">وقف عبدالله العجلان</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav aria-label="Main Navigation">
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link" data-i18n-ar="الرئيسية" data-i18n-en="Home">الرئيسية</a></li>
+            <li><a href="grave-locator.html" class="nav-link" data-i18n-ar="موقع القبر" data-i18n-en="Grave Locator">موقع القبر</a></li>
+            <li><a href="pray.html" class="nav-link active" data-i18n-ar="ادعُ له" data-i18n-en="Pray for him">ادعُ له</a></li>
+            <li><a href="knowledge-hub.html" class="nav-link" data-i18n-ar="مركز المعرفة" data-i18n-en="Knowledge Hub">مركز المعرفة</a></li>
+            <li><a href="donate.html" class="nav-link" data-i18n-ar="تبرّع للوقف" data-i18n-en="Donate">تبرّع للوقف</a></li>
+          </ul>
+        </nav>
+
+        <!-- Actions -->
+        <div class="header-actions">
+          <button id="lang-toggle-btn" class="lang-toggle-btn" aria-label="Switch Language">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+              <path d="M2 12h20"></path>
+            </svg>
+            <span id="lang-toggle-text">English</span>
+          </button>
+
+          <button id="hamburger-btn" class="hamburger-btn" aria-label="Open Navigation Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" x2="20" y1="12" y2="12"></line>
+              <line x1="4" x2="20" y1="6" y2="6"></line>
+              <line x1="4" x2="20" y1="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div id="mobile-overlay" class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Drawer -->
+    <aside id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation">
+      <div class="drawer-header">
+        <div class="brand-text">
+          <span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Endowment">وقف عبدالله العجلان</span>
+        </div>
+        <button id="drawer-close-btn" class="drawer-close-btn" aria-label="Close menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <ul class="drawer-nav-list">
+        <li><a href="index.html" class="drawer-nav-link" data-i18n-ar="الرئيسية" data-i18n-en="Home">الرئيسية</a></li>
+        <li><a href="grave-locator.html" class="drawer-nav-link" data-i18n-ar="موقع القبر" data-i18n-en="Grave Locator">موقع القبر</a></li>
+        <li><a href="pray.html" class="drawer-nav-link active" data-i18n-ar="ادعُ له" data-i18n-en="Pray for him">ادعُ له</a></li>
+        <li><a href="knowledge-hub.html" class="drawer-nav-link" data-i18n-ar="مركز المعرفة" data-i18n-en="Knowledge Hub">مركز المعرفة</a></li>
+        <li><a href="donate.html" class="drawer-nav-link" data-i18n-ar="تبرّع للوقف" data-i18n-en="Donate">تبرّع للوقف</a></li>
+        <li><a href="privacy.html" class="drawer-nav-link" data-i18n-ar="سياسة الخصوصية" data-i18n-en="Privacy Policy">سياسة الخصوصية</a></li>
+      </ul>
+      <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+        <button id="mobile-lang-toggle-btn" class="btn btn-secondary btn-sm" style="width: 100%;">
+          <span id="mobile-lang-toggle-text">English</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Container -->
+    <main>
+      <section class="page-hero-banner">
+        <div class="container" style="max-width: 800px;">
+          <!-- Main Headings -->
+          <div class="section-header" style="margin-bottom: 0;">
+            <span class="badge badge-gold" style="margin-bottom: 0.75rem;" data-i18n-ar="الدعاء للميت بظهر الغيب" data-i18n-en="Praying for the Deceased">
+              الدعاء للميت بظهر الغيب
+            </span>
+            <!-- Heading Requirement: "Choose a verse, and pray for him" -->
+            <h1 style="margin-bottom: 0.75rem;" data-i18n-ar="اختر آية، وادعُ له" data-i18n-en="Choose a verse, and pray for him">
+              اختر آية، وادعُ له
+            </h1>
+            <p data-i18n-ar="قال رسول الله ﷺ: «إذا مات الإنسان انقطع عنه عمله إلا من ثلاثة: إلا من صدقة جارية، أو علم ينتفع به، أو ولد صالح يدعو له»." data-i18n-en="The Prophet ﷺ said: 'When a person dies, their deeds end except for three: an ongoing charity, beneficial knowledge, or a righteous child who prays for them.'">
+              قال رسول الله ﷺ: «إذا مات الإنسان انقطع عنه عمله إلا من ثلاثة: إلا من صدقة جارية، أو علم ينتفع به، أو ولد صالح يدعو له».
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="container" style="max-width: 800px; padding-bottom: 5rem;">
+
+        <!-- Quran Verse Box -->
+        <div class="verse-box">
+          <div style="font-size: 0.85rem; color: var(--gold-accent); margin-bottom: 0.75rem; letter-spacing: 0.05em;" data-i18n-ar="آية كريمة ودعاء مأثور" data-i18n-en="Quran Verse & Prayer">
+            آية كريمة ودعاء مأثور
+          </div>
+          
+          <div id="quran-verse-arabic" class="verse-arabic">
+            رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ
+          </div>
+
+          <div id="quran-verse-translation" class="verse-translation">
+            "Our Lord, forgive me and my parents and the believers the Day the account is established."
+          </div>
+
+          <div id="quran-verse-ref" class="verse-ref">
+            سورة إبراهيم: ٤١
+          </div>
+
+          <!-- Button to select random Quran verse -->
+          <div style="margin-top: 1.5rem;">
+            <button id="random-verse-btn" class="btn btn-outline btn-sm" aria-label="Select another Quran verse">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+              </svg>
+              <span data-i18n-ar="اختيار آية أخرى" data-i18n-en="Show Another Verse">اختيار آية أخرى</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Interaction Form & The Core Button -->
+        <div class="pray-action-box">
+          <h3 style="margin-bottom: 1.25rem;" data-i18n-ar="دعوة صادقة من القلب" data-i18n-en="Send a Sincere Prayer">
+            دعوة صادقة من القلب
+          </h3>
+
+          <div class="form-group">
+            <label for="pray-name-input" class="form-label" data-i18n-ar="اسمك (اختياري)" data-i18n-en="Your name (optional)">اسمك (اختياري)</label>
+            <input type="text" id="pray-name-input" class="form-input" data-i18n-placeholder-ar="مثال: فاعل خير، أو قريب، أو صديق" data-i18n-placeholder-en="e.g. Well-wisher, relative, or friend" placeholder="مثال: فاعل خير، أو قريب، أو صديق" />
+          </div>
+
+          <div class="form-group">
+            <label for="pray-message-input" class="form-label" data-i18n-ar="دعاء أو كلمة طيبة (اختياري)" data-i18n-en="Prayer or message (optional)">دعاء أو كلمة طيبة (اختياري)</label>
+            <textarea id="pray-message-input" class="form-textarea" data-i18n-placeholder-ar="اللهم اغفر له وارحمه، وعافه واعف عنه، واجعل قبره روضة من رياض الجنة..." data-i18n-placeholder-en="O Allah, forgive him, have mercy on him, and grant him Paradise..." placeholder="اللهم اغفر له وارحمه، وعافه واعف عنه، واجعل قبره روضة من رياض الجنة..."></textarea>
+          </div>
+
+          <!-- THE CORE BUTTON: "I prayed for him" -->
+          <div style="margin-top: 1.75rem;">
+            <button id="core-pray-btn" class="btn-core-pray" aria-label="I prayed for him">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+              </svg>
+              <span data-i18n-ar="دعوتُ له" data-i18n-en="I prayed for him">دعوتُ له</span>
+            </button>
+          </div>
+
+          <!-- Status indicator for LocalStorage state -->
+          <p id="pray-status-message" style="margin-top: 1rem; font-size: 0.92rem; color: #10b981; display: none;">
+            <!-- Rendered by pray.js -->
+          </p>
+
+          <p style="margin-top: 1.25rem; font-size: 0.82rem; color: var(--text-muted);" data-i18n-ar="يُحفظ تأكيد دعائك محلياً في جهازك إكراماً لخصوصيتك." data-i18n-en="Your prayer confirmation is saved privately on your device.">
+            يُحفظ تأكيد دعائك محلياً في جهازك إكراماً لخصوصيتك.
+          </p>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="brand-logo">
+              <div class="brand-emblem">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 3v18"/>
+                  <path d="M5 12h14"/>
+                  <circle cx="12" cy="12" r="9"/>
+                </svg>
+              </div>
+              <div class="brand-text">
+                <span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Charity">وقف عبدالله العجلان</span>
+                <span class="brand-sub" data-i18n-ar="صدقة جارية ودعاء مستمر" data-i18n-en="Ongoing charity and sincere prayers">صدقة جارية ودعاء مستمر</span>
+              </div>
+            </div>
+            <p data-i18n-ar="وقف خيري يهدف إلى إحياء ذكرى الفقيد رحمه الله من خلال سقيا الماء، وبناء المساجد، ورعاية الأيتام والمحتاجين." data-i18n-en="A non-profit charity created in memory of Abdullah Alajlan to support clean water, build mosques, and care for orphans and people in need.">
+              وقف خيري يهدف إلى إحياء ذكرى الفقيد رحمه الله من خلال سقيا الماء، وبناء المساجد، ورعاية الأيتام والمحتاجين.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h4 data-i18n-ar="صفحات الموقع" data-i18n-en="Quick Links">صفحات الموقع</h4>
+            <ul class="footer-links">
+              <li><a href="index.html" data-i18n-ar="الرئيسية" data-i18n-en="Home">الرئيسية</a></li>
+              <li><a href="grave-locator.html" data-i18n-ar="موقع القبر والزيارة" data-i18n-en="Grave Location">موقع القبر والزيارة</a></li>
+              <li><a href="pray.html" data-i18n-ar="ادعُ له بالرحمة" data-i18n-en="Pray for Him">ادعُ له بالرحمة</a></li>
+              <li><a href="knowledge-hub.html" data-i18n-ar="مركز المعرفة" data-i18n-en="Knowledge Hub">مركز المعرفة</a></li>
+              <li><a href="donate.html" data-i18n-ar="المساهمة والتبرع" data-i18n-en="Donate">المساهمة والتبرع</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 data-i18n-ar="معلومات وروابط" data-i18n-en="Helpful Links">معلومات وروابط</h4>
+            <ul class="footer-links">
+              <li><a href="privacy.html" data-i18n-ar="سياسة الخصوصية" data-i18n-en="Privacy Policy">سياسة الخصوصية</a></li>
+              <li><a href="knowledge-hub.html#etiquette" data-i18n-ar="آداب زيارة القبور" data-i18n-en="Visiting Manners">آداب زيارة القبور</a></li>
+              <li><a href="donate.html#bank-details" data-i18n-ar="الحسابات البنكية الرسمية" data-i18n-en="Official Bank Accounts">الحسابات البنكية الرسمية</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 data-i18n-ar="الجهات المشرفة والشركاء" data-i18n-en="Supervising Entities & Partners">الجهات المشرفة والشركاء</h4>
+            <div class="partner-badges">
+              <div class="partner-badge" title="الهيئة العامة للأوقاف">
+                <img src="/assets/logo_awqaf.svg" alt="الهيئة العامة للأوقاف - AWQAF" class="partner-badge-img" />
+              </div>
+
+              <div class="partner-badge" title="المركز الوطني لتنمية القطاع غير الربحي">
+                <img src="/assets/logo_ncnp.svg" alt="المركز الوطني لتنمية القطاع غير الربحي" class="partner-badge-img" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div data-i18n-ar="جميع الحقوق محفوظة © 2026 وقف عبدالله بن إبراهيم العجلان رحمه الله." data-i18n-en="All Rights Reserved © 2026 Abdullah Ibrahim Alajlan Charity.">
+            جميع الحقوق محفوظة © 2026 وقف عبدالله بن إبراهيم العجلان رحمه الله.
+          </div>
+          <div style="font-size: 0.82rem; color: var(--gold-accent);" data-i18n-ar="اللهم اجعل هذا العمل خالصاً لوجهك الكريم وثواباً لفقيدنا" data-i18n-en="O Allah, accept this work sincerely and reward our deceased">
+            اللهم اجعل هذا العمل خالصاً لوجهك الكريم وثواباً لفقيدنا
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/i18n.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/pray.js"></script>
+  </body>
+</html>

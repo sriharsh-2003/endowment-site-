@@ -1,0 +1,106 @@
+/**
+ * Abdullah Alajlan Endowment - Design Tokens
+ * Deep Forest Green + Warm Gold/Sand + Ivory/Cream Palette
+ */
+
+:root {
+  /* Core 8-Color Palette */
+  --primary-forest: #1B3A2F;      /* Deep Forest Green */
+  --secondary-green: #356954;     /* Button & CTA Green */
+  --dark-green: #244A3B;          /* Supporting Deep Green */
+  --warm-gold: #C2A882;           /* Main Warm Gold / Sand */
+  --light-gold: #D9C4AC;          /* Light Gold / Beige */
+  --muted-gold: #CDB595;          /* Muted Gold Background Accent */
+  --cream: #E8DDCE;               /* Warm Cream UI */
+  --ivory: #FAF8F3;               /* Soft Ivory Background */
+  --white: #FFFFFF;               /* Pure White */
+  --avatar-cream: #DCDAC6;        /* Profile / Emblem Cream */
+
+  /* Semantic UI mappings - Light Ivory Mode (Default) */
+  --bg-primary: #FAF8F3;          /* Soft Ivory background */
+  --bg-secondary: #F3ECE1;        /* Subtle warm sand */
+  --bg-tertiary: #E8DDCE;         /* Warm Cream */
+  --bg-card: #FFFFFF;             /* Pure White cards */
+  --bg-card-hover: #FCFBF8;
+  --bg-glass: rgba(255, 255, 255, 0.92);
+  --bg-input: #FFFFFF;
+
+  /* Typography Colors */
+  --text-primary: #1B3A2F;        /* Deep Forest Green headings & text */
+  --text-secondary: #425950;      /* Muted Forest / Slate Green */
+  --text-muted: #6B7E75;          /* Subtle green-gray */
+  --text-inverse: #FFFFFF;        /* Crisp White on dark surfaces */
+
+  /* Gold & Green Accents */
+  --gold-accent: #C2A882;
+  --gold-light: #D9C4AC;
+  --gold-dark: #9E835E;
+  --gold-glow: rgba(194, 168, 130, 0.28);
+  --gold-glow-subtle: rgba(194, 168, 130, 0.12);
+
+  --emerald-accent: #356954;
+  --emerald-light: #448369;
+  --emerald-dark: #1B3A2F;
+  --emerald-glow: rgba(53, 105, 84, 0.20);
+
+  /* Borders & Separators */
+  --border-color: #E2D7C7;
+  --border-subtle: #EDE4D8;
+  --border-gold: #C2A882;
+  --border-gold-subtle: rgba(194, 168, 130, 0.35);
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(27, 58, 47, 0.05);
+  --shadow-md: 0 8px 24px rgba(27, 58, 47, 0.08);
+  --shadow-lg: 0 16px 40px rgba(27, 58, 47, 0.12);
+  --shadow-gold: 0 4px 18px rgba(194, 168, 130, 0.25);
+  --shadow-green: 0 4px 18px rgba(53, 105, 84, 0.28);
+
+  /* Typography */
+  --font-ar: 'Tajawal', 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-en: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-quran: 'Amiri', 'Traditional Arabic', serif;
+
+  /* Spacing */
+  --header-height: 76px;
+  --container-max: 1200px;
+}
+
+/* Deep Forest Luxury Mode (Dark Mode Toggle) */
+[data-theme="dark"] {
+  --bg-primary: #11251E;          /* Deepest forest green */
+  --bg-secondary: #173229;        /* Forest slate */
+  --bg-tertiary: #1E3E33;         /* Deep green accent */
+  --bg-card: rgba(27, 58, 47, 0.85);
+  --bg-card-hover: rgba(36, 74, 59, 0.95);
+  --bg-glass: rgba(17, 37, 30, 0.92);
+  --bg-input: #173229;
+
+  --text-primary: #FAF8F3;        /* Soft Ivory */
+  --text-secondary: #DCDAC6;      /* Profile Cream */
+  --text-muted: #A3B5AA;          /* Soft sage */
+  --text-inverse: #1B3A2F;
+
+  --gold-accent: #D9C4AC;
+  --gold-light: #E8DDCE;
+  --gold-dark: #C2A882;
+  --gold-glow: rgba(217, 196, 172, 0.25);
+  --gold-glow-subtle: rgba(217, 196, 172, 0.10);
+
+  --border-color: rgba(217, 196, 172, 0.18);
+  --border-subtle: rgba(217, 196, 172, 0.08);
+  --border-gold: rgba(194, 168, 130, 0.45);
+  --border-gold-subtle: rgba(194, 168, 130, 0.20);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+}

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 140" width="380" height="140" fill="none">
+  <!-- National Center for Non-Profit Sector (المركز الوطني لتنمية القطاع غير الربحي) -->
+
+  <!-- Left Side: Arabic & English Typography -->
+  <g transform="translate(10, 16)">
+    <!-- Arabic Lines -->
+    <text x="240" y="32" text-anchor="end" font-family="'Cairo', 'Tajawal', sans-serif" font-weight="800" font-size="24" fill="#1C3843">
+      المركز الوطني لتنمية
+    </text>
+    <text x="240" y="62" text-anchor="end" font-family="'Cairo', 'Tajawal', sans-serif" font-weight="800" font-size="24" fill="#1C3843">
+      القطاع غير الربحي
+    </text>
+
+    <!-- English Lines -->
+    <text x="240" y="90" text-anchor="end" font-family="'Inter', sans-serif" font-weight="700" font-size="16.5" fill="#1C3843" letter-spacing="-0.3">
+      National Center for
+    </text>
+    <text x="240" y="112" text-anchor="end" font-family="'Inter', sans-serif" font-weight="700" font-size="16.5" fill="#1C3843" letter-spacing="-0.3">
+      Non—Profit Sector
+    </text>
+  </g>
+
+  <!-- Right Side: Official Tri-Chevron Non-Profit Symbol -->
+  <g transform="translate(305, 68)">
+    <!-- Top-Right Chevron (Royal Blue #4A73B8) pointing upwards/right -->
+    <path d="M0 -6 L-1 -46 C-1 -52 11 -52 13 -46 L21 -15 L48 -2 C54 1 52 13 46 14 L12 8 C6 7 2 1 0 -6 Z" 
+          fill="#4D79BF" />
+
+    <!-- Left Chevron (Teal Turquoise #3FAFA0) pointing left -->
+    <path d="M-8 0 L-46 -24 C-52 -28 -56 -16 -50 -11 L-24 4 L-50 20 C-56 25 -52 37 -46 33 L-8 8 C-2 5 -2 -3 -8 0 Z" 
+          fill="#47B19F" />
+
+    <!-- Bottom Chevron (Dark Slate Navy #173847) pointing downwards -->
+    <path d="M3 10 L8 46 C9 52 -3 55 -7 50 L-16 22 L-42 35 C-48 38 -54 28 -48 23 L-16 6 C-10 3 -4 6 3 10 Z" 
+          fill="#1C3F4D" />
+  </g>
+</svg>

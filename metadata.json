@@ -1,0 +1,6 @@
+{
+  "name": "Abdullah Alajlan Endowment",
+  "description": "Bilingual (Arabic/English) charity and endowment website for Abdullah Alajlan Endowment (وقف عبدالله العجلان).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

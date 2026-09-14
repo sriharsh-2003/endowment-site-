@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n-ar="مركز المعرفة والتوجيه الشرعي | وقف عبدالله العجلان" data-i18n-en="Knowledge Hub | Abdullah Alajlan Charity">مركز المعرفة والتوجيه الشرعي | وقف عبدالله العجلان</title>
+    <meta name="description" data-i18n-ar="مقالات وتوجيهات شرعية حول فضل الدعاء للميت وآداب زيارة القبور في السنة النبوية." data-i18n-en="Helpful articles and guidance on the virtues of praying for the deceased and visiting graves in Islam." content="مقالات وتوجيهات شرعية" />
+    <meta property="og:title" content="Knowledge Hub | Abdullah Alajlan Charity" />
+    
+    <link rel="stylesheet" href="/css/tokens.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <!-- Sticky Header -->
+    <header class="site-header">
+      <div class="container header-container">
+        <a href="index.html" class="brand-logo" aria-label="Abdullah Alajlan Endowment">
+          <div class="brand-emblem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 3v18"/>
+              <path d="M5 12h14"/>
+              <circle cx="12" cy="12" r="9"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Endowment">وقف عبدالله العجلان</span>
+          </div>
+        </a>
+
+        <nav aria-label="Main Navigation">
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link" data-i18n-ar="الرئيسية" data-i18n-en="Home">الرئيسية</a></li>
+            <li><a href="grave-locator.html" class="nav-link" data-i18n-ar="موقع القبر" data-i18n-en="Grave Locator">موقع القبر</a></li>
+            <li><a href="pray.html" class="nav-link" data-i18n-ar="ادعُ له" data-i18n-en="Pray for him">ادعُ له</a></li>
+            <li><a href="knowledge-hub.html" class="nav-link active" data-i18n-ar="مركز المعرفة" data-i18n-en="Knowledge Hub">مركز المعرفة</a></li>
+            <li><a href="donate.html" class="nav-link" data-i18n-ar="تبرّع للوقف" data-i18n-en="Donate">تبرّع للوقف</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button id="lang-toggle-btn" class="lang-toggle-btn" aria-label="Switch Language">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+              <path d="M2 12h20"></path>
+            </svg>
+            <span id="lang-toggle-text">English</span>
+          </button>
+
+          <button id="hamburger-btn" class="hamburger-btn" aria-label="Open Navigation Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" x2="20" y1="12" y2="12"></line>
+              <line x1="4" x2="20" y1="6" y2="6"></line>
+              <line x1="4" x2="20" y1="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div id="mobile-overlay" class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Drawer -->
+    <aside id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation">
+      <div class="drawer-header">
+        <div class="brand-text">
+          <span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Endowment">وقف عبدالله العجلان</span>
+        </div>
+        <button id="drawer-close-btn" class="drawer-close-btn" aria-label="Close menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <ul class="drawer-nav-list">
+        <li><a href="index.html" class="drawer-nav-link" data-i18n-ar="الرئيسية" data-i18n-en="Home">الرئيسية</a></li>
+        <li><a href="grave-locator.html" class="drawer-nav-link" data-i18n-ar="موقع القبر" data-i18n-en="Grave Locator">موقع القبر</a></li>
+        <li><a href="pray.html" class="drawer-nav-link" data-i18n-ar="ادعُ له" data-i18n-en="Pray for him">ادعُ له</a></li>
+        <li><a href="knowledge-hub.html" class="drawer-nav-link active" data-i18n-ar="مركز المعرفة" data-i18n-en="Knowledge Hub">مركز المعرفة</a></li>
+        <li><a href="donate.html" class="drawer-nav-link" data-i18n-ar="تبرّع للوقف" data-i18n-en="Donate">تبرّع للوقف</a></li>
+        <li><a href="privacy.html" class="drawer-nav-link" data-i18n-ar="سياسة الخصوصية" data-i18n-en="Privacy Policy">سياسة الخصوصية</a></li>
+      </ul>
+      <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+        <button id="mobile-lang-toggle-btn" class="btn btn-secondary btn-sm" style="width: 100%;">
+          <span id="mobile-lang-toggle-text">English</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Container -->
+    <main>
+      <section class="page-hero-banner">
+        <div class="container" style="max-width: 800px;">
+          <!-- Header -->
+          <div class="section-header" style="margin-bottom: 0;">
+            <span class="badge badge-gold" style="margin-bottom: 0.75rem;" data-i18n-ar="علمٌ يُنتفع به" data-i18n-en="Beneficial Knowledge">
+              علمٌ يُنتفع به
+            </span>
+            <h1 style="margin-bottom: 0.75rem;" data-i18n-ar="مركز المعرفة والتوجيه الشرعي" data-i18n-en="Knowledge Hub">
+              مركز المعرفة والتوجيه الشرعي
+            </h1>
+            <p data-i18n-ar="مقالات وتوجيهات إسلامية حول ما ينفع الميت بعد وفاته، وآداب زيارة القبور وفق السنة النبوية المطهرة." data-i18n-en="Helpful guides on good deeds that benefit the deceased, and proper manners when visiting graves in Islam.">
+              مقالات وتوجيهات إسلامية حول ما ينفع الميت بعد وفاته، وآداب زيارة القبور وفق السنة النبوية المطهرة.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="container" style="padding-bottom: 5rem;">
+
+        <!-- Two Article Cards Grid -->
+        <div class="articles-grid">
+          
+          <!-- Article 1: The value of praying for the deceased -->
+          <article class="article-card card-gold-accent" id="prayer-value">
+            <div>
+              <div class="article-meta">
+                <span class="badge badge-emerald" data-i18n-ar="فضائل وأعمال" data-i18n-en="Virtues & Good Deeds">فضائل وأعمال</span>
+                <span>•</span>
+                <span data-i18n-ar="قراءة ٥ دقائق" data-i18n-en="5 min read">قراءة ٥ دقائق</span>
+              </div>
+
+              <!-- Required Title: "The value of praying for the deceased" -->
+              <h2 style="font-size: 1.45rem; margin-bottom: 0.75rem;" data-i18n-ar="فضل الدعاء للميت" data-i18n-en="The value of praying for the deceased">
+                فضل الدعاء للميت
+              </h2>
+
+              <p class="article-excerpt" data-i18n-ar="إن أعظم ما يقدمه المسلم لأخيه المتوفى هو الدعاء له بالرحمة والمغفرة. وقد بيّن النبي ﷺ أن الدعاء يصل إلى الميت في قبره ويكون سبباً في رفع درجاته، حيث قال عليه الصلاة والسلام: «إن الرجل لتُرفع درجته في الجنة فيقول: أنّى لي هذا؟ فيقال: باستغفار ولدك لك» (رواه ابن ماجه وأحمد)." data-i18n-en="The best gift you can give someone who has passed away is sincere prayer for mercy and forgiveness. The Prophet ﷺ explained that prayers reach the deceased in their grave and raise their status in Paradise. He said: 'A person's status in Paradise will be raised, and he will ask: How did I get this? It will be answered: By your child asking forgiveness for you.' (Ibn Majah & Ahmad).">
+                إن أعظم ما يقدمه المسلم لأخيه المتوفى هو الدعاء له بالرحمة والمغفرة. وقد بيّن النبي ﷺ أن الدعاء يصل إلى الميت في قبره ويكون سبباً في رفع درجاته، حيث قال عليه الصلاة والسلام: «إن الرجل لتُرفع درجته في الجنة فيقول: أنّى لي هذا؟ فيقال: باستغفار ولدك لك» (رواه ابن ماجه وأحمد).
+              </p>
+
+              <div style="background-color: var(--bg-tertiary); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); margin-bottom: 1.5rem;">
+                <strong style="color: var(--gold-accent); font-size: 0.9rem; display: block; margin-bottom: 0.25rem;" data-i18n-ar="ما يصل ثوابه للميت بإجماع العلماء:" data-i18n-en="Deeds that benefit the deceased:">
+                  ما يصل ثوابه للميت بإجماع العلماء:
+                </strong>
+                <ul style="list-style-type: disc; padding-inline-start: 1.25rem; font-size: 0.9rem; color: var(--text-secondary);">
+                  <li data-i18n-ar="الدعاء والاستغفار له بظهر الغيب." data-i18n-en="Praying and asking Allah to forgive them.">الدعاء والاستغفار له بظهر الغيب.</li>
+                  <li data-i18n-ar="الصدقة الجارية وحبس الأوقاف على نيته." data-i18n-en="Ongoing charity and endowments in their name.">الصدقة الجارية وحبس الأوقاف على نيته.</li>
+                  <li data-i18n-ar="أداء الحج والعمرة وقضاء النذور الواجبة عنه." data-i18n-en="Performing Hajj, Umrah, or missed obligatory vows on their behalf.">أداء الحج والعمرة وقضاء النذور الواجبة عنه.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <a href="pray.html" class="btn btn-primary btn-sm" style="width: 100%;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                </svg>
+                <span data-i18n-ar="الانتقال لصفحة الدعاء للفقيد" data-i18n-en="Go to Prayer Page">الانتقال لصفحة الدعاء للفقيد</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 2: Etiquette of visiting graves -->
+          <article class="article-card card-gold-accent" id="etiquette">
+            <div>
+              <div class="article-meta">
+                <span class="badge badge-gold" data-i18n-ar="سنن وآداب" data-i18n-en="Sunnah & Manners">سنن وآداب</span>
+                <span>•</span>
+                <span data-i18n-ar="قراءة ٦ دقائق" data-i18n-en="6 min read">قراءة ٦ دقائق</span>
+              </div>
+
+              <!-- Required Title: "Etiquette of visiting graves" -->
+              <h2 style="font-size: 1.45rem; margin-bottom: 0.75rem;" data-i18n-ar="آداب زيارة القبور" data-i18n-en="Etiquette of visiting graves">
+                آداب زيارة القبور
+              </h2>
+
+              <p class="article-excerpt" data-i18n-ar="شُرعت زيارة القبور لتذكير القلوب بالآخرة، والإحسان إلى الموتى بالسلام عليهم والدعاء لهم. قال رسول الله ﷺ: «كنت نهيتكم عن زيارة القبور فزوروها؛ فإنها تذكركم الآخرة» (رواه مسلم)." data-i18n-en="Visiting graves reminds us of the Hereafter and allows us to greet the deceased and pray for them with respect. The Prophet ﷺ said: 'I used to forbid you from visiting graves, but now visit them, for they remind you of the Hereafter.' (Muslim).">
+                شُرعت زيارة القبور لتذكير القلوب بالآخرة، والإحسان إلى الموتى بالسلام عليهم والدعاء لهم. قال رسول الله ﷺ: «كنت نهيتكم عن زيارة القبور فزوروها؛ فإنها تذكركم الآخرة» (رواه مسلم).
+              </p>
+
+              <div style="background-color: var(--bg-tertiary); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); margin-bottom: 1.5rem;">
+                <strong style="color: var(--gold-accent); font-size: 0.9rem; display: block; margin-bottom: 0.25rem;" data-i18n-ar="أهم آداب الزيارة الشرعية:" data-i18n-en="Important manners when visiting graves:">
+                  أهم آداب الزيارة الشرعية:
+                </strong>
+                <ul style="list-style-type: disc; padding-inline-start: 1.25rem; font-size: 0.9rem; color: var(--text-secondary);">
+                  <li data-i18n-ar="السلام على أهل القبور: «السلام عليكم دار قوم مؤمنين وإنا إن شاء الله بكم لاحقون، نسأل الله لنا ولكم العافية»." data-i18n-en="Greeting the people of the graves: 'Peace be upon you, home of believers. We will, Allah willing, join you. We ask Allah for well-being for us and for you.'">السلام على أهل القبور: «السلام عليكم دار قوم مؤمنين وإنا إن شاء الله بكم لاحقون، نسأل الله لنا ولكم العافية».</li>
+                  <li data-i18n-ar="الدعاء للميت بسكينة ووقار واستقبال القبلة عند الدعاء." data-i18n-en="Praying for the deceased calmly, and facing the Qiblah during prayer.">الدعاء للميت بسكينة ووقار واستقبال القبلة عند الدعاء.</li>
+                  <li data-i18n-ar="تجنب الجلوس على القبور أو المشي فوقها احتراماً لحرمة الميت." data-i18n-en="Not sitting or stepping on graves out of respect for the deceased.">تجنب الجلوس على القبور أو المشي فوقها احتراماً لحرمة الميت.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <a href="grave-locator.html" class="btn btn-secondary btn-sm" style="width: 100%;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span data-i18n-ar="موقع القبر وكيفية الوصول" data-i18n-en="View Grave Location & Directions">موقع القبر وكيفية الوصول</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="brand-logo">
+              <div class="brand-emblem">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 3v18"/>
+                  <path d="M5 12h14"/>
+                  <circle cx="12" cy="12" r="9"/>
+                </svg>
+              </div>
+              <div class="brand-text">
+                <span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Charity">وقف عبدالله العجلان</span>
+                <span class="brand-sub" data-i18n-ar="صدقة جارية ودعاء مستمر" data-i18n-en="Ongoing charity and sincere prayers">صدقة جارية ودعاء مستمر</span>
+              </div>
+            </div>
+            <p data-i18n-ar="وقف خيري يهدف إلى إحياء ذكرى الفقيد رحمه الله من خلال سقيا الماء، وبناء المساجد، ورعاية الأيتام والمحتاجين." data-i18n-en="A non-profit charity created in memory of Abdullah Alajlan to support clean water, build mosques, and care for orphans and people in need.">
+              وقف خيري يهدف إلى إحياء ذكرى الفقيد رحمه الله من خلال سقيا الماء، وبناء المساجد، ورعاية الأيتام والمحتاجين.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h4 data-i18n-ar="صفحات الموقع" data-i18n-en="Quick Links">صفحات الموقع</h4>
+            <ul class="footer-links">
+              <li><a href="index.html" data-i18n-ar="الرئيسية" data-i18n-en="Home">الرئيسية</a></li>
+              <li><a href="grave-locator.html" data-i18n-ar="موقع القبر والزيارة" data-i18n-en="Grave Location">موقع القبر والزيارة</a></li>
+              <li><a href="pray.html" data-i18n-ar="ادعُ له بالرحمة" data-i18n-en="Pray for Him">ادعُ له بالرحمة</a></li>
+              <li><a href="knowledge-hub.html" data-i18n-ar="مركز المعرفة" data-i18n-en="Knowledge Hub">مركز المعرفة</a></li>
+              <li><a href="donate.html" data-i18n-ar="المساهمة والتبرع" data-i18n-en="Donate">المساهمة والتبرع</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 data-i18n-ar="معلومات وروابط" data-i18n-en="Helpful Links">معلومات وروابط</h4>
+            <ul class="footer-links">
+              <li><a href="privacy.html" data-i18n-ar="سياسة الخصوصية" data-i18n-en="Privacy Policy">سياسة الخصوصية</a></li>
+              <li><a href="knowledge-hub.html#etiquette" data-i18n-ar="آداب زيارة القبور" data-i18n-en="Visiting Manners">آداب زيارة القبور</a></li>
+              <li><a href="donate.html#bank-details" data-i18n-ar="الحسابات البنكية الرسمية" data-i18n-en="Official Bank Accounts">الحسابات البنكية الرسمية</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 data-i18n-ar="الجهات المشرفة والشركاء" data-i18n-en="Supervising Entities & Partners">الجهات المشرفة والشركاء</h4>
+            <div class="partner-badges">
+              <div class="partner-badge" title="الهيئة العامة للأوقاف">
+                <img src="/assets/logo_awqaf.svg" alt="الهيئة العامة للأوقاف - AWQAF" class="partner-badge-img" />
+              </div>
+
+              <div class="partner-badge" title="المركز الوطني لتنمية القطاع غير الربحي">
+                <img src="/assets/logo_ncnp.svg" alt="المركز الوطني لتنمية القطاع غير الربحي" class="partner-badge-img" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div data-i18n-ar="جميع الحقوق محفوظة © 2026 وقف عبدالله بن إبراهيم العجلان رحمه الله." data-i18n-en="All Rights Reserved © 2026 Abdullah Ibrahim Alajlan Charity.">
+            جميع الحقوق محفوظة © 2026 وقف عبدالله بن إبراهيم العجلان رحمه الله.
+          </div>
+          <div style="font-size: 0.82rem; color: var(--gold-accent);" data-i18n-ar="اللهم اجعل هذا العمل خالصاً لوجهك الكريم وثواباً لفقيدنا" data-i18n-en="O Allah, accept this work sincerely and reward our deceased">
+            اللهم اجعل هذا العمل خالصاً لوجهك الكريم وثواباً لفقيدنا
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/i18n.js"></script>
+    <script src="/js/common.js"></script>
+  </body>
+</html>

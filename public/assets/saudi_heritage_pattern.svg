@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" fill="none">
+  <!-- Saudi Heritage & Islamic Memorial Watermark Pattern
+       Featuring: Holy Kaaba, Date Palm, Najdi Sadu Triangles, Crescent & Star, 
+       Traditional Dallah, Arabian Camel, 8-Point Islamic Star, Dates, Prophet's Mosque Dome & Minarets -->
+  <defs>
+    <style>
+      .saudi-gold { stroke: #C2A882; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+      .saudi-gold-fill { fill: #C2A882; }
+      .saudi-forest { stroke: #1B3A2F; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+      .sadu-fill { fill: #C2A882; opacity: 0.12; }
+      .sadu-stroke { stroke: #C2A882; stroke-width: 1.2; stroke-dasharray: 3 3; }
+    </style>
+  </defs>
+
+  <!-- Cell 1: Holy Kaaba (Top Left) -->
+  <g transform="translate(60, 60)" opacity="0.22">
+    <!-- Cube Base -->
+    <polygon points="40,20 80,40 40,60 0,40" class="saudi-gold" fill="#C2A882" fill-opacity="0.08" />
+    <polygon points="0,40 40,60 40,110 0,90" class="saudi-gold" fill="#C2A882" fill-opacity="0.15" />
+    <polygon points="40,60 80,40 80,90 40,110" class="saudi-gold" fill="#C2A882" fill-opacity="0.05" />
+    <!-- Kiswah Gold Band (Hizam) -->
+    <polyline points="0,55 40,75 80,55" class="saudi-gold" stroke-width="2.5" />
+    <polyline points="0,60 40,80 80,60" class="saudi-gold" stroke-width="1" />
+    <!-- Kaaba Door (Bab al-Kaaba) -->
+    <rect x="50" y="65" width="14" height="28" rx="2" class="saudi-gold" fill="#C2A882" fill-opacity="0.2" />
+    <!-- Mizab al-Rahmah -->
+    <line x1="20" y1="30" x2="15" y2="35" class="saudi-gold" stroke-width="2" />
+    <!-- Shadhrawan Base Lines -->
+    <line x1="0" y1="90" x2="40" y2="110" class="saudi-gold" stroke-width="2" />
+    <line x1="40" y1="110" x2="80" y2="90" class="saudi-gold" stroke-width="2" />
+  </g>
+
+  <!-- Cell 2: Najdi Sadu Geometric Triangles & Diamond (Top Center-Left) -->
+  <g transform="translate(260, 60)" opacity="0.25">
+    <!-- Sadu stepped triangle rows -->
+    <polygon points="40,0 20,25 60,25" class="saudi-gold" fill="#C2A882" fill-opacity="0.15" />
+    <polygon points="20,25 0,50 40,50" class="saudi-gold" fill="#C2A882" fill-opacity="0.1" />
+    <polygon points="60,25 40,50 80,50" class="saudi-gold" fill="#C2A882" fill-opacity="0.1" />
+    <!-- Central Sadu Diamond -->
+    <polygon points="40,50 10,80 40,110 70,80" class="saudi-gold" fill="#C2A882" fill-opacity="0.08" />
+    <polygon points="40,65 25,80 40,95 55,80" class="saudi-gold" fill="#C2A882" fill-opacity="0.2" />
+    <!-- Inverted Sadu base triangles -->
+    <polygon points="20,110 40,85 0,85" class="saudi-gold" fill="#C2A882" fill-opacity="0.1" />
+    <polygon points="60,110 80,85 40,85" class="saudi-gold" fill="#C2A882" fill-opacity="0.1" />
+  </g>
+
+  <!-- Cell 3: Crescent & Islamic Star (Top Center-Right) -->
+  <g transform="translate(460, 60)" opacity="0.24">
+    <!-- Crescent Moon -->
+    <path d="M55,15 C30,15 15,35 15,60 C15,85 35,105 60,105 C72,105 82,100 90,92 C68,96 45,80 45,58 C45,36 62,20 82,20 C73,17 64,15 55,15 Z" 
+          class="saudi-gold" fill="#C2A882" fill-opacity="0.15" />
+    <!-- Islamic 5-Point Star -->
+    <polygon points="70,35 73,43 82,43 75,48 78,57 70,52 62,57 65,48 58,43 67,43" 
+             class="saudi-gold" fill="#C2A882" fill-opacity="0.25" />
+  </g>
+
+  <!-- Cell 4: Blessed Palm Tree (Top Right) -->
+  <g transform="translate(660, 50)" opacity="0.25">
+    <!-- Palm Trunk with textured rings -->
+    <path d="M48,55 Q47,85 50,115" class="saudi-gold" stroke-width="3" />
+    <line x1="42" y1="75" x2="54" y2="72" class="saudi-gold" />
+    <line x1="43" y1="90" x2="55" y2="87" class="saudi-gold" />
+    <line x1="44" y1="105" x2="56" y2="102" class="saudi-gold" />
+    <!-- Palm Fronds (Arched branches) -->
+    <path d="M48,55 Q20,40 5,50" class="saudi-gold" stroke-width="1.8" />
+    <path d="M48,55 Q25,25 10,25" class="saudi-gold" stroke-width="1.8" />
+    <path d="M48,55 Q40,10 35,5" class="saudi-gold" stroke-width="1.8" />
+    <path d="M48,55 Q56,10 61,5" class="saudi-gold" stroke-width="1.8" />
+    <path d="M48,55 Q71,25 86,25" class="saudi-gold" stroke-width="1.8" />
+    <path d="M48,55 Q76,40 91,50" class="saudi-gold" stroke-width="1.8" />
+    <!-- Frond Leaves details -->
+    <path d="M15,44 L25,48 M18,34 L28,40 M25,20 L33,30 M63,30 L71,20 M68,40 L78,34 M71,48 L81,44" class="saudi-gold" stroke-width="1" />
+    <!-- Dates clusters -->
+    <circle cx="43" cy="58" r="3" class="saudi-gold-fill" />
+    <circle cx="47" cy="62" r="3" class="saudi-gold-fill" />
+    <circle cx="53" cy="58" r="3" class="saudi-gold-fill" />
+    <!-- Ground Mound -->
+    <path d="M30,118 Q48,114 68,118" class="saudi-gold" stroke-width="2" />
+  </g>
+
+  <!-- Cell 5: Traditional Saudi Dallah (Arabic Coffee Pot) (Middle Left) -->
+  <g transform="translate(60, 260)" opacity="0.25">
+    <!-- Finial / Crown -->
+    <path d="M45,15 L45,28 M41,20 L49,20" class="saudi-gold" stroke-width="1.5" />
+    <circle cx="45" cy="14" r="2.5" class="saudi-gold-fill" />
+    <!-- Domed Lid -->
+    <path d="M35,35 C35,28 41,28 45,28 C49,28 55,28 55,35 Z" class="saudi-gold" fill="#C2A882" fill-opacity="0.15" />
+    <!-- Neck -->
+    <path d="M36,35 L38,48 L52,48 L54,35 Z" class="saudi-gold" />
+    <!-- Body (Waisted Bulbous traditional Najdi form) -->
+    <path d="M38,48 C32,55 30,68 36,78 C40,84 43,95 43,100 L47,100 C47,95 50,84 54,78 C60,68 58,55 52,48 Z" 
+          class="saudi-gold" fill="#C2A882" fill-opacity="0.12" />
+    <!-- Pedestal Base -->
+    <path d="M36,100 L30,110 L60,110 L54,100 Z" class="saudi-gold" fill="#C2A882" fill-opacity="0.2" />
+    <!-- Elegant Beaked Spout -->
+    <path d="M34,60 C20,55 12,35 15,25 C16,21 20,24 22,28 C20,38 27,52 34,56 Z" class="saudi-gold" fill="#C2A882" fill-opacity="0.15" />
+    <!-- Curved Handle -->
+    <path d="M54,44 C68,44 76,60 72,80 C68,95 56,92 52,90" class="saudi-gold" stroke-width="2" />
+    <!-- Decorative Engraving lines on Dallah -->
+    <line x1="37" y1="62" x2="53" y2="62" class="saudi-gold" />
+    <line x1="38" y1="68" x2="52" y2="68" class="saudi-gold" />
+  </g>
+
+  <!-- Cell 6: 8-Point Islamic Star & Rosette (Middle Center-Left) -->
+  <g transform="translate(260, 260)" opacity="0.26">
+    <!-- Star Polygon 1 (0 deg square) -->
+    <rect x="20" y="20" width="60" height="60" rx="2" class="saudi-gold" fill="#C2A882" fill-opacity="0.08" />
+    <!-- Star Polygon 2 (45 deg square) -->
+    <rect x="20" y="20" width="60" height="60" rx="2" class="saudi-gold" fill="#C2A882" fill-opacity="0.08" transform="rotate(45, 50, 50)" />
+    <!-- Inner Octagon & Rosette -->
+    <circle cx="50" cy="50" r="16" class="saudi-gold" stroke-width="1.2" />
+    <circle cx="50" cy="50" r="8" class="saudi-gold-fill" opacity="0.4" />
+    <!-- Najdi Petal Points -->
+    <circle cx="50" cy="20" r="3" class="saudi-gold-fill" />
+    <circle cx="50" cy="80" r="3" class="saudi-gold-fill" />
+    <circle cx="20" cy="50" r="3" class="saudi-gold-fill" />
+    <circle cx="80" cy="50" r="3" class="saudi-gold-fill" />
+    <circle cx="29" cy="29" r="3" class="saudi-gold-fill" />
+    <circle cx="71" cy="71" r="3" class="saudi-gold-fill" />
+    <circle cx="71" cy="29" r="3" class="saudi-gold-fill" />
+    <circle cx="29" cy="71" r="3" class="saudi-gold-fill" />
+  </g>
+
+  <!-- Cell 7: Arabian Desert Camel (Middle Center-Right) -->
+  <g transform="translate(460, 260)" opacity="0.24">
+    <!-- Camel Silhouette Outline -->
+    <path d="M15,48 C16,42 22,35 25,26 C26,20 28,15 32,15 C36,15 38,18 38,24 C38,30 35,42 42,48 C48,50 50,42 55,38 C62,35 68,36 71,45 C73,50 78,54 82,58 C85,62 84,70 82,75 L84,105 L80,105 L77,80 L68,80 L65,105 L61,105 L64,76 C55,77 48,77 42,75 L38,105 L34,105 L37,73 C32,70 28,65 24,58 L18,80 L14,78 Z" 
+          class="saudi-gold" fill="#C2A882" fill-opacity="0.12" />
+    <!-- Eye & ear -->
+    <circle cx="34" cy="18" r="1.5" class="saudi-gold-fill" />
+    <path d="M31,14 L30,10" class="saudi-gold" stroke-width="1.5" />
+    <!-- Desert dune baseline -->
+    <path d="M10,107 Q45,102 90,107" class="saudi-gold" stroke-width="1.5" />
+  </g>
+
+  <!-- Cell 8: Two Blessed Dates (Middle Right) -->
+  <g transform="translate(660, 260)" opacity="0.25">
+    <!-- Date 1 -->
+    <path d="M30,35 C20,40 18,65 25,85 C32,100 45,98 48,82 C52,65 48,45 40,36 C36,32 32,32 30,35 Z" 
+          class="saudi-gold" fill="#C2A882" fill-opacity="0.18" />
+    <!-- Date 1 Stem & Calyx -->
+    <path d="M35,32 L36,25" class="saudi-gold" stroke-width="2" />
+    <path d="M31,34 Q35,31 39,34" class="saudi-gold" stroke-width="1.5" />
+    <path d="M28,55 Q35,65 34,80" class="saudi-gold" stroke-width="1" stroke-dasharray="2 2" />
+
+    <!-- Date 2 (Overlapping) -->
+    <path d="M55,48 C48,52 46,72 52,88 C58,100 68,98 72,85 C76,70 72,55 65,48 C61,45 58,45 55,48 Z" 
+          class="saudi-gold" fill="#C2A882" fill-opacity="0.14" />
+    <!-- Date 2 Stem -->
+    <path d="M60,46 L64,38" class="saudi-gold" stroke-width="2" />
+    <path d="M56,48 Q60,45 64,48" class="saudi-gold" stroke-width="1.5" />
+  </g>
+
+  <!-- Cell 9: Prophet's Mosque Green Dome & Minaret (Bottom Left) -->
+  <g transform="translate(60, 460)" opacity="0.25">
+    <!-- Green Dome (Qubbah) -->
+    <path d="M20,70 C20,42 35,32 50,22 C65,32 80,42 80,70 Z" class="saudi-gold" fill="#1B3A2F" fill-opacity="0.12" stroke-width="2" />
+    <!-- Crescent Finial on Dome -->
+    <path d="M50,22 L50,12" class="saudi-gold" stroke-width="2" />
+    <circle cx="50" cy="10" r="3" class="saudi-gold" />
+    <!-- Dome Base Drum -->
+    <rect x="20" y="70" width="60" height="15" class="saudi-gold" fill="#C2A882" fill-opacity="0.15" />
+    <!-- Dome arched windows -->
+    <path d="M30,78 A4,4 0 0,1 38,78" class="saudi-gold" />
+    <path d="M46,78 A4,4 0 0,1 54,78" class="saudi-gold" />
+    <path d="M62,78 A4,4 0 0,1 70,78" class="saudi-gold" />
+    <!-- Mosque arcade wall -->
+    <rect x="10" y="85" width="80" height="25" class="saudi-gold" fill="#C2A882" fill-opacity="0.1" />
+    <path d="M20,110 L20,95 Q25,90 30,95 L30,110" class="saudi-gold" />
+    <path d="M45,110 L45,93 Q50,88 55,93 L55,110" class="saudi-gold" />
+    <path d="M70,110 L70,95 Q75,90 80,95 L80,110" class="saudi-gold" />
+    <!-- Minaret (Side) -->
+    <rect x="5" y="40" width="10" height="70" class="saudi-gold" fill="#C2A882" fill-opacity="0.15" />
+    <polygon points="5,40 10,25 15,40" class="saudi-gold" fill="#C2A882" fill-opacity="0.2" />
+  </g>
+
+  <!-- Cell 10: Kingdom of Saudi Arabia Map Outline (Bottom Center-Left) -->
+  <g transform="translate(260, 460)" opacity="0.25">
+    <!-- Simplified stylized outline of Saudi Arabia -->
+    <path d="M15,25 L40,15 L65,18 L85,32 L92,50 L88,68 L80,72 L72,88 L58,95 L40,98 L28,92 L20,78 L12,65 L10,45 Z" 
+          class="saudi-gold" fill="#C2A882" fill-opacity="0.12" stroke-width="1.8" />
+    <!-- Location of Riyadh (Najd - Home of Al-Ajlan family) marked with 8-pt star -->
+    <circle cx="58" cy="55" r="4" class="saudi-gold-fill" />
+    <circle cx="58" cy="55" r="8" class="saudi-gold" stroke-dasharray="2 2" />
+    <!-- Location of Makkah & Madinah (Western province) marked with dots -->
+    <circle cx="28" cy="62" r="3" class="saudi-gold-fill" />
+    <circle cx="26" cy="48" r="3" class="saudi-gold-fill" />
+  </g>
+
+  <!-- Cell 11: Traditional Najdi Mudbrick Palace / Masmak (Bottom Center-Right) -->
+  <g transform="translate(460, 460)" opacity="0.24">
+    <!-- Watchtower Left -->
+    <polygon points="12,35 15,105 32,105 35,35" class="saudi-gold" fill="#C2A882" fill-opacity="0.12" />
+    <rect x="10" y="30" width="27" height="6" class="saudi-gold" fill="#C2A882" fill-opacity="0.25" />
+    <!-- Watchtower Crenellations -->
+    <polygon points="12,30 15,24 18,30" class="saudi-gold-fill" />
+    <polygon points="20,30 23,24 26,30" class="saudi-gold-fill" />
+    <polygon points="28,30 31,24 34,30" class="saudi-gold-fill" />
+    <!-- Triangular Najdi ventilation slits -->
+    <polygon points="23,45 20,50 26,50" class="saudi-gold-fill" />
+    <polygon points="23,60 20,65 26,65" class="saudi-gold-fill" />
+
+    <!-- Main Wall & Fortified Gate -->
+    <rect x="35" y="48" width="55" height="57" class="saudi-gold" fill="#C2A882" fill-opacity="0.08" />
+    <!-- Main Arch Door -->
+    <path d="M52,105 L52,78 C52,72 68,72 68,78 L68,105 Z" class="saudi-gold" fill="#1B3A2F" fill-opacity="0.15" />
+    <!-- Najdi triangular decorative parapet -->
+    <polygon points="40,48 45,40 50,48" class="saudi-gold-fill" />
+    <polygon points="52,48 57,40 62,48" class="saudi-gold-fill" />
+    <polygon points="64,48 69,40 74,48" class="saudi-gold-fill" />
+    <polygon points="76,48 81,40 86,48" class="saudi-gold-fill" />
+  </g>
+
+  <!-- Cell 12: Traditional Incense Burner / Mabkhara (Bottom Right) -->
+  <g transform="translate(660, 460)" opacity="0.25">
+    <!-- Top Pyramidal Corner Posts -->
+    <polygon points="25,20 28,38 34,38 31,20" class="saudi-gold" fill="#C2A882" fill-opacity="0.2" />
+    <polygon points="69,20 66,38 60,38 63,20" class="saudi-gold" fill="#C2A882" fill-opacity="0.2" />
+    <!-- Cup / Incense Basin -->
+    <polygon points="28,38 66,38 58,65 36,65" class="saudi-gold" fill="#C2A882" fill-opacity="0.15" />
+    <!-- Pierced Sadu triangular cutouts on Mabkhara -->
+    <polygon points="47,44 42,52 52,52" class="saudi-gold-fill" />
+    <!-- Smoke tendrils (Pure fragrance / طيب الذكر) -->
+    <path d="M44,35 Q40,25 47,15 Q52,5 48,0" class="saudi-gold" stroke-width="1.2" stroke-dasharray="2 2" />
+    <path d="M50,35 Q56,25 51,15 Q46,5 50,0" class="saudi-gold" stroke-width="1.2" stroke-dasharray="2 2" />
+    <!-- Waisted Stem -->
+    <rect x="42" y="65" width="10" height="20" class="saudi-gold" fill="#C2A882" fill-opacity="0.2" />
+    <!-- Square Flared Base -->
+    <polygon points="36,85 58,85 66,108 28,108" class="saudi-gold" fill="#C2A882" fill-opacity="0.15" />
+    <!-- Brass Studs / Mirrored inlays -->
+    <circle cx="36" cy="98" r="2" class="saudi-gold-fill" />
+    <circle cx="47" cy="98" r="2" class="saudi-gold-fill" />
+    <circle cx="58" cy="98" r="2" class="saudi-gold-fill" />
+  </g>
+
+  <!-- Connecting Traditional Najdi Sadu Border Band across the grid -->
+  <g opacity="0.18">
+    <!-- Horizontal divider band with repeating chevrons -->
+    <path d="M0,200 L800,200" class="saudi-gold" stroke-width="1" stroke-dasharray="6 4" />
+    <path d="M0,400 L800,400" class="saudi-gold" stroke-width="1" stroke-dasharray="6 4" />
+    <path d="M0,600 L800,600" class="saudi-gold" stroke-width="1" stroke-dasharray="6 4" />
+    <!-- Vertical dividers -->
+    <path d="M200,0 L200,800" class="saudi-gold" stroke-width="1" stroke-dasharray="6 4" />
+    <path d="M400,0 L400,800" class="saudi-gold" stroke-width="1" stroke-dasharray="6 4" />
+    <path d="M600,0 L600,800" class="saudi-gold" stroke-width="1" stroke-dasharray="6 4" />
+  </g>
+</svg>
