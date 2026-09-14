@@ -3,7 +3,10 @@
   const dashboard = document.getElementById('client-dashboard');
   const loginForm = document.getElementById('client-login-form');
   const loginError = document.getElementById('client-login-error');
-  const isAuthenticated = () => sessionStorage.getItem('client_authenticated') === 'true';
+  const SESSION_DURATION_MS = 2 * 60 * 1000;
+  let expiryTimer;
+  const isAuthenticated = () => sessionStorage.getItem('client_authenticated') === 'true'
+    && Number(sessionStorage.getItem('client_auth_expires_at')) > Date.now();
 
   function isArabic() {
     return (window.i18n ? window.i18n.getLang() : 'ar') === 'ar';
@@ -45,7 +48,31 @@
   function authenticate() {
     setDefaultCredentials();
     sessionStorage.setItem('client_authenticated', 'true');
+    sessionStorage.setItem('client_auth_expires_at', String(Date.now() + SESSION_DURATION_MS));
+    scheduleExpiry();
     return loadDashboard();
+  }
+
+  function expireSession() {
+    window.clearTimeout(expiryTimer);
+    sessionStorage.removeItem('client_authenticated');
+    sessionStorage.removeItem('client_auth_expires_at');
+    dashboard.hidden = true;
+    login.hidden = false;
+    loginError.textContent = isArabic()
+      ? 'انتهت الجلسة بعد دقيقتين. يرجى تسجيل الدخول مرة أخرى.'
+      : 'Your session expired after two minutes. Please log in again.';
+  }
+
+  function scheduleExpiry() {
+    window.clearTimeout(expiryTimer);
+    const expiresAt = Number(sessionStorage.getItem('client_auth_expires_at'));
+    const remaining = expiresAt - Date.now();
+    if (remaining <= 0) {
+      expireSession();
+      return;
+    }
+    expiryTimer = window.setTimeout(expireSession, remaining);
   }
 
   loginForm?.addEventListener('submit', async (event) => {
@@ -59,6 +86,8 @@
 
   document.getElementById('client-logout')?.addEventListener('click', () => {
     sessionStorage.removeItem('client_authenticated');
+    sessionStorage.removeItem('client_auth_expires_at');
+    window.clearTimeout(expiryTimer);
     window.location.reload();
   });
 
@@ -72,9 +101,9 @@
         iban: document.getElementById('client-iban').value,
         account_number: document.getElementById('client-account-number').value
       });
-      status.textContent = isArabic()
-        ? 'تم حفظ بيانات الدفع محلياً وستظهر في قسم البيانات البنكية على هذا الجهاز.'
-        : 'Payment details saved locally and shown in the public bank-details section on this device.';
+      status.textContent = window.endowmentStore.isShared
+        ? (isArabic() ? 'تم حفظ بيانات الدفع ومشاركتها مع الموقع.' : 'Payment details saved and shared with the website.')
+        : (isArabic() ? 'تم حفظ بيانات الدفع محلياً على هذا الجهاز.' : 'Payment details saved locally on this device.');
       await loadDashboard();
     } catch (error) {
       status.textContent = error.message;
@@ -84,7 +113,15 @@
   setDefaultCredentials();
   if (isAuthenticated() || new URLSearchParams(window.location.search).get('autologin') === '1') {
     authenticate().catch((error) => { loginError.textContent = error.message; });
+  } else if (sessionStorage.getItem('client_authenticated') === 'true') {
+    expireSession();
   }
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible' && sessionStorage.getItem('client_authenticated') === 'true') {
+      if (isAuthenticated()) scheduleExpiry();
+      else expireSession();
+    }
+  });
   window.addEventListener('languageChanged', () => {
     if (!dashboard.hidden && isAuthenticated()) loadDashboard().catch(() => {});
   });

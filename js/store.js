@@ -1,14 +1,20 @@
+import {createClient} from '@supabase/supabase-js';
+
 (function () {
   const DB_NAME = 'abdullah-alajlan-endowment';
   const DB_VERSION = 1;
   const BANK_KEY = 'bank-details';
+  const memoryKey = 'endowment_local_data';
   const DEFAULT_BANK = {
     bank_name: 'مصرف الراجحي',
     beneficiary_name: 'وقف عبدالله محمد العجلان الخيري',
     iban: 'SAXXXXXXXXXXXXXXXXXXXX',
     account_number: 'XXXXXXXXXXXXXXXX'
   };
-  const memoryKey = 'endowment_local_data';
+  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || import.meta.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
+    || import.meta.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+  const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
 
   function openDatabase() {
     return new Promise((resolve, reject) => {
@@ -59,6 +65,15 @@
   }
 
   async function getBankDetails() {
+    if (supabase) {
+      const {data, error} = await supabase
+        .from('bank_details')
+        .select('bank_name, beneficiary_name, iban, account_number, updated_at')
+        .eq('id', BANK_KEY)
+        .maybeSingle();
+      if (!error && data) return data;
+      if (error) console.warn('Supabase bank details unavailable; using local fallback.', error.message);
+    }
     try {
       const saved = await transaction('bank_details', 'readonly', (store) => store.get(BANK_KEY));
       return saved || {...DEFAULT_BANK};
@@ -77,6 +92,12 @@
       updated_at: new Date().toISOString()
     };
     if (Object.values(bank).some((value) => value === '')) throw new Error('All bank details are required');
+
+    if (supabase) {
+      const {data, error} = await supabase.from('bank_details').upsert(bank).select().single();
+      if (!error && data) return data;
+      if (error) console.warn('Supabase bank details could not be saved; using local fallback.', error.message);
+    }
     try {
       await transaction('bank_details', 'readwrite', (store) => store.put(bank));
     } catch {
@@ -87,20 +108,33 @@
     return bank;
   }
 
-  async function addDonation(details) {
+  function validateDonation(details) {
     const amount = Number(details.amount);
-    if (!String(details.name || '').trim() || !String(details.email || '').trim() || !Number.isFinite(amount) || amount <= 0) {
+    if (!String(details.name || '').trim() || !String(details.email || '').trim()
+      || !Number.isFinite(amount) || amount <= 0) {
       throw new Error('Name, email, and a positive amount are required');
     }
+    return amount;
+  }
+
+  async function addDonation(details) {
+    const amount = validateDonation(details);
+    const timestamp = new Date().toISOString();
     const donation = {
       donor_name: String(details.name).trim(),
       donor_email: String(details.email).trim(),
       amount,
       currency: 'SAR',
       status: 'pending',
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString()
+      created_at: timestamp,
+      updated_at: timestamp
     };
+
+    if (supabase) {
+      const {data, error} = await supabase.from('donations').insert(donation).select().single();
+      if (!error && data) return data;
+      if (error) console.warn('Supabase donation could not be saved; using local fallback.', error.message);
+    }
     try {
       donation.id = await transaction('donations', 'readwrite', (store) => store.add(donation));
     } catch {
@@ -114,6 +148,14 @@
   }
 
   async function getDonations() {
+    if (supabase) {
+      const {data, error} = await supabase
+        .from('donations')
+        .select('id, donor_name, donor_email, amount, currency, status, created_at, updated_at')
+        .order('created_at', {ascending: false});
+      if (!error && data) return data;
+      if (error) console.warn('Supabase donations unavailable; using local fallback.', error.message);
+    }
     try {
       const donations = await transaction('donations', 'readonly', (store) => store.getAll());
       return donations.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
@@ -126,6 +168,7 @@
     getBankDetails,
     saveBankDetails,
     addDonation,
-    getDonations
+    getDonations,
+    isShared: Boolean(supabase)
   };
 })();
