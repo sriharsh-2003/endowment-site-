@@ -68,6 +68,7 @@
   --font-ar: 'Tajawal', 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-en: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-quran: 'Amiri', 'Traditional Arabic', serif;
+  --font-header: 'IBM Plex Sans Arabic', 'Tajawal', 'Cairo', sans-serif;
 
   /* Spacing */
   --header-height: 76px;

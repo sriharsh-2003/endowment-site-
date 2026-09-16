@@ -37,16 +37,26 @@ function initMobileDrawer() {
 
   if (!hamburgerBtn || !drawer || !overlay) return;
 
+  hamburgerBtn.setAttribute('aria-controls', 'mobile-drawer');
+  hamburgerBtn.setAttribute('aria-expanded', 'false');
+  drawer.setAttribute('aria-hidden', 'true');
+
   function openDrawer() {
     drawer.classList.add('open');
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
+    hamburgerBtn.setAttribute('aria-expanded', 'true');
+    drawer.setAttribute('aria-hidden', 'false');
+    if (closeBtn) closeBtn.focus();
   }
 
   function closeDrawer() {
     drawer.classList.remove('open');
     overlay.classList.remove('open');
     document.body.style.overflow = '';
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+    drawer.setAttribute('aria-hidden', 'true');
+    hamburgerBtn.focus();
   }
 
   hamburgerBtn.addEventListener('click', openDrawer);

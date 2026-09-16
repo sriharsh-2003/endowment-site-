@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 @import url('./tokens.css');
 
 /* ==========================================================================
@@ -136,15 +136,14 @@ p {
 }
 
 .brand-emblem {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 1.5px solid var(--warm-gold);
+  width: 270px;
+  height: 90px;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(27, 58, 47, 0.2);
   flex-shrink: 0;
   overflow: hidden;
 }
@@ -154,6 +153,28 @@ p {
   height: 100%;
   object-fit: contain;
   display: block;
+}
+
+.brand-logo .brand-text {
+  display: none;
+}
+
+.brand-mark {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--gold-accent);
+  border-radius: 50% 50% 50% 0;
+  color: var(--primary-forest);
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transform: rotate(-45deg);
+}
+
+.brand-mark::first-letter {
+  transform: rotate(45deg);
 }
 
 .brand-text {
@@ -307,6 +328,7 @@ p {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  font-family: var(--font-header);
   transition: transform 0.3s ease;
 }
 
@@ -505,14 +527,14 @@ html[dir="ltr"] .mobile-drawer {
   background: 
     linear-gradient(
       90deg, 
-      rgba(250, 248, 243, 0.90) 0%, 
-      rgba(232, 221, 206, 0.72) 50%, 
-      rgba(250, 248, 243, 0.90) 100%
+      rgba(27, 58, 47, 0.48) 0%, 
+      rgba(27, 58, 47, 0.34) 50%, 
+      rgba(27, 58, 47, 0.48) 100%
     ), 
     url('/assets/saudi_heritage_pattern.svg'),
-    url('/assets/grand_mosque_bg.jpg');
-  background-size: auto, 480px 480px, cover;
-  background-position: center, center, center 25%;
+    url('/assets/palm-garden.jpg');
+  background-size: auto, 480px 480px, cover, cover;
+  background-position: center, center, center 55%, center 25%;
   border-bottom: 2px solid var(--warm-gold);
 }
 
@@ -542,16 +564,18 @@ html[dir="ltr"] .mobile-drawer {
 .hero-title {
   margin-bottom: 1.5rem;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  color: var(--white);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
-  color: var(--text-secondary);
+  color: var(--white);
   margin-bottom: 2.5rem;
   max-width: 680px;
   margin-left: auto;
   margin-right: auto;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);
 }
 
 .hero-actions {
@@ -570,12 +594,12 @@ html[dir="ltr"] .mobile-drawer {
   background: 
     linear-gradient(
       90deg, 
-      rgba(250, 248, 243, 0.92) 0%, 
-      rgba(232, 221, 206, 0.75) 50%, 
-      rgba(250, 248, 243, 0.92) 100%
+      rgba(250, 248, 243, 0.62) 0%, 
+      rgba(232, 221, 206, 0.42) 50%, 
+      rgba(250, 248, 243, 0.62) 100%
     ), 
     url('/assets/saudi_heritage_pattern.svg'),
-    url('/assets/grand_mosque_bg.jpg');
+    url('/assets/palm-garden.jpg');
   background-size: auto, 420px 420px, cover;
   background-position: center, center, center 20%;
   border-bottom: 2px solid var(--warm-gold);
@@ -583,7 +607,7 @@ html[dir="ltr"] .mobile-drawer {
 }
 
 /* ==========================================================================
-   Impact Section (3-column statistics grid)
+  Impact Section (four-column statistics grid)
    ========================================================================== */
 .impact-section {
   padding: 3.5rem 0;
@@ -594,7 +618,7 @@ html[dir="ltr"] .mobile-drawer {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
 
@@ -1204,6 +1228,12 @@ html[dir="ltr"] .mobile-drawer {
   color: var(--cream);
 }
 
+.footer-brand .brand-emblem {
+  padding: 0.45rem 0.7rem;
+  background: #ffffff;
+  border-radius: 0.5rem;
+}
+
 .footer-col h4 {
   font-size: 1.05rem;
   margin-bottom: 1.25rem;
@@ -1544,12 +1574,20 @@ html[dir="ltr"] .heritage-watermark-icon {
   .heritage-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 768px) {
+  .brand-emblem {
+    width: 200px;
+    height: 67px;
+  }
+
   .stats-grid {
     grid-template-columns: 1fr;
   }
