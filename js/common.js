@@ -8,7 +8,25 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileDrawer();
   initTheme();
   highlightActiveNav();
+  initDonationPresets();
 });
+
+function initDonationPresets() {
+  const amountInput = document.getElementById('donation-amount');
+  const presetButtons = document.querySelectorAll('.donation-preset');
+
+  if (!amountInput || !presetButtons.length) return;
+
+  presetButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      amountInput.value = button.dataset.amount || '';
+      presetButtons.forEach((preset) => {
+        preset.setAttribute('aria-pressed', String(preset === button));
+      });
+      amountInput.focus();
+    });
+  });
+}
 
 /**
  * Header scroll styling

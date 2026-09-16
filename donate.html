@@ -71,17 +71,17 @@
       <div class="container" style="max-width: 900px; padding: 3rem 1rem 5rem;">
         <div class="card card-gold-accent" style="padding: 2rem;">
           <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap;">
-            <span class="badge badge-gold"># Take part in the ongoing reward</span>
+            <span class="badge badge-gold" data-i18n-ar="# شارك في الأجر الجاري" data-i18n-en="# Take part in the ongoing reward"># شارك في الأجر الجاري</span>
           </div>
 
-          <p style="margin: 0 0 1.5rem; font-size: 1.06rem; line-height: 1.8; color: var(--text-secondary);">
-            Every contribution goes toward endowment projects dedicated in his name, continuing to bring benefit to others, God willing.
+          <p style="margin: 0 0 1.5rem; font-size: 1.06rem; line-height: 1.8; color: var(--text-secondary);" data-i18n-ar="كل إسهام يساهم في مشاريع الوقف الخيري المخصصة باسمه، لتستمر ثمار الخير في العطاء، إن شاء الله." data-i18n-en="Every contribution goes toward endowment projects dedicated in his name, continuing to bring benefit to others, God willing.">
+            كل إسهام يساهم في مشاريع الوقف الخيري المخصصة باسمه، لتستمر ثمار الخير في العطاء، إن شاء الله.
           </p>
 
           <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
             <div>
               <div style="font-size: clamp(2.1rem, 2.8vw, 3.2rem); font-weight: 800; line-height: 1.1; color: var(--primary-forest);">SAR 0</div>
-              <div style="margin-top: 0.3rem; color: var(--text-secondary); font-weight: 500;">of a SAR 200,000 target</div>
+              <div style="margin-top: 0.3rem; color: var(--text-secondary); font-weight: 500;" data-i18n-ar="من أصل هدف قدره ٢٠٠,٠٠٠ ريال" data-i18n-en="of a SAR 200,000 target">من أصل هدف قدره ٢٠٠,٠٠٠ ريال</div>
             </div>
             <div style="font-size: clamp(1.8rem, 2.5vw, 2.4rem); font-weight: 800; color: var(--primary-forest);">0%</div>
           </div>
@@ -91,44 +91,44 @@
           </div>
 
           <div style="margin-top: 0.75rem; color: var(--text-secondary); font-size: 0.9rem;">
-            Raised amount, last updated by hand
+            <span data-i18n-ar="المبلغ المحصل، يتم تحديثه يدوياً" data-i18n-en="Raised amount, last updated by hand">المبلغ المحصل، يتم تحديثه يدوياً</span>
           </div>
 
           <a href="https://father-charity-site.vercel.app/knowledge-hub.html" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; color: var(--primary-forest); font-weight: 700; text-decoration: none;">
-            <span aria-hidden="true">→</span> Browse the knowledge hub
+            <span aria-hidden="true">→</span> <span data-i18n-ar="تصفح مركز المعرفة" data-i18n-en="Browse the knowledge hub">تصفح مركز المعرفة</span>
           </a>
 
           <div style="margin-top: 2rem;">
-            <h3 style="margin: 0 0 1rem; font-size: 1.6rem; color: var(--primary-forest);">Give now</h3>
+            <h3 style="margin: 0 0 1rem; font-size: 1.6rem; color: var(--primary-forest);" data-i18n-ar="ساهم الآن" data-i18n-en="Give now">ساهم الآن</h3>
 
             <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem;">
-              <button type="button" class="btn btn-secondary" style="min-width: 110px;">SAR 100</button>
-              <button type="button" class="btn btn-secondary" style="min-width: 110px;">SAR 500</button>
-              <button type="button" class="btn btn-secondary" style="min-width: 110px;">SAR 1,000</button>
-              <button type="button" class="btn btn-secondary" style="min-width: 110px;">SAR 5,000</button>
+              <button type="button" class="btn btn-secondary donation-preset" style="min-width: 110px;" data-amount="100" data-i18n-ar="١٠٠ ريال" data-i18n-en="SAR 100" aria-pressed="false">١٠٠ ريال</button>
+              <button type="button" class="btn btn-secondary donation-preset" style="min-width: 110px;" data-amount="500" data-i18n-ar="٥٠٠ ريال" data-i18n-en="SAR 500" aria-pressed="false">٥٠٠ ريال</button>
+              <button type="button" class="btn btn-secondary donation-preset" style="min-width: 110px;" data-amount="1000" data-i18n-ar="١٬٠٠٠ ريال" data-i18n-en="SAR 1,000" aria-pressed="false">١٬٠٠٠ ريال</button>
+              <button type="button" class="btn btn-secondary donation-preset" style="min-width: 110px;" data-amount="5000" data-i18n-ar="٥٬٠٠٠ ريال" data-i18n-en="SAR 5,000" aria-pressed="false">٥٬٠٠٠ ريال</button>
             </div>
 
             <div class="form-group" style="margin-bottom: 1rem;">
-              <label class="form-label" for="donation-amount">Amount</label>
-              <input id="donation-amount" class="form-input" type="number" min="10" step="10" placeholder="Enter amount in SAR" value="100" />
+              <label class="form-label" for="donation-amount" data-i18n-ar="المبلغ" data-i18n-en="Amount">المبلغ</label>
+              <input id="donation-amount" class="form-input" type="number" min="10" step="10" data-i18n-placeholder-ar="أدخل المبلغ بالريال السعودي" data-i18n-placeholder-en="Enter amount in SAR" placeholder="أدخل المبلغ بالريال السعودي" value="100" />
             </div>
 
             <div class="form-group" style="margin-bottom: 1rem;">
-              <label class="form-label" for="donation-name">Name (optional)</label>
-              <input id="donation-name" class="form-input" type="text" placeholder="Your name" />
+              <label class="form-label" for="donation-name" data-i18n-ar="الاسم (اختياري)" data-i18n-en="Name (optional)">الاسم (اختياري)</label>
+              <input id="donation-name" class="form-input" type="text" data-i18n-placeholder-ar="اسمك" data-i18n-placeholder-en="Your name" placeholder="اسمك" />
             </div>
 
             <div class="form-group" style="margin-bottom: 1.5rem;">
-              <label class="form-label" for="donation-email">Email (to send your donation receipt)</label>
-              <input id="donation-email" class="form-input" type="email" placeholder="name@example.com" />
+              <label class="form-label" for="donation-email" data-i18n-ar="البريد الإلكتروني (لإرسال إيصال التبرع)" data-i18n-en="Email (to send your donation receipt)">البريد الإلكتروني (لإرسال إيصال التبرع)</label>
+              <input id="donation-email" class="form-input" type="email" data-i18n-placeholder-ar="name@example.com" data-i18n-placeholder-en="name@example.com" placeholder="name@example.com" />
             </div>
 
-            <button type="button" class="btn btn-primary btn-lg" style="width: 100%;">Continue to payment</button>
+            <button type="button" class="btn btn-primary btn-lg" style="width: 100%;" data-i18n-ar="المتابعة إلى الدفع" data-i18n-en="Continue to payment">المتابعة إلى الدفع</button>
           </div>
         </div>
 
         <div class="card" style="margin-top: 1.5rem; padding: 2rem;">
-          <h3 style="margin: 0 0 1rem; color: var(--primary-forest);">Bank details</h3>
+          <h3 style="margin: 0 0 1rem; color: var(--primary-forest);" data-i18n-ar="البيانات البنكية" data-i18n-en="Bank details">البيانات البنكية</h3>
           <p style="margin: 0 0 1.25rem; color: var(--text-secondary); line-height: 1.7;" data-i18n-ar="ستُنشر بيانات التحويل البنكي بعد التحقق والاعتماد الرسمي." data-i18n-en="Verified bank-transfer details will be published after official approval.">ستُنشر بيانات التحويل البنكي بعد التحقق والاعتماد الرسمي.</p>
 
           <div style="display: grid; gap: 0.85rem;">
