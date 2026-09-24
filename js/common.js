@@ -92,7 +92,7 @@ function highlightActiveNav() {
   });
 }
 
-/** Home portrait, footer pattern removal, and canonical hosted URL. */
+/** Canonical hosted URL and legacy link rewriting. */
 function initSiteUpdates() {
   const hostedUrl = 'https://abdullahalajlanendowment.vercel.app/';
 
@@ -112,37 +112,6 @@ function initSiteUpdates() {
     document.head.appendChild(ogUrl);
   }
   ogUrl.content = hostedUrl;
-
-  // Add a photo-free memorial quote card before the hero at the beginning of Home
-  // (replaces the earlier real-photo section; no likeness of the deceased is used).
-  const isHomePage = window.location.pathname === '/' || /index\.html?$/i.test(window.location.pathname);
-  const hero = document.querySelector('.hero-section');
-  if (!isHomePage || !hero || document.querySelector('.memorial-quote-section')) return;
-
-  const quoteStyle = document.createElement('style');
-  quoteStyle.textContent = `
-    .memorial-quote-section { padding: 2.5rem 0 1.25rem; background-color: var(--bg-primary); }
-    .memorial-quote-card { position: relative; max-width: 640px; margin: 0 auto; padding: 2.25rem 2rem 2rem; text-align: center; background-color: var(--bg-card); border: 1px solid var(--border-gold-subtle); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
-    .memorial-quote-mark { display: block; margin: 0 auto .5rem; width: 2.5rem; height: 2.5rem; color: var(--warm-gold); opacity: .85; }
-    .memorial-quote-text { color: var(--text-primary); font-family: var(--font-quran); font-size: 1.3rem; line-height: 1.9; }
-    .memorial-quote-caption { margin-top: 1rem; color: var(--gold-dark); font-size: .95rem; font-weight: 600; }
-  `;
-  document.head.appendChild(quoteStyle);
-
-  const section = document.createElement('section');
-  section.className = 'memorial-quote-section';
-  section.setAttribute('aria-label', 'Memorial remembrance');
-  section.innerHTML = `
-    <div class="container">
-      <div class="memorial-quote-card">
-        <svg class="memorial-quote-mark" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
-          <path d="M9.5 8C5.9 9.7 3.5 12.8 3.5 17.2c0 3.9 2.6 6.8 6 6.8 3 0 5.3-2.2 5.3-5.1 0-2.7-1.9-4.7-4.4-4.7-.5 0-1 .1-1.4.3.4-2.6 2.6-4.8 5.2-5.9L9.5 8Zm14 0c-3.6 1.7-6 4.8-6 9.2 0 3.9 2.6 6.8 6 6.8 3 0 5.3-2.2 5.3-5.1 0-2.7-1.9-4.7-4.4-4.7-.5 0-1 .1-1.4.3.4-2.6 2.6-4.8 5.2-5.9L23.5 8Z"/>
-        </svg>
-        <p class="memorial-quote-text" data-i18n-ar="كان محباً للخير، سبّاقاً إلى تفريج كرب المحتاجين، وبقي أثره الطيب في قلوب من عرفه." data-i18n-en="He loved doing good, was quick to relieve the burden of those in need, and his kindness remains in the hearts of all who knew him.">كان محباً للخير، سبّاقاً إلى تفريج كرب المحتاجين، وبقي أثره الطيب في قلوب من عرفه.</p>
-        <div class="memorial-quote-caption" data-i18n-ar="عبدالله محمد العجلان رحمه الله" data-i18n-en="Abdullah Mohammed Alajlan, may Allah have mercy on him">عبدالله محمد العجلان رحمه الله</div>
-      </div>
-    </div>`;
-  hero.before(section);
 
   document.querySelectorAll('a[href="https://abdullah-alajlan-endowment-website.vercel.app/"]').forEach((link) => {
     link.href = hostedUrl;

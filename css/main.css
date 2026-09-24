@@ -524,17 +524,8 @@ html[dir="ltr"] .mobile-drawer {
   padding: 5.5rem 0 4.5rem;
   text-align: center;
   overflow: hidden;
-  background: 
-    linear-gradient(
-      90deg, 
-      rgba(27, 58, 47, 0.48) 0%, 
-      rgba(27, 58, 47, 0.34) 50%, 
-      rgba(27, 58, 47, 0.48) 100%
-    ), 
-    url('/assets/saudi_heritage_pattern.svg'),
-    url('/assets/palm-garden.jpg');
-  background-size: auto, 480px 480px, cover, cover;
-  background-position: center, center, center 55%, center 25%;
+  background:
+    linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
   border-bottom: 2px solid var(--warm-gold);
 }
 
@@ -564,18 +555,16 @@ html[dir="ltr"] .mobile-drawer {
 .hero-title {
   margin-bottom: 1.5rem;
   font-weight: 800;
-  color: var(--white);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  color: var(--text-primary);
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
-  color: var(--white);
+  color: var(--text-secondary);
   margin-bottom: 2.5rem;
   max-width: 680px;
   margin-left: auto;
   margin-right: auto;
-  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);
 }
 
 .hero-actions {
@@ -1187,8 +1176,12 @@ html[dir="ltr"] .mobile-drawer {
   position: absolute;
   inset: 0;
   z-index: -1;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(201, 168, 97, 0.55), transparent);
+  opacity: 0.25;
+  background-image:
+    linear-gradient(45deg, transparent 46%, var(--warm-gold) 47%, var(--warm-gold) 53%, transparent 54%),
+    linear-gradient(-45deg, transparent 46%, var(--warm-gold) 47%, var(--warm-gold) 53%, transparent 54%);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(to bottom, transparent 0, #000 25%, #000 100%);
 }
 
 .footer-grid {
