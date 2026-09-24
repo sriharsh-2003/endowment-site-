@@ -1,554 +1,504 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n-ar="وقف عبدالله العجلان رحمه الله | صدقة جارية ودعاء" data-i18n-en="Abdullah Alajlan Endowment | Ongoing Charity & Prayers">وقف عبدالله العجلان رحمه الله | صدقة جارية ودعاء</title>
-    <meta name="description" data-i18n-ar="موقع وقف عبدالله محمد العجلان رحمه الله - صدقة جارية، أدعية مستجابة، ودليل زيارة القبر." data-i18n-en="Abdullah Alajlan Endowment - ongoing charity, prayers, and grave location guide." content="وقف عبدالله محمد العجلان رحمه الله" />
-    <meta property="og:title" content="Abdullah Alajlan Endowment" />
-    <meta property="og:description" content="Abdullah Alajlan: Ongoing Charity & Prayers." />
-    <link rel="icon" type="image/jpeg" href="./assets/newlogo.jpg" />
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="./css/tokens.css" />
-    <link rel="stylesheet" href="./css/main.css" />
-  </head>
-  <body>
-    <!-- Sticky Header -->
-    <header class="site-header">
-      <div class="container header-container">
-        <!-- Logo -->
-        <a href="index.html" class="brand-logo" aria-label="Abdullah Alajlan Endowment">
-          <div class="brand-emblem">
-            <img src="./assets/newlogo.jpg" alt="Abdullah Alajlan Endowment" />
-          </div>
-          <div class="brand-text">
-            <span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Endowment">وقف عبدالله العجلان</span>
-          </div>
-        </a>
+<!DOCTYPE html>
 
-        <!-- Desktop Navigation -->
-        <nav aria-label="Main Navigation">
-          <ul class="nav-links">
-            <li><a href="index.html" class="nav-link active" data-i18n-ar="الرئيسية" data-i18n-en="Home">الرئيسية</a></li>
-            <li><a href="grave-locator.html" class="nav-link" data-i18n-ar="موقع القبر" data-i18n-en="Grave Locator">موقع القبر</a></li>
-            <li><a href="pray.html" class="nav-link" data-i18n-ar="ادعُ له" data-i18n-en="Pray for him">ادعُ له</a></li>
-            <li><a href="knowledge-hub.html" class="nav-link" data-i18n-ar="مركز المعرفة" data-i18n-en="Knowledge Hub">مركز المعرفة</a></li>
-            <li><a href="donate.html" class="nav-link" data-i18n-ar="تبرّع للوقف" data-i18n-en="Donate">تبرّع للوقف</a></li>
-          </ul>
-        </nav>
-
-        <!-- Actions -->
-        <div class="header-actions">
-          <!-- Language Toggle Button -->
-          <button id="lang-toggle-btn" class="lang-toggle-btn" aria-label="Switch Language">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
-              <path d="M2 12h20"></path>
-            </svg>
-            <span id="lang-toggle-text">English</span>
-          </button>
-
-          <!-- Mobile Hamburger -->
-          <button id="hamburger-btn" class="hamburger-btn" aria-label="Open Navigation Menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="4" x2="20" y1="12" y2="12"></line>
-              <line x1="4" x2="20" y1="6" y2="6"></line>
-              <line x1="4" x2="20" y1="18" y2="18"></line>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </header>
-
-    <!-- Mobile Drawer Overlay -->
-    <div id="mobile-overlay" class="mobile-menu-overlay"></div>
-
-    <!-- Mobile Drawer -->
-    <aside id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation">
-      <div class="drawer-header">
-        <div class="brand-text">
-          <span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Endowment">وقف عبدالله العجلان</span>
-        </div>
-        <button id="drawer-close-btn" class="drawer-close-btn" aria-label="Close menu">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-      <ul class="drawer-nav-list">
-        <li>
-          <a href="index.html" class="drawer-nav-link" data-i18n-ar="الرئيسية" data-i18n-en="Home">الرئيسية</a>
-        </li>
-        <li>
-          <a href="grave-locator.html" class="drawer-nav-link" data-i18n-ar="موقع القبر" data-i18n-en="Grave Locator">موقع القبر</a>
-        </li>
-        <li>
-          <a href="pray.html" class="drawer-nav-link" data-i18n-ar="ادعُ له" data-i18n-en="Pray for him">ادعُ له</a>
-        </li>
-        <li>
-          <a href="knowledge-hub.html" class="drawer-nav-link" data-i18n-ar="مركز المعرفة" data-i18n-en="Knowledge Hub">مركز المعرفة</a>
-        </li>
-        <li>
-          <a href="donate.html" class="drawer-nav-link" data-i18n-ar="تبرّع للوقف" data-i18n-en="Donate">تبرّع للوقف</a>
-        </li>
-        <li>
-          <a href="privacy.html" class="drawer-nav-link" data-i18n-ar="سياسة الخصوصية" data-i18n-en="Privacy Policy">سياسة الخصوصية</a>
-        </li>
-      </ul>
-      <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <button id="mobile-lang-toggle-btn" class="btn btn-secondary btn-sm" style="width: 100%;">
-          <span id="mobile-lang-toggle-text">English</span>
-        </button>
-      </div>
-    </aside>
-
-    <!-- Main Content -->
-    <main>
-      <!-- HERO SECTION -->
-      <section class="hero-section islamic-pattern-bg">
-        <div class="hero-glow"></div>
-        <div class="container hero-content">
-          <div class="hero-verse-badge">
-            <span class="badge badge-gold font-quran" data-i18n-ar="بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ" data-i18n-en="In the Name of Allah, the Most Gracious, the Most Merciful">
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-i18n-ar="وقف عبدالله العجلان رحمه الله | صدقة جارية ودعاء" data-i18n-en="Abdullah Alajlan Endowment | Ongoing Charity &amp; Prayers">وقف عبدالله العجلان رحمه الله | صدقة جارية ودعاء</title>
+<meta content="وقف عبدالله محمد العجلان رحمه الله" data-i18n-ar="موقع وقف عبدالله محمد العجلان رحمه الله - صدقة جارية، أدعية مستجابة، ودليل زيارة القبر." data-i18n-en="Abdullah Alajlan Endowment - ongoing charity, prayers, and grave location guide." name="description"/>
+<meta content="Abdullah Alajlan Endowment" property="og:title"/>
+<meta content="Abdullah Alajlan: Ongoing Charity &amp; Prayers." property="og:description"/>
+<link href="./assets/newlogo.jpg" rel="icon" type="image/jpeg"/>
+<!-- CSS -->
+<link href="./css/tokens.css" rel="stylesheet"/>
+<link href="./css/main.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Sticky Header -->
+<header class="site-header">
+<div class="container header-container">
+<!-- Logo -->
+<a aria-label="Abdullah Alajlan Endowment" class="brand-logo" href="index.html">
+<div class="brand-emblem">
+<img alt="Abdullah Alajlan Endowment" src="./assets/newlogo.jpg"/>
+</div>
+<div class="brand-text">
+<span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Endowment">وقف عبدالله العجلان</span>
+</div>
+</a>
+<!-- Desktop Navigation -->
+<nav aria-label="Main Navigation">
+<ul class="nav-links">
+<li><a class="nav-link active" data-i18n-ar="الرئيسية" data-i18n-en="Home" href="index.html">الرئيسية</a></li>
+<li><a class="nav-link" data-i18n-ar="موقع القبر" data-i18n-en="Grave Locator" href="grave-locator.html">موقع القبر</a></li>
+<li><a class="nav-link" data-i18n-ar="ادعُ له" data-i18n-en="Pray for him" href="pray.html">ادعُ له</a></li>
+<li><a class="nav-link" data-i18n-ar="مركز المعرفة" data-i18n-en="Knowledge Hub" href="knowledge-hub.html">مركز المعرفة</a></li>
+<li><a class="nav-link" data-i18n-ar="تبرّع للوقف" data-i18n-en="Donate" href="donate.html">تبرّع للوقف</a></li>
+</ul>
+</nav>
+<!-- Actions -->
+<div class="header-actions">
+<!-- Language Toggle Button -->
+<button aria-label="Switch Language" class="lang-toggle-btn" id="lang-toggle-btn">
+<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16">
+<circle cx="12" cy="12" r="10"></circle>
+<path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+<path d="M2 12h20"></path>
+</svg>
+<span id="lang-toggle-text">English</span>
+</button>
+<!-- Mobile Hamburger -->
+<button aria-label="Open Navigation Menu" class="hamburger-btn" id="hamburger-btn">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24">
+<line x1="4" x2="20" y1="12" y2="12"></line>
+<line x1="4" x2="20" y1="6" y2="6"></line>
+<line x1="4" x2="20" y1="18" y2="18"></line>
+</svg>
+</button>
+</div>
+</div>
+</header>
+<!-- Mobile Drawer Overlay -->
+<div class="mobile-menu-overlay" id="mobile-overlay"></div>
+<!-- Mobile Drawer -->
+<aside aria-label="Mobile Navigation" class="mobile-drawer" id="mobile-drawer">
+<div class="drawer-header">
+<div class="brand-text">
+<span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Endowment">وقف عبدالله العجلان</span>
+</div>
+<button aria-label="Close menu" class="drawer-close-btn" id="drawer-close-btn">
+<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="22">
+<line x1="18" x2="6" y1="6" y2="18"></line>
+<line x1="6" x2="18" y1="6" y2="18"></line>
+</svg>
+</button>
+</div>
+<ul class="drawer-nav-list">
+<li>
+<a class="drawer-nav-link" data-i18n-ar="الرئيسية" data-i18n-en="Home" href="index.html">الرئيسية</a>
+</li>
+<li>
+<a class="drawer-nav-link" data-i18n-ar="موقع القبر" data-i18n-en="Grave Locator" href="grave-locator.html">موقع القبر</a>
+</li>
+<li>
+<a class="drawer-nav-link" data-i18n-ar="ادعُ له" data-i18n-en="Pray for him" href="pray.html">ادعُ له</a>
+</li>
+<li>
+<a class="drawer-nav-link" data-i18n-ar="مركز المعرفة" data-i18n-en="Knowledge Hub" href="knowledge-hub.html">مركز المعرفة</a>
+</li>
+<li>
+<a class="drawer-nav-link" data-i18n-ar="تبرّع للوقف" data-i18n-en="Donate" href="donate.html">تبرّع للوقف</a>
+</li>
+<li>
+<a class="drawer-nav-link" data-i18n-ar="سياسة الخصوصية" data-i18n-en="Privacy Policy" href="privacy.html">سياسة الخصوصية</a>
+</li>
+</ul>
+<div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+<button class="btn btn-secondary btn-sm" id="mobile-lang-toggle-btn" style="width: 100%;">
+<span id="mobile-lang-toggle-text">English</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main>
+<!-- HERO SECTION -->
+<section class="hero-section islamic-pattern-bg">
+<div class="hero-glow"></div>
+<div class="container hero-content">
+<div class="hero-verse-badge">
+<span class="badge badge-gold font-quran" data-i18n-ar="بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ" data-i18n-en="In the Name of Allah, the Most Gracious, the Most Merciful">
               بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
             </span>
-          </div>
-
-          <h1 class="hero-title" data-i18n-ar="عبدالله محمد العجلان: صدقة جارية ودعاء مستمر" data-i18n-en="Abdullah Alajlan: Ongoing Charity & Sincere Prayers">
+</div>
+<h1 class="hero-title" data-i18n-ar="عبدالله محمد العجلان: صدقة جارية ودعاء مستمر" data-i18n-en="Abdullah Alajlan: Ongoing Charity &amp; Sincere Prayers">
             عبدالله محمد العجلان: صدقة جارية ودعاء مستمر
           </h1>
-
-          <p class="hero-subtitle" data-i18n-ar="أُنشئ هذا الوقف صدقةً جارية عن فقيدنا عبدالله محمد العجلان رحمه الله، ودعماً لمشاريع الخير والإحسان التي يصل أجرها إليه بإذن الله." data-i18n-en="Created as an ongoing charity in loving memory of Abdullah Alajlan, may Allah have mercy on him, supporting good deeds and sincere prayers for him.">
+<p class="hero-subtitle" data-i18n-ar="أُنشئ هذا الوقف صدقةً جارية عن فقيدنا عبدالله محمد العجلان رحمه الله، ودعماً لمشاريع الخير والإحسان التي يصل أجرها إليه بإذن الله." data-i18n-en="Created as an ongoing charity in loving memory of Abdullah Alajlan, may Allah have mercy on him, supporting good deeds and sincere prayers for him.">
             أُنشئ هذا الوقف صدقةً جارية عن فقيدنا عبدالله محمد العجلان رحمه الله، ودعماً لمشاريع الخير والإحسان التي يصل أجرها إليه بإذن الله.
           </p>
-
-          <!-- Hero CTAs (Pray for him & Visit his resting place) -->
-          <div class="hero-actions">
-            <a href="pray.html" class="btn btn-primary btn-lg" id="hero-pray-cta">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-              </svg>
-              <span data-i18n-ar="ادعُ له بالرحمة" data-i18n-en="Pray for him">ادعُ له بالرحمة</span>
-            </a>
-
-            <a href="grave-locator.html" class="btn btn-secondary btn-lg" id="hero-visit-cta">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-              <span data-i18n-ar="موقع القبر والزيارة" data-i18n-en="Find his grave">موقع القبر والزيارة</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- ABOUT SECTION -->
-      <section class="about-section">
-        <div class="container">
-          <div class="about-grid">
-            <!-- Left Frame: Memorial Calligraphy & Dates -->
-            <div class="memorial-frame card-gold-accent">
-              <div class="memorial-ornament">
-                <div class="memorial-calligraphy font-quran" data-i18n-ar="عبدالله محمد العجلان" data-i18n-en="Abdullah Mohammed Alajlan">
+<!-- Hero CTAs (Pray for him & Visit his resting place) -->
+<div class="hero-actions">
+<a class="btn btn-primary btn-lg" href="pray.html" id="hero-pray-cta">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20">
+<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+</svg>
+<span data-i18n-ar="ادعُ له بالرحمة" data-i18n-en="Pray for him">ادعُ له بالرحمة</span>
+</a>
+<a class="btn btn-secondary btn-lg" href="grave-locator.html" id="hero-visit-cta">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20">
+<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+<circle cx="12" cy="10" r="3"></circle>
+</svg>
+<span data-i18n-ar="موقع القبر والزيارة" data-i18n-en="Find his grave">موقع القبر والزيارة</span>
+</a>
+</div>
+</div>
+</section>
+<!-- ABOUT SECTION -->
+<section class="about-section">
+<div class="container">
+<div class="about-grid">
+<!-- Left Frame: Memorial Calligraphy & Dates -->
+<div class="memorial-frame card-gold-accent">
+<div class="memorial-ornament">
+<div class="memorial-calligraphy font-quran" data-i18n-ar="عبدالله محمد العجلان" data-i18n-en="Abdullah Mohammed Alajlan">
                   عبدالله محمد العجلان
                 </div>
-                <div style="color: var(--text-secondary); font-size: 0.95rem;" data-i18n-ar="رحمه الله وأسكنه فسيح جناته" data-i18n-en="May Allah have mercy on him and grant him Paradise">
+<div data-i18n-ar="رحمه الله وأسكنه فسيح جناته" data-i18n-en="May Allah have mercy on him and grant him Paradise" style="color: var(--text-secondary); font-size: 0.95rem;">
                   رحمه الله وأسكنه فسيح جناته
                 </div>
-
-                <div class="memorial-dates">
-                  <div>
-                    <span style="color: var(--text-muted); display: block; font-size: 0.78rem;" data-i18n-ar="سنة الميلاد" data-i18n-en="Year of Birth">سنة الميلاد</span>
-                    <strong style="color: var(--gold-light);" data-i18n-ar="غير منشور" data-i18n-en="Not published">غير منشور</strong>
-                  </div>
-                  <span class="dates-divider">—</span>
-                  <div>
-                    <span style="color: var(--text-muted); display: block; font-size: 0.78rem;" data-i18n-ar="تاريخ الوفاة" data-i18n-en="Date of Passing">تاريخ الوفاة</span>
-                    <strong style="color: var(--gold-light);">15 May 2026</strong>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right: Biography & Purpose -->
-            <div class="about-content">
-              <div class="badge badge-gold" style="margin-bottom: 1rem;" data-i18n-ar="عن الفقيد والوقف" data-i18n-en="About Him & The Charity">
+<div class="memorial-dates">
+<div>
+<span data-i18n-ar="سنة الميلاد" data-i18n-en="Year of Birth" style="color: var(--text-muted); display: block; font-size: 0.78rem;">سنة الميلاد</span>
+<strong data-i18n-ar="غير منشور" data-i18n-en="Not published" style="color: var(--gold-light);">غير منشور</strong>
+</div>
+<span class="dates-divider">—</span>
+<div>
+<span data-i18n-ar="تاريخ الوفاة" data-i18n-en="Date of Passing" style="color: var(--text-muted); display: block; font-size: 0.78rem;">تاريخ الوفاة</span>
+<strong style="color: var(--gold-light);">15 May 2026</strong>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Biography & Purpose -->
+<div class="about-content">
+<div class="badge badge-gold" data-i18n-ar="عن الفقيد والوقف" data-i18n-en="About Him &amp; The Charity" style="margin-bottom: 1rem;">
                 عن الفقيد والوقف
               </div>
-              <h2 style="margin-bottom: 1.25rem;" data-i18n-ar="سيرة طيبة وأثر باقٍ بالدعاء والصدقة" data-i18n-en="A Life of Goodness and a Lasting Legacy">
+<h2 data-i18n-ar="سيرة طيبة وأثر باقٍ بالدعاء والصدقة" data-i18n-en="A Life of Goodness and a Lasting Legacy" style="margin-bottom: 1.25rem;">
                 سيرة طيبة وأثر باقٍ بالدعاء والصدقة
               </h2>
-              <p style="margin-bottom: 1.25rem;" data-i18n-ar="كان الفقيد عبدالله محمد العجلان رحمه الله مثالاً للجود، وطيب النفس، وحب الخير، والإحسان إلى الناس. عُرف بلين الجانب وحسن الخلق، وحرصه الدائم على تفريج كرب المحتاجين، وصلة الرحم، والبذل في وجوه الخير خفيةً وعلانية." data-i18n-en="The late Abdullah Alajlan was known for his kindness, generosity, and loving spirit. He cared deeply for people in need, kept strong family ties, and gave in charity both openly and quietly.">
+<p data-i18n-ar="كان الفقيد عبدالله محمد العجلان رحمه الله مثالاً للجود، وطيب النفس، وحب الخير، والإحسان إلى الناس. عُرف بلين الجانب وحسن الخلق، وحرصه الدائم على تفريج كرب المحتاجين، وصلة الرحم، والبذل في وجوه الخير خفيةً وعلانية." data-i18n-en="The late Abdullah Alajlan was known for his kindness, generosity, and loving spirit. He cared deeply for people in need, kept strong family ties, and gave in charity both openly and quietly." style="margin-bottom: 1.25rem;">
                 كان الفقيد عبدالله محمد العجلان رحمه الله مثالاً للجود، وطيب النفس، وحب الخير، والإحسان إلى الناس. عُرف بلين الجانب وحسن الخلق، وحرصه الدائم على تفريج كرب المحتاجين، وصلة الرحم، والبذل في وجوه الخير خفيةً وعلانية.
               </p>
-              <p style="margin-bottom: 2rem;" data-i18n-ar="ويأتي هذا الوقف صدقةً جاريةً عنه، يمتد نفعها بإذن الله في سقيا الماء، وبناء المساجد، ورعاية الأيتام، ليبقى أجره موصولاً وثوابه مستمراً." data-i18n-en="This charity was established as an ongoing charity (Sadaqah Jariyah) in his name, supporting clean drinking water, building mosques, and caring for orphans so the reward continues to reach him.">
+<p data-i18n-ar="ويأتي هذا الوقف صدقةً جاريةً عنه، يمتد نفعها بإذن الله في سقيا الماء، وبناء المساجد، ورعاية الأيتام، ليبقى أجره موصولاً وثوابه مستمراً." data-i18n-en="This charity was established as an ongoing charity (Sadaqah Jariyah) in his name, supporting clean drinking water, building mosques, and caring for orphans so the reward continues to reach him." style="margin-bottom: 2rem;">
                 ويأتي هذا الوقف صدقةً جاريةً عنه، يمتد نفعها بإذن الله في سقيا الماء، وبناء المساجد، ورعاية الأيتام، ليبقى أجره موصولاً وثوابه مستمراً.
               </p>
-
-              <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                <a href="knowledge-hub.html" class="btn btn-outline" data-i18n-ar="فضل الدعاء للميت" data-i18n-en="Why We Pray for the Deceased">
+<div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+<a class="btn btn-outline" data-i18n-ar="فضل الدعاء للميت" data-i18n-en="Why We Pray for the Deceased" href="knowledge-hub.html">
                   فضل الدعاء للميت
                 </a>
-                <a href="donate.html" class="btn btn-primary" data-i18n-ar="المساهمة في الوقف" data-i18n-en="Donate to the Charity">
+<a class="btn btn-primary" data-i18n-ar="المساهمة في الوقف" data-i18n-en="Donate to the Charity" href="donate.html">
                   المساهمة في الوقف
                 </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- IMPACT SECTION -->
-      <section class="impact-section">
-        <div class="container">
-          <div class="section-header" style="margin-bottom: 2.5rem;">
-            <span class="badge badge-emerald" style="margin-bottom: 0.75rem;" data-i18n-ar="أثر الصدقة والدعاء" data-i18n-en="Charity & Prayers">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- IMPACT SECTION -->
+<section class="impact-section">
+<div class="container">
+<div class="section-header" style="margin-bottom: 2.5rem;">
+<span class="badge badge-emerald" data-i18n-ar="أثر الصدقة والدعاء" data-i18n-en="Charity &amp; Prayers" style="margin-bottom: 0.75rem;">
               أثر الصدقة والدعاء
             </span>
-            <h2 data-i18n-ar="مؤشرات الأثر والبركة" data-i18n-en="The Impact of Your Support">مؤشرات الأثر والبركة</h2>
-          </div>
-
-          <div class="stats-grid">
-            <!-- Stat 1: Prayers -->
-            <div class="stat-card">
-              <div class="stat-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-                </svg>
-              </div>
-              <div class="stat-value" id="impact-prayers" data-i18n-ar="غير متاح" data-i18n-en="Not available">غير متاح</div>
-              <div class="stat-label" data-i18n-ar="أدعية مرفوعة للفقيد" data-i18n-en="Prayers for Him">أدعية مرفوعة للفقيد</div>
-            </div>
-
-            <!-- Stat 2: Shares -->
-            <div class="stat-card">
-              <div class="stat-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="18" cy="5" r="3"></circle>
-                  <circle cx="6" cy="12" r="3"></circle>
-                  <circle cx="18" cy="19" r="3"></circle>
-                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-                </svg>
-              </div>
-              <div class="stat-value" id="impact-shares" data-i18n-ar="غير متاح" data-i18n-en="Not available">غير متاح</div>
-              <div class="stat-label" data-i18n-ar="مشاركات ونشر للأجر" data-i18n-en="Shares & Community Visits">مشاركات ونشر للأجر</div>
-            </div>
-
-            <!-- Stat 3: Water and basic needs -->
-            <div class="stat-card">
-              <div class="stat-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 3.5S6.5 10 6.5 14.5a5.5 5.5 0 0 0 11 0C17.5 10 12 3.5 12 3.5Z"></path>
-                  <path d="M9.5 15.5a2.5 2.5 0 0 0 2.5 2.5"></path>
-                </svg>
-              </div>
-              <div class="stat-value" data-i18n-ar="غير متاح" data-i18n-en="Not available">غير متاح</div>
-              <div class="stat-label" data-i18n-ar="سقيا الماء واحتياجات أساسية" data-i18n-en="Water & Basic Needs">سقيا الماء واحتياجات أساسية</div>
-            </div>
-
-            <!-- Stat 4: Ongoing charity -->
-            <div class="stat-card">
-              <div class="stat-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M3 21h18"></path>
-                  <path d="M5 21V9l7-5 7 5v12"></path>
-                  <path d="M9 21v-6h6v6"></path>
-                  <path d="M9 10h.01M15 10h.01"></path>
-                </svg>
-              </div>
-              <div class="stat-value" data-i18n-ar="غير متاح" data-i18n-en="Not available">غير متاح</div>
-              <div class="stat-label" data-i18n-ar="مشاريع صدقة جارية" data-i18n-en="Ongoing Charity Projects">مشاريع صدقة جارية</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SAUDI HERITAGE & TRADITIONS SECTION (Honoring Saudi & Najdi Memorial Heritage) -->
-      <section class="heritage-section">
-        <div class="container">
-          <div class="section-header">
-            <span class="badge badge-gold" style="margin-bottom: 0.75rem;" data-i18n-ar="قيم الوقف والتراث" data-i18n-en="Values & Heritage">
+<h2 data-i18n-ar="مؤشرات الأثر والبركة" data-i18n-en="The Impact of Your Support">مؤشرات الأثر والبركة</h2>
+</div>
+<div class="stats-grid">
+<!-- Stat 1: Prayers -->
+<div class="stat-card">
+<div class="stat-icon">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+</svg>
+</div>
+<div class="stat-value" data-i18n-ar="غير متاح" data-i18n-en="Not available" id="impact-prayers">غير متاح</div>
+<div class="stat-label" data-i18n-ar="أدعية مرفوعة للفقيد" data-i18n-en="Prayers for Him">أدعية مرفوعة للفقيد</div>
+</div>
+<!-- Stat 2: Shares -->
+<div class="stat-card">
+<div class="stat-icon">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="18" cy="5" r="3"></circle>
+<circle cx="6" cy="12" r="3"></circle>
+<circle cx="18" cy="19" r="3"></circle>
+<line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line>
+<line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line>
+</svg>
+</div>
+<div class="stat-value" data-i18n-ar="غير متاح" data-i18n-en="Not available" id="impact-shares">غير متاح</div>
+<div class="stat-label" data-i18n-ar="مشاركات ونشر للأجر" data-i18n-en="Shares &amp; Community Visits">مشاركات ونشر للأجر</div>
+</div>
+<!-- Stat 3: Water and basic needs -->
+<div class="stat-card">
+<div class="stat-icon">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 3.5S6.5 10 6.5 14.5a5.5 5.5 0 0 0 11 0C17.5 10 12 3.5 12 3.5Z"></path>
+<path d="M9.5 15.5a2.5 2.5 0 0 0 2.5 2.5"></path>
+</svg>
+</div>
+<div class="stat-value" data-i18n-ar="غير متاح" data-i18n-en="Not available">غير متاح</div>
+<div class="stat-label" data-i18n-ar="سقيا الماء واحتياجات أساسية" data-i18n-en="Water &amp; Basic Needs">سقيا الماء واحتياجات أساسية</div>
+</div>
+<!-- Stat 4: Ongoing charity -->
+<div class="stat-card">
+<div class="stat-icon">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M3 21h18"></path>
+<path d="M5 21V9l7-5 7 5v12"></path>
+<path d="M9 21v-6h6v6"></path>
+<path d="M9 10h.01M15 10h.01"></path>
+</svg>
+</div>
+<div class="stat-value" data-i18n-ar="غير متاح" data-i18n-en="Not available">غير متاح</div>
+<div class="stat-label" data-i18n-ar="مشاريع صدقة جارية" data-i18n-en="Ongoing Charity Projects">مشاريع صدقة جارية</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SAUDI HERITAGE & TRADITIONS SECTION (Honoring Saudi & Najdi Memorial Heritage) -->
+<section class="heritage-section">
+<div class="container">
+<div class="section-header">
+<span class="badge badge-gold" data-i18n-ar="قيم الوقف والتراث" data-i18n-en="Values &amp; Heritage" style="margin-bottom: 0.75rem;">
               قيم الوقف والتراث
             </span>
-            <h2 data-i18n-ar="قيم العطاء والوفاء في التراث السعودي" data-i18n-en="Values of Giving in Saudi Heritage">
+<h2 data-i18n-ar="قيم العطاء والوفاء في التراث السعودي" data-i18n-en="Values of Giving in Saudi Heritage">
               قيم العطاء والوفاء في التراث السعودي
             </h2>
-            <p data-i18n-ar="يجسد هذا الوقف قيم البر والوفاء المتوارثة في المملكة العربية السعودية وعراقة نجد، تخليداً لذكرى الفقيد عبدالله محمد العجلان رحمه الله." data-i18n-en="This charity reflects the timeless values of generosity and kindness rooted in Saudi traditions and Najdi heritage, honoring the memory of Abdullah Alajlan.">
+<p data-i18n-ar="يجسد هذا الوقف قيم البر والوفاء المتوارثة في المملكة العربية السعودية وعراقة نجد، تخليداً لذكرى الفقيد عبدالله محمد العجلان رحمه الله." data-i18n-en="This charity reflects the timeless values of generosity and kindness rooted in Saudi traditions and Najdi heritage, honoring the memory of Abdullah Alajlan.">
               يجسد هذا الوقف قيم البر والوفاء المتوارثة في المملكة العربية السعودية وعراقة نجد، تخليداً لذكرى الفقيد عبدالله محمد العجلان رحمه الله.
             </p>
-          </div>
-
-          <div class="heritage-grid">
-            <!-- Symbol 1: The Holy Kaaba -->
-            <div class="heritage-card">
-              <div class="heritage-icon-box">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <polygon points="12 2 22 7 12 12 2 7" fill="currentColor" fill-opacity="0.15"/>
-                  <polygon points="2 7 12 12 12 22 2 17" fill="currentColor" fill-opacity="0.25"/>
-                  <polygon points="12 12 22 7 22 17 12 22" fill="currentColor" fill-opacity="0.1"/>
-                  <line x1="2" y1="10" x2="12" y2="15" stroke="var(--warm-gold)" stroke-width="2"/>
-                  <line x1="12" y1="15" x2="22" y2="10" stroke="var(--warm-gold)" stroke-width="2"/>
-                </svg>
-              </div>
-              <h3 class="heritage-card-title" data-i18n-ar="الكعبة المشرّفة والحرمان الشريفان" data-i18n-en="The Two Holy Mosques">الكعبة المشرّفة والحرمان الشريفان</h3>
-              <p class="heritage-card-desc" data-i18n-ar="مهوى أفئدة المسلمين وأرض الحرمين الشريفين، حيث تتضاعف الحسنات وتلهج الألسن بالدعاء للفقيد بالرحمة والمغفرة." data-i18n-en="The direction Muslims pray toward and the land of the Two Holy Mosques, where rewards are multiplied and prayers are made for him.">
+</div>
+<div class="heritage-grid">
+<!-- Symbol 1: The Holy Kaaba -->
+<div class="heritage-card">
+<div class="heritage-icon-box">
+<svg fill="none" height="28" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="28">
+<polygon fill="currentColor" fill-opacity="0.15" points="12 2 22 7 12 12 2 7"></polygon>
+<polygon fill="currentColor" fill-opacity="0.25" points="2 7 12 12 12 22 2 17"></polygon>
+<polygon fill="currentColor" fill-opacity="0.1" points="12 12 22 7 22 17 12 22"></polygon>
+<line stroke="var(--warm-gold)" stroke-width="2" x1="2" x2="12" y1="10" y2="15"></line>
+<line stroke="var(--warm-gold)" stroke-width="2" x1="12" x2="22" y1="15" y2="10"></line>
+</svg>
+</div>
+<h3 class="heritage-card-title" data-i18n-ar="الكعبة المشرّفة والحرمان الشريفان" data-i18n-en="The Two Holy Mosques">الكعبة المشرّفة والحرمان الشريفان</h3>
+<p class="heritage-card-desc" data-i18n-ar="مهوى أفئدة المسلمين وأرض الحرمين الشريفين، حيث تتضاعف الحسنات وتلهج الألسن بالدعاء للفقيد بالرحمة والمغفرة." data-i18n-en="The direction Muslims pray toward and the land of the Two Holy Mosques, where rewards are multiplied and prayers are made for him.">
                 مهوى أفئدة المسلمين وأرض الحرمين الشريفين، حيث تتضاعف الحسنات وتلهج الألسن بالدعاء للفقيد بالرحمة والمغفرة.
               </p>
-            </div>
-
-            <!-- Symbol 2: Blessed Date Palm -->
-            <div class="heritage-card">
-              <div class="heritage-icon-box">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <path d="M12 22v-9"/>
-                  <path d="M12 13c-3-2-6-1-8 2"/>
-                  <path d="M12 13c3-2 6-1 8 2"/>
-                  <path d="M12 10C8 7 4 9 2 13"/>
-                  <path d="M12 10c4-3 8-1 10 3"/>
-                  <path d="M12 7C9 4 7 5 5 8"/>
-                  <path d="M12 7c3-3 5-2 7 1"/>
-                  <path d="M12 5V2"/>
-                </svg>
-              </div>
-              <h3 class="heritage-card-title" data-i18n-ar="النخلة المباركة" data-i18n-en="The Palm Tree">النخلة المباركة</h3>
-              <p class="heritage-card-desc" data-i18n-ar="رمز العطاء المستمر؛ فكما لا ينقطع نفع النخلة، لا ينقطع ثواب الصدقة الجارية عن الميت بإذن الله." data-i18n-en="A symbol of continuous giving. Just as the palm tree always gives fruit, an ongoing charity never stops giving reward to the deceased.">
+</div>
+<!-- Symbol 2: Blessed Date Palm -->
+<div class="heritage-card">
+<div class="heritage-icon-box">
+<svg fill="none" height="28" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="28">
+<path d="M12 22v-9"></path>
+<path d="M12 13c-3-2-6-1-8 2"></path>
+<path d="M12 13c3-2 6-1 8 2"></path>
+<path d="M12 10C8 7 4 9 2 13"></path>
+<path d="M12 10c4-3 8-1 10 3"></path>
+<path d="M12 7C9 4 7 5 5 8"></path>
+<path d="M12 7c3-3 5-2 7 1"></path>
+<path d="M12 5V2"></path>
+</svg>
+</div>
+<h3 class="heritage-card-title" data-i18n-ar="النخلة المباركة" data-i18n-en="The Palm Tree">النخلة المباركة</h3>
+<p class="heritage-card-desc" data-i18n-ar="رمز العطاء المستمر؛ فكما لا ينقطع نفع النخلة، لا ينقطع ثواب الصدقة الجارية عن الميت بإذن الله." data-i18n-en="A symbol of continuous giving. Just as the palm tree always gives fruit, an ongoing charity never stops giving reward to the deceased.">
                 رمز العطاء المستمر؛ فكما لا ينقطع نفع النخلة، لا ينقطع ثواب الصدقة الجارية عن الميت بإذن الله.
               </p>
-            </div>
-
-            <!-- Symbol 3: Najdi Sadu Geometrics -->
-            <div class="heritage-card">
-              <div class="heritage-icon-box">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <polygon points="12 2 7 9 17 9" fill="currentColor" fill-opacity="0.2"/>
-                  <polygon points="7 9 2 16 12 16" fill="currentColor" fill-opacity="0.15"/>
-                  <polygon points="17 9 12 16 22 16" fill="currentColor" fill-opacity="0.15"/>
-                  <polygon points="12 16 7 22 17 22" fill="currentColor" fill-opacity="0.25"/>
-                  <circle cx="12" cy="12" r="2" fill="var(--warm-gold)"/>
-                </svg>
-              </div>
-              <h3 class="heritage-card-title" data-i18n-ar="نقوش السدو النجدية" data-i18n-en="Najdi Sadu Patterns">نقوش السدو النجدية</h3>
-              <p class="heritage-card-desc" data-i18n-ar="رمز لأصالة نجد وجذور عائلة العجلان الكريمة، وما عُرفوا به من تكاتف ووفاء وتراحم." data-i18n-en="Honoring the deep roots of the Alajlan family in Najd, and their tradition of family closeness, kindness, and helping others.">
+</div>
+<!-- Symbol 3: Najdi Sadu Geometrics -->
+<div class="heritage-card">
+<div class="heritage-icon-box">
+<svg fill="none" height="28" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="28">
+<polygon fill="currentColor" fill-opacity="0.2" points="12 2 7 9 17 9"></polygon>
+<polygon fill="currentColor" fill-opacity="0.15" points="7 9 2 16 12 16"></polygon>
+<polygon fill="currentColor" fill-opacity="0.15" points="17 9 12 16 22 16"></polygon>
+<polygon fill="currentColor" fill-opacity="0.25" points="12 16 7 22 17 22"></polygon>
+<circle cx="12" cy="12" fill="var(--warm-gold)" r="2"></circle>
+</svg>
+</div>
+<h3 class="heritage-card-title" data-i18n-ar="نقوش السدو النجدية" data-i18n-en="Najdi Sadu Patterns">نقوش السدو النجدية</h3>
+<p class="heritage-card-desc" data-i18n-ar="رمز لأصالة نجد وجذور عائلة العجلان الكريمة، وما عُرفوا به من تكاتف ووفاء وتراحم." data-i18n-en="Honoring the deep roots of the Alajlan family in Najd, and their tradition of family closeness, kindness, and helping others.">
                 رمز لأصالة نجد وجذور عائلة العجلان الكريمة، وما عُرفوا به من تكاتف ووفاء وتراحم.
               </p>
-            </div>
-
-            <!-- Symbol 4: Saudi Dallah & Hospitality -->
-            <div class="heritage-card">
-              <div class="heritage-icon-box">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <path d="M12 2v3"/>
-                  <path d="M9 5h6l-1 4H10L9 5z"/>
-                  <path d="M10 9c-2 2-3 5-1 8h6c2-3 1-6-1-8"/>
-                  <path d="M9 17l-1 4h8l-1-4"/>
-                  <path d="M8 11C4 10 3 6 4 4"/>
-                  <path d="M15 10c3 0 5 3 4 7s-3 3-4 2"/>
-                </svg>
-              </div>
-              <h3 class="heritage-card-title" data-i18n-ar="دلة الكرم والضيافة" data-i18n-en="The Dallah (Arabic Coffee Pot)">دلة الكرم والضيافة</h3>
-              <p class="heritage-card-desc" data-i18n-ar="رمز الجود وحسن الوفادة التي اشتُهر بها الفقيد في حياته ومجالسه العامرة بالخير." data-i18n-en="A symbol of Saudi generosity and warm hospitality, remembering his open home and welcoming spirit.">
+</div>
+<!-- Symbol 4: Saudi Dallah & Hospitality -->
+<div class="heritage-card">
+<div class="heritage-icon-box">
+<svg fill="none" height="28" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="28">
+<path d="M12 2v3"></path>
+<path d="M9 5h6l-1 4H10L9 5z"></path>
+<path d="M10 9c-2 2-3 5-1 8h6c2-3 1-6-1-8"></path>
+<path d="M9 17l-1 4h8l-1-4"></path>
+<path d="M8 11C4 10 3 6 4 4"></path>
+<path d="M15 10c3 0 5 3 4 7s-3 3-4 2"></path>
+</svg>
+</div>
+<h3 class="heritage-card-title" data-i18n-ar="دلة الكرم والضيافة" data-i18n-en="The Dallah (Arabic Coffee Pot)">دلة الكرم والضيافة</h3>
+<p class="heritage-card-desc" data-i18n-ar="رمز الجود وحسن الوفادة التي اشتُهر بها الفقيد في حياته ومجالسه العامرة بالخير." data-i18n-en="A symbol of Saudi generosity and warm hospitality, remembering his open home and welcoming spirit.">
                 رمز الجود وحسن الوفادة التي اشتُهر بها الفقيد في حياته ومجالسه العامرة بالخير.
               </p>
-            </div>
-
-            <!-- Symbol 5: Blessed Dates -->
-            <div class="heritage-card">
-              <div class="heritage-icon-box">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <ellipse cx="8" cy="14" rx="4" ry="7" transform="rotate(-15 8 14)" fill="currentColor" fill-opacity="0.15"/>
-                  <ellipse cx="16" cy="13" rx="4" ry="7" transform="rotate(20 16 13)" fill="currentColor" fill-opacity="0.2"/>
-                  <path d="M7 6l2 2"/>
-                  <path d="M17 5l-2 2"/>
-                </svg>
-              </div>
-              <h3 class="heritage-card-title" data-i18n-ar="تمر الصدقة وإطعام الطعام" data-i18n-en="Dates & Giving Food">تمر الصدقة وإطعام الطعام</h3>
-              <p class="heritage-card-desc" data-i18n-ar="اقتداءً بالسنة النبوية في إطعام الطعام وتفطير الصائمين صدقةً عن روحه." data-i18n-en="Following the Sunnah by sharing food and dates, supporting meals and iftar in his name.">
+</div>
+<!-- Symbol 5: Blessed Dates -->
+<div class="heritage-card">
+<div class="heritage-icon-box">
+<svg fill="none" height="28" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="28">
+<ellipse cx="8" cy="14" fill="currentColor" fill-opacity="0.15" rx="4" ry="7" transform="rotate(-15 8 14)"></ellipse>
+<ellipse cx="16" cy="13" fill="currentColor" fill-opacity="0.2" rx="4" ry="7" transform="rotate(20 16 13)"></ellipse>
+<path d="M7 6l2 2"></path>
+<path d="M17 5l-2 2"></path>
+</svg>
+</div>
+<h3 class="heritage-card-title" data-i18n-ar="تمر الصدقة وإطعام الطعام" data-i18n-en="Dates &amp; Giving Food">تمر الصدقة وإطعام الطعام</h3>
+<p class="heritage-card-desc" data-i18n-ar="اقتداءً بالسنة النبوية في إطعام الطعام وتفطير الصائمين صدقةً عن روحه." data-i18n-en="Following the Sunnah by sharing food and dates, supporting meals and iftar in his name.">
                 اقتداءً بالسنة النبوية في إطعام الطعام وتفطير الصائمين صدقةً عن روحه.
               </p>
-            </div>
-
-            <!-- Symbol 6: Patience & Desert Camel -->
-            <div class="heritage-card">
-              <div class="heritage-icon-box">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <path d="M4 14c1-2 2-3 3-6 0-2 1-4 2-4s2 1 2 3c0 2-1 4 1 5 2 0 3-3 5-3 2 0 4 3 5 5v5"/>
-                  <path d="M5 14v7"/>
-                  <path d="M8 15v6"/>
-                  <path d="M19 14v7"/>
-                  <path d="M22 14v7"/>
-                  <path d="M2 21h20"/>
-                </svg>
-              </div>
-              <h3 class="heritage-card-title" data-i18n-ar="الصبر والاحتساب" data-i18n-en="Patience & Faith">الصبر والاحتساب</h3>
-              <p class="heritage-card-desc" data-i18n-ar="استشعار فضل الصبر والرضا بقضاء الله وقدره، واحتساب الأجر العظيم عند الله سبحانه." data-i18n-en="Remembering the blessing of patience and trusting in Allah's will, seeking the great reward He promises.">
+</div>
+<!-- Symbol 6: Patience & Desert Camel -->
+<div class="heritage-card">
+<div class="heritage-icon-box">
+<svg fill="none" height="28" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="28">
+<path d="M4 14c1-2 2-3 3-6 0-2 1-4 2-4s2 1 2 3c0 2-1 4 1 5 2 0 3-3 5-3 2 0 4 3 5 5v5"></path>
+<path d="M5 14v7"></path>
+<path d="M8 15v6"></path>
+<path d="M19 14v7"></path>
+<path d="M22 14v7"></path>
+<path d="M2 21h20"></path>
+</svg>
+</div>
+<h3 class="heritage-card-title" data-i18n-ar="الصبر والاحتساب" data-i18n-en="Patience &amp; Faith">الصبر والاحتساب</h3>
+<p class="heritage-card-desc" data-i18n-ar="استشعار فضل الصبر والرضا بقضاء الله وقدره، واحتساب الأجر العظيم عند الله سبحانه." data-i18n-en="Remembering the blessing of patience and trusting in Allah's will, seeking the great reward He promises.">
                 استشعار فضل الصبر والرضا بقضاء الله وقدره، واحتساب الأجر العظيم عند الله سبحانه.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- TESTIMONIALS -->
-      <section class="testimonials-section">
-        <div class="container">
-          <div class="section-header">
-            <span class="badge badge-emerald" style="margin-bottom: 0.75rem;" data-i18n-ar="كلمات المحبين" data-i18n-en="Words from Loved Ones">كلمات المحبين</span>
-            <h2 data-i18n-ar="شهادات في حق الفقيد" data-i18n-en="Tributes to His Memory">شهادات في حق الفقيد</h2>
-            <p data-i18n-ar="كلمات طيبة تحفظ أثر عبدالله محمد العجلان وتلهمنا مواصلة الخير." data-i18n-en="Kind words remembering Abdullah Mohammed Alajlan and inspiring us to continue doing good.">كلمات طيبة تحفظ أثر عبدالله محمد العجلان وتلهمنا مواصلة الخير.</p>
-          </div>
-          <div class="testimonials-grid">
-            <article class="testimonial-card">
-              <blockquote data-i18n-ar="كان محباً للخير، سبّاقاً إلى تفريج كرب المحتاجين، وبقي أثره الطيب في قلوب من عرفه." data-i18n-en="He loved doing good and was always first to help people in need. His kindness remains in the hearts of everyone who knew him.">كان محباً للخير، سبّاقاً إلى تفريج كرب المحتاجين، وبقي أثره الطيب في قلوب من عرفه.</blockquote>
-              <cite data-i18n-ar="— من أهله ومحبيه" data-i18n-en="— From his family and loved ones">— من أهله ومحبيه</cite>
-            </article>
-            <article class="testimonial-card">
-              <blockquote data-i18n-ar="نسأل الله أن يجعل هذا الوقف نوراً له، وأن يكتب الأجر لكل من ساهم فيه ودعا له." data-i18n-en="May Allah make this endowment a light for him and reward everyone who supports it and prays for him.">نسأل الله أن يجعل هذا الوقف نوراً له، وأن يكتب الأجر لكل من ساهم فيه ودعا له.</blockquote>
-              <cite data-i18n-ar="— دعاء صادق" data-i18n-en="— A sincere prayer">— دعاء صادق</cite>
-            </article>
-            <article class="testimonial-card">
-              <blockquote data-i18n-ar="رحم الله عبدالله محمد العجلان، وجمعنا به في جنات النعيم، وجعل ذكراه باعثاً على البر والإحسان." data-i18n-en="May Allah have mercy on Abdullah Mohammed Alajlan, reunite us in Paradise, and make his memory a reason for continued kindness.">رحم الله عبدالله محمد العجلان، وجمعنا به في جنات النعيم، وجعل ذكراه باعثاً على البر والإحسان.</blockquote>
-              <cite data-i18n-ar="— من زائر للقبر" data-i18n-en="— From a visitor">— من زائر للقبر</cite>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- UPCOMING VISITATION DATES -->
-      <section class="visitation-section">
-        <div class="container">
-          <div class="section-header">
-            <span class="badge badge-gold" style="margin-bottom: 0.75rem;" data-i18n-ar="مواعيد الزيارة" data-i18n-en="Visiting Schedule">
+</div>
+</div>
+</div>
+</section>
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+<div class="container">
+<div class="section-header">
+<span class="badge badge-emerald" data-i18n-ar="كلمات المحبين" data-i18n-en="Words from Loved Ones" style="margin-bottom: 0.75rem;">كلمات المحبين</span>
+<h2 data-i18n-ar="شهادات في حق الفقيد" data-i18n-en="Tributes to His Memory">شهادات في حق الفقيد</h2>
+<p data-i18n-ar="كلمات طيبة تحفظ أثر عبدالله محمد العجلان وتلهمنا مواصلة الخير." data-i18n-en="Kind words remembering Abdullah Mohammed Alajlan and inspiring us to continue doing good.">كلمات طيبة تحفظ أثر عبدالله محمد العجلان وتلهمنا مواصلة الخير.</p>
+</div>
+<div class="testimonials-grid">
+<article class="testimonial-card">
+<blockquote data-i18n-ar="كان محباً للخير، سبّاقاً إلى تفريج كرب المحتاجين، وبقي أثره الطيب في قلوب من عرفه." data-i18n-en="He loved doing good and was always first to help people in need. His kindness remains in the hearts of everyone who knew him.">كان محباً للخير، سبّاقاً إلى تفريج كرب المحتاجين، وبقي أثره الطيب في قلوب من عرفه.</blockquote>
+<cite data-i18n-ar="— من أهله ومحبيه" data-i18n-en="— From his family and loved ones">— من أهله ومحبيه</cite>
+</article>
+<article class="testimonial-card">
+<blockquote data-i18n-ar="نسأل الله أن يجعل هذا الوقف نوراً له، وأن يكتب الأجر لكل من ساهم فيه ودعا له." data-i18n-en="May Allah make this endowment a light for him and reward everyone who supports it and prays for him.">نسأل الله أن يجعل هذا الوقف نوراً له، وأن يكتب الأجر لكل من ساهم فيه ودعا له.</blockquote>
+<cite data-i18n-ar="— دعاء صادق" data-i18n-en="— A sincere prayer">— دعاء صادق</cite>
+</article>
+<article class="testimonial-card">
+<blockquote data-i18n-ar="رحم الله عبدالله محمد العجلان، وجمعنا به في جنات النعيم، وجعل ذكراه باعثاً على البر والإحسان." data-i18n-en="May Allah have mercy on Abdullah Mohammed Alajlan, reunite us in Paradise, and make his memory a reason for continued kindness.">رحم الله عبدالله محمد العجلان، وجمعنا به في جنات النعيم، وجعل ذكراه باعثاً على البر والإحسان.</blockquote>
+<cite data-i18n-ar="— من زائر للقبر" data-i18n-en="— From a visitor">— من زائر للقبر</cite>
+</article>
+</div>
+</div>
+</section>
+<!-- UPCOMING VISITATION DATES -->
+<section class="visitation-section">
+<div class="container">
+<div class="section-header">
+<span class="badge badge-gold" data-i18n-ar="مواعيد الزيارة" data-i18n-en="Visiting Schedule" style="margin-bottom: 0.75rem;">
               مواعيد الزيارة
             </span>
-            <h2 data-i18n-ar="مواعيد الزيارة المقترحة" data-i18n-en="Suggested Visiting Times">مواعيد الزيارة المقترحة</h2>
-            <p data-i18n-ar="أوقات مناسبة لزيارة القبر والسلام على الفقيد والدعاء له وفق السنة النبوية الشريفة." data-i18n-en="Recommended times to visit the grave, send peace upon him, and pray for him according to the Sunnah.">
+<h2 data-i18n-ar="مواعيد الزيارة المقترحة" data-i18n-en="Suggested Visiting Times">مواعيد الزيارة المقترحة</h2>
+<p data-i18n-ar="أوقات مناسبة لزيارة القبر والسلام على الفقيد والدعاء له وفق السنة النبوية الشريفة." data-i18n-en="Recommended times to visit the grave, send peace upon him, and pray for him according to the Sunnah.">
               أوقات مناسبة لزيارة القبر والسلام على الفقيد والدعاء له وفق السنة النبوية الشريفة.
             </p>
-          </div>
-
-          <div class="visitation-cards">
-            <!-- Card 1 -->
-            <div class="visitation-card">
-              <div class="visitation-date-badge">
-                <div class="date-day">١٨</div>
-                <div class="date-month" data-i18n-ar="مايو ٢٠٢٦" data-i18n-en="MAY 2026">مايو ٢٠٢٦</div>
-              </div>
-              <div class="visitation-info">
-                <h4 data-i18n-ar="زيارة عصر الجمعة" data-i18n-en="Friday Afternoon Visit">زيارة عصر الجمعة</h4>
-                <p style="font-size: 0.92rem;" data-i18n-ar="زيارة هادئة للدعاء في ساعة الإجابة المباركة يوم الجمعة." data-i18n-en="A calm time to pray during the blessed hour on Friday.">
+</div>
+<div class="visitation-cards">
+<!-- Card 1 -->
+<div class="visitation-card">
+<div class="visitation-date-badge">
+<div class="date-day">١٨</div>
+<div class="date-month" data-i18n-ar="مايو ٢٠٢٦" data-i18n-en="MAY 2026">مايو ٢٠٢٦</div>
+</div>
+<div class="visitation-info">
+<h4 data-i18n-ar="زيارة عصر الجمعة" data-i18n-en="Friday Afternoon Visit">زيارة عصر الجمعة</h4>
+<p data-i18n-ar="زيارة هادئة للدعاء في ساعة الإجابة المباركة يوم الجمعة." data-i18n-en="A calm time to pray during the blessed hour on Friday." style="font-size: 0.92rem;">
                   زيارة هادئة للدعاء في ساعة الإجابة المباركة يوم الجمعة.
                 </p>
-              </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="visitation-card">
-              <div class="visitation-date-badge">
-                <div class="date-day">٢٥</div>
-                <div class="date-month" data-i18n-ar="مايو ٢٠٢٦" data-i18n-en="MAY 2026">مايو ٢٠٢٦</div>
-              </div>
-              <div class="visitation-info">
-                <h4 data-i18n-ar="اجتماع العائلة للدعاء" data-i18n-en="Family Prayer Gathering">اجتماع العائلة للدعاء</h4>
-                <p style="font-size: 0.92rem;" data-i18n-ar="لقاء يجمع الأهل والمحبين للدعاء للفقيد وتفقد مشاريع الوقف." data-i18n-en="Family and friends gather to pray together and review the ongoing charity projects.">
+</div>
+</div>
+<!-- Card 2 -->
+<div class="visitation-card">
+<div class="visitation-date-badge">
+<div class="date-day">٢٥</div>
+<div class="date-month" data-i18n-ar="مايو ٢٠٢٦" data-i18n-en="MAY 2026">مايو ٢٠٢٦</div>
+</div>
+<div class="visitation-info">
+<h4 data-i18n-ar="اجتماع العائلة للدعاء" data-i18n-en="Family Prayer Gathering">اجتماع العائلة للدعاء</h4>
+<p data-i18n-ar="لقاء يجمع الأهل والمحبين للدعاء للفقيد وتفقد مشاريع الوقف." data-i18n-en="Family and friends gather to pray together and review the ongoing charity projects." style="font-size: 0.92rem;">
                   لقاء يجمع الأهل والمحبين للدعاء للفقيد وتفقد مشاريع الوقف.
                 </p>
-              </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="visitation-card">
-              <div class="visitation-date-badge">
-                <div class="date-day">٠١</div>
-                <div class="date-month" data-i18n-ar="يونيو ٢٠٢٦" data-i18n-en="JUN 2026">يونيو ٢٠٢٦</div>
-              </div>
-              <div class="visitation-info">
-                <h4 data-i18n-ar="المواعيد القادمة" data-i18n-en="Upcoming Dates">المواعيد القادمة</h4>
-                <p style="font-size: 0.92rem;" data-i18n-ar="سيتم تحديث المواعيد والتنسيق مع المقبرة باستمرار." data-i18n-en="Visiting times and cemetery updates will be shared here regularly.">
+</div>
+</div>
+<!-- Card 3 -->
+<div class="visitation-card">
+<div class="visitation-date-badge">
+<div class="date-day">٠١</div>
+<div class="date-month" data-i18n-ar="يونيو ٢٠٢٦" data-i18n-en="JUN 2026">يونيو ٢٠٢٦</div>
+</div>
+<div class="visitation-info">
+<h4 data-i18n-ar="المواعيد القادمة" data-i18n-en="Upcoming Dates">المواعيد القادمة</h4>
+<p data-i18n-ar="سيتم تحديث المواعيد والتنسيق مع المقبرة باستمرار." data-i18n-en="Visiting times and cemetery updates will be shared here regularly." style="font-size: 0.92rem;">
                   سيتم تحديث المواعيد والتنسيق مع المقبرة باستمرار.
                 </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-grid">
-          <!-- Col 1: Brand & Purpose -->
-          <div class="footer-brand">
-            <div class="brand-logo">
-              <div class="brand-emblem">
-            <img src="./assets/newlogo.jpg" alt="Abdullah Alajlan Endowment" />
-          </div>
-              <div class="brand-text">
-                <span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Charity">وقف عبدالله العجلان</span>
-                <span class="brand-sub" data-i18n-ar="صدقة جارية ودعاء مستمر" data-i18n-en="Ongoing charity and sincere prayers">صدقة جارية ودعاء مستمر</span>
-              </div>
-            </div>
-            <p data-i18n-ar="وقف خيري يهدف إلى إحياء ذكرى الفقيد رحمه الله من خلال سقيا الماء، وبناء المساجد، ورعاية الأيتام والمحتاجين." data-i18n-en="A non-profit charity created in memory of Abdullah Alajlan to support clean water, build mosques, and care for orphans and people in need.">
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="site-footer">
+<div class="container">
+<div class="footer-grid">
+<!-- Col 1: Brand & Purpose -->
+<div class="footer-brand">
+<div class="brand-logo">
+<div class="brand-emblem">
+<img alt="Abdullah Alajlan Endowment" src="./assets/newlogo.jpg"/>
+</div>
+<div class="brand-text">
+<span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Charity">وقف عبدالله العجلان</span>
+<span class="brand-sub" data-i18n-ar="صدقة جارية ودعاء مستمر" data-i18n-en="Ongoing charity and sincere prayers">صدقة جارية ودعاء مستمر</span>
+</div>
+</div>
+<p data-i18n-ar="وقف خيري يهدف إلى إحياء ذكرى الفقيد رحمه الله من خلال سقيا الماء، وبناء المساجد، ورعاية الأيتام والمحتاجين." data-i18n-en="A non-profit charity created in memory of Abdullah Alajlan to support clean water, build mosques, and care for orphans and people in need.">
               وقف خيري يهدف إلى إحياء ذكرى الفقيد رحمه الله من خلال سقيا الماء، وبناء المساجد، ورعاية الأيتام والمحتاجين.
             </p>
-          </div>
+</div>
+<!-- Col 2: Quick Links -->
+<div class="footer-col">
+<h4 data-i18n-ar="صفحات الموقع" data-i18n-en="Quick Links">صفحات الموقع</h4>
+<ul class="footer-links">
+<li><a data-i18n-ar="الرئيسية" data-i18n-en="Home" href="index.html">الرئيسية</a></li>
+<li><a data-i18n-ar="موقع القبر والزيارة" data-i18n-en="Grave Location" href="grave-locator.html">موقع القبر والزيارة</a></li>
+<li><a data-i18n-ar="ادعُ له بالرحمة" data-i18n-en="Pray for Him" href="pray.html">ادعُ له بالرحمة</a></li>
+<li><a data-i18n-ar="مركز المعرفة" data-i18n-en="Knowledge Hub" href="knowledge-hub.html">مركز المعرفة</a></li>
+<li><a data-i18n-ar="المساهمة والتبرع" data-i18n-en="Donate" href="donate.html">المساهمة والتبرع</a></li>
+</ul>
+</div>
+<!-- Col 3: Legal & Privacy -->
+<div class="footer-col">
+<h4 data-i18n-ar="معلومات وروابط" data-i18n-en="Helpful Links">معلومات وروابط</h4>
+<ul class="footer-links">
+<li><a data-i18n-ar="سياسة الخصوصية" data-i18n-en="Privacy Policy" href="privacy.html">سياسة الخصوصية</a></li>
+<li><a data-i18n-ar="آداب زيارة القبور" data-i18n-en="Visiting Manners" href="knowledge-hub.html#etiquette">آداب زيارة القبور</a></li>
+</ul>
+</div>
 
-          <!-- Col 2: Quick Links -->
-          <div class="footer-col">
-            <h4 data-i18n-ar="صفحات الموقع" data-i18n-en="Quick Links">صفحات الموقع</h4>
-            <ul class="footer-links">
-              <li><a href="index.html" data-i18n-ar="الرئيسية" data-i18n-en="Home">الرئيسية</a></li>
-              <li><a href="grave-locator.html" data-i18n-ar="موقع القبر والزيارة" data-i18n-en="Grave Location">موقع القبر والزيارة</a></li>
-              <li><a href="pray.html" data-i18n-ar="ادعُ له بالرحمة" data-i18n-en="Pray for Him">ادعُ له بالرحمة</a></li>
-              <li><a href="knowledge-hub.html" data-i18n-ar="مركز المعرفة" data-i18n-en="Knowledge Hub">مركز المعرفة</a></li>
-              <li><a href="donate.html" data-i18n-ar="المساهمة والتبرع" data-i18n-en="Donate">المساهمة والتبرع</a></li>
-            </ul>
-          </div>
 
-          <!-- Col 3: Legal & Privacy -->
-          <div class="footer-col">
-            <h4 data-i18n-ar="معلومات وروابط" data-i18n-en="Helpful Links">معلومات وروابط</h4>
-            <ul class="footer-links">
-              <li><a href="privacy.html" data-i18n-ar="سياسة الخصوصية" data-i18n-en="Privacy Policy">سياسة الخصوصية</a></li>
-              <li><a href="knowledge-hub.html#etiquette" data-i18n-ar="آداب زيارة القبور" data-i18n-en="Visiting Manners">آداب زيارة القبور</a></li>
-            </ul>
-          </div>
-
-          <!-- Col 4: Partner Badges (AWQAF & NCNP) -->
-          <div class="footer-col">
-            <h4 data-i18n-ar="الجهات المشرفة والشركاء" data-i18n-en="Supervising Entities & Partners">الجهات المشرفة والشركاء</h4>
-            <div class="partner-badges">
-              <!-- AWQAF Official Logo -->
-              <div class="partner-badge" title="الهيئة العامة للأوقاف">
-                <img src="./assets/logo_awqaf.svg" alt="الهيئة العامة للأوقاف - AWQAF" class="partner-badge-img" />
-              </div>
-
-              <!-- NCNP Official Logo -->
-              <div class="partner-badge" title="المركز الوطني لتنمية القطاع غير الربحي">
-                <img src="./assets/logo_ncnp.svg" alt="المركز الوطني لتنمية القطاع غير الربحي" class="partner-badge-img" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bottom Copyright -->
-        <div class="footer-bottom">
-          <div data-i18n-ar="جميع الحقوق محفوظة © 2026 وقف عبدالله محمد العجلان رحمه الله." data-i18n-en="All Rights Reserved © 2026 Abdullah Mohammed Alajlan Charity.">
+</div>
+<!-- Bottom Copyright -->
+<div class="footer-bottom">
+<div data-i18n-ar="جميع الحقوق محفوظة © 2026 وقف عبدالله محمد العجلان رحمه الله." data-i18n-en="All Rights Reserved © 2026 Abdullah Mohammed Alajlan Charity.">
             جميع الحقوق محفوظة © 2026 وقف عبدالله محمد العجلان رحمه الله.
           </div>
-          <div style="font-size: 0.82rem; color: var(--gold-accent);" data-i18n-ar="اللهم اجعل هذا العمل خالصاً لوجهك الكريم وثواباً لفقيدنا" data-i18n-en="O Allah, accept this work sincerely and reward our deceased">
+<div data-i18n-ar="اللهم اجعل هذا العمل خالصاً لوجهك الكريم وثواباً لفقيدنا" data-i18n-en="O Allah, accept this work sincerely and reward our deceased" style="font-size: 0.82rem; color: var(--gold-accent);">
             اللهم اجعل هذا العمل خالصاً لوجهك الكريم وثواباً لفقيدنا
           </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="./js/i18n.js"></script>
-    <script src="./js/common.js"></script>
-  </body>
+</div>
+</div>
+</footer>
+<!-- Scripts -->
+<script src="./js/i18n.js"></script>
+<script src="./js/common.js"></script>
+</body>
 </html>

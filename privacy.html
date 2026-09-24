@@ -1,232 +1,202 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n-ar="سياسة الخصوصية وحماية البيانات | وقف عبدالله العجلان" data-i18n-en="Privacy Policy | Abdullah Alajlan Charity">سياسة الخصوصية وحماية البيانات | وقف عبدالله العجلان</title>
-    <meta name="description" data-i18n-ar="سياسة الخصوصية لوقف عبدالله العجلان - موقع ثابت بدون حسابات مستخدمين ولا جمع لأي بيانات شخصية." data-i18n-en="Privacy policy of Abdullah Alajlan Charity - no user accounts, no tracking, and no personal data collected." content="سياسة الخصوصية" />
-    <meta property="og:title" content="Privacy Policy | Abdullah Alajlan Charity" />
-    <link rel="icon" type="image/jpeg" href="./assets/newlogo.jpg" />
-    
-    <link rel="stylesheet" href="./css/tokens.css" />
-    <link rel="stylesheet" href="./css/main.css" />
-  </head>
-  <body>
-    <!-- Sticky Header -->
-    <header class="site-header">
-      <div class="container header-container">
-        <a href="index.html" class="brand-logo" aria-label="Abdullah Alajlan Endowment">
-          <div class="brand-emblem">
-            <img src="./assets/newlogo.jpg" alt="Abdullah Alajlan Endowment" />
-          </div>
-          <div class="brand-text">
-            <span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Endowment">وقف عبدالله العجلان</span>
-          </div>
-        </a>
+<!DOCTYPE html>
 
-        <nav aria-label="Main Navigation">
-          <ul class="nav-links">
-            <li><a href="index.html" class="nav-link" data-i18n-ar="الرئيسية" data-i18n-en="Home">الرئيسية</a></li>
-            <li><a href="grave-locator.html" class="nav-link" data-i18n-ar="موقع القبر" data-i18n-en="Grave Locator">موقع القبر</a></li>
-            <li><a href="pray.html" class="nav-link" data-i18n-ar="ادعُ له" data-i18n-en="Pray for him">ادعُ له</a></li>
-            <li><a href="knowledge-hub.html" class="nav-link" data-i18n-ar="مركز المعرفة" data-i18n-en="Knowledge Hub">مركز المعرفة</a></li>
-            <li><a href="donate.html" class="nav-link" data-i18n-ar="تبرّع للوقف" data-i18n-en="Donate">تبرّع للوقف</a></li>
-          </ul>
-        </nav>
-
-        <div class="header-actions">
-          <button id="lang-toggle-btn" class="lang-toggle-btn" aria-label="Switch Language">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
-              <path d="M2 12h20"></path>
-            </svg>
-            <span id="lang-toggle-text">English</span>
-          </button>
-
-          <button id="hamburger-btn" class="hamburger-btn" aria-label="Open Navigation Menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="4" x2="20" y1="12" y2="12"></line>
-              <line x1="4" x2="20" y1="6" y2="6"></line>
-              <line x1="4" x2="20" y1="18" y2="18"></line>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </header>
-
-    <!-- Mobile Drawer Overlay -->
-    <div id="mobile-overlay" class="mobile-menu-overlay"></div>
-
-    <!-- Mobile Drawer -->
-    <aside id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation">
-      <div class="drawer-header">
-        <div class="brand-text">
-          <span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Endowment">وقف عبدالله العجلان</span>
-        </div>
-        <button id="drawer-close-btn" class="drawer-close-btn" aria-label="Close menu">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-      <ul class="drawer-nav-list">
-        <li><a href="index.html" class="drawer-nav-link" data-i18n-ar="الرئيسية" data-i18n-en="Home">الرئيسية</a></li>
-        <li><a href="grave-locator.html" class="drawer-nav-link" data-i18n-ar="موقع القبر" data-i18n-en="Grave Locator">موقع القبر</a></li>
-        <li><a href="pray.html" class="drawer-nav-link" data-i18n-ar="ادعُ له" data-i18n-en="Pray for him">ادعُ له</a></li>
-        <li><a href="knowledge-hub.html" class="drawer-nav-link" data-i18n-ar="مركز المعرفة" data-i18n-en="Knowledge Hub">مركز المعرفة</a></li>
-        <li><a href="donate.html" class="drawer-nav-link" data-i18n-ar="تبرّع للوقف" data-i18n-en="Donate">تبرّع للوقف</a></li>
-        <li><a href="privacy.html" class="drawer-nav-link active" data-i18n-ar="سياسة الخصوصية" data-i18n-en="Privacy Policy">سياسة الخصوصية</a></li>
-      </ul>
-      <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <button id="mobile-lang-toggle-btn" class="btn btn-secondary btn-sm" style="width: 100%;">
-          <span id="mobile-lang-toggle-text">English</span>
-        </button>
-      </div>
-    </aside>
-
-    <!-- Main Container -->
-    <main>
-      <section class="page-hero-banner">
-        <div class="container" style="max-width: 820px;">
-          <div class="section-header" style="margin-bottom: 0;">
-            <span class="badge badge-emerald" style="margin-bottom: 0.75rem;" data-i18n-ar="الشفافية والخصوصية التامة" data-i18n-en="Privacy & Safety">
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-i18n-ar="سياسة الخصوصية وحماية البيانات | وقف عبدالله العجلان" data-i18n-en="Privacy Policy | Abdullah Alajlan Charity">سياسة الخصوصية وحماية البيانات | وقف عبدالله العجلان</title>
+<meta content="سياسة الخصوصية" data-i18n-ar="سياسة الخصوصية لوقف عبدالله العجلان - موقع ثابت بدون حسابات مستخدمين ولا جمع لأي بيانات شخصية." data-i18n-en="Privacy policy of Abdullah Alajlan Charity - no user accounts, no tracking, and no personal data collected." name="description"/>
+<meta content="Privacy Policy | Abdullah Alajlan Charity" property="og:title"/>
+<link href="./assets/newlogo.jpg" rel="icon" type="image/jpeg"/>
+<link href="./css/tokens.css" rel="stylesheet"/>
+<link href="./css/main.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Sticky Header -->
+<header class="site-header">
+<div class="container header-container">
+<a aria-label="Abdullah Alajlan Endowment" class="brand-logo" href="index.html">
+<div class="brand-emblem">
+<img alt="Abdullah Alajlan Endowment" src="./assets/newlogo.jpg"/>
+</div>
+<div class="brand-text">
+<span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Endowment">وقف عبدالله العجلان</span>
+</div>
+</a>
+<nav aria-label="Main Navigation">
+<ul class="nav-links">
+<li><a class="nav-link" data-i18n-ar="الرئيسية" data-i18n-en="Home" href="index.html">الرئيسية</a></li>
+<li><a class="nav-link" data-i18n-ar="موقع القبر" data-i18n-en="Grave Locator" href="grave-locator.html">موقع القبر</a></li>
+<li><a class="nav-link" data-i18n-ar="ادعُ له" data-i18n-en="Pray for him" href="pray.html">ادعُ له</a></li>
+<li><a class="nav-link" data-i18n-ar="مركز المعرفة" data-i18n-en="Knowledge Hub" href="knowledge-hub.html">مركز المعرفة</a></li>
+<li><a class="nav-link" data-i18n-ar="تبرّع للوقف" data-i18n-en="Donate" href="donate.html">تبرّع للوقف</a></li>
+</ul>
+</nav>
+<div class="header-actions">
+<button aria-label="Switch Language" class="lang-toggle-btn" id="lang-toggle-btn">
+<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16">
+<circle cx="12" cy="12" r="10"></circle>
+<path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+<path d="M2 12h20"></path>
+</svg>
+<span id="lang-toggle-text">English</span>
+</button>
+<button aria-label="Open Navigation Menu" class="hamburger-btn" id="hamburger-btn">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24">
+<line x1="4" x2="20" y1="12" y2="12"></line>
+<line x1="4" x2="20" y1="6" y2="6"></line>
+<line x1="4" x2="20" y1="18" y2="18"></line>
+</svg>
+</button>
+</div>
+</div>
+</header>
+<!-- Mobile Drawer Overlay -->
+<div class="mobile-menu-overlay" id="mobile-overlay"></div>
+<!-- Mobile Drawer -->
+<aside aria-label="Mobile Navigation" class="mobile-drawer" id="mobile-drawer">
+<div class="drawer-header">
+<div class="brand-text">
+<span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Endowment">وقف عبدالله العجلان</span>
+</div>
+<button aria-label="Close menu" class="drawer-close-btn" id="drawer-close-btn">
+<svg fill="none" height="22" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="22">
+<line x1="18" x2="6" y1="6" y2="18"></line>
+<line x1="6" x2="18" y1="6" y2="18"></line>
+</svg>
+</button>
+</div>
+<ul class="drawer-nav-list">
+<li><a class="drawer-nav-link" data-i18n-ar="الرئيسية" data-i18n-en="Home" href="index.html">الرئيسية</a></li>
+<li><a class="drawer-nav-link" data-i18n-ar="موقع القبر" data-i18n-en="Grave Locator" href="grave-locator.html">موقع القبر</a></li>
+<li><a class="drawer-nav-link" data-i18n-ar="ادعُ له" data-i18n-en="Pray for him" href="pray.html">ادعُ له</a></li>
+<li><a class="drawer-nav-link" data-i18n-ar="مركز المعرفة" data-i18n-en="Knowledge Hub" href="knowledge-hub.html">مركز المعرفة</a></li>
+<li><a class="drawer-nav-link" data-i18n-ar="تبرّع للوقف" data-i18n-en="Donate" href="donate.html">تبرّع للوقف</a></li>
+<li><a class="drawer-nav-link active" data-i18n-ar="سياسة الخصوصية" data-i18n-en="Privacy Policy" href="privacy.html">سياسة الخصوصية</a></li>
+</ul>
+<div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+<button class="btn btn-secondary btn-sm" id="mobile-lang-toggle-btn" style="width: 100%;">
+<span id="mobile-lang-toggle-text">English</span>
+</button>
+</div>
+</aside>
+<!-- Main Container -->
+<main>
+<section class="page-hero-banner">
+<div class="container" style="max-width: 820px;">
+<div class="section-header" style="margin-bottom: 0;">
+<span class="badge badge-emerald" data-i18n-ar="الشفافية والخصوصية التامة" data-i18n-en="Privacy &amp; Safety" style="margin-bottom: 0.75rem;">
               الشفافية والخصوصية التامة
             </span>
-            <h1 style="margin-bottom: 0.75rem;" data-i18n-ar="سياسة الخصوصية وحماية البيانات" data-i18n-en="Privacy Policy">
+<h1 data-i18n-ar="سياسة الخصوصية وحماية البيانات" data-i18n-en="Privacy Policy" style="margin-bottom: 0.75rem;">
               سياسة الخصوصية وحماية البيانات
             </h1>
-            <p data-i18n-ar="نلتزم بحماية خصوصيتك بالكامل، ولا نقوم بجمع أو حفظ أي بيانات شخصية تخص الزوار." data-i18n-en="We care about your privacy. We do not collect, store, or share any personal information.">
+<p data-i18n-ar="نلتزم بحماية خصوصيتك بالكامل، ولا نقوم بجمع أو حفظ أي بيانات شخصية تخص الزوار." data-i18n-en="We care about your privacy. We do not collect, store, or share any personal information.">
               نلتزم بحماية خصوصيتك بالكامل، ولا نقوم بجمع أو حفظ أي بيانات شخصية تخص الزوار.
             </p>
-          </div>
-        </div>
-      </section>
-
-      <div class="container" style="max-width: 820px; padding-bottom: 5rem;">
-
-        <div class="card card-gold-accent" style="padding: 2.5rem; line-height: 1.85;">
-          
-          <!-- Key Statement 1: No User Accounts, No Database -->
-          <div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 2rem;">
-            <div style="width: 44px; height: 44px; border-radius: var(--radius-sm); background-color: var(--emerald-glow); color: #10b981; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
-            </div>
-            <div>
-              <h3 style="margin-bottom: 0.5rem;" data-i18n-ar="لا توجد حسابات مستخدمين ولا قواعد بيانات خارجية" data-i18n-en="No Accounts & No Database">
+</div>
+</div>
+</section>
+<div class="container" style="max-width: 820px; padding-bottom: 5rem;">
+<div class="card card-gold-accent" style="padding: 2.5rem; line-height: 1.85;">
+<!-- Key Statement 1: No User Accounts, No Database -->
+<div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 2rem;">
+<div style="width: 44px; height: 44px; border-radius: var(--radius-sm); background-color: var(--emerald-glow); color: #10b981; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+<svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="24">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+</svg>
+</div>
+<div>
+<h3 data-i18n-ar="لا توجد حسابات مستخدمين ولا قواعد بيانات خارجية" data-i18n-en="No Accounts &amp; No Database" style="margin-bottom: 0.5rem;">
                 لا توجد حسابات مستخدمين ولا قواعد بيانات خارجية
               </h3>
-              <p data-i18n-ar="موقع وقف عبدالله العجلان موقع تعريفي وثابت بالكامل؛ لا يتطلب تسجيل الدخول أو إنشاء حساب، ولا يمتلك أي خوادم أو قواعد بيانات لتخزين أسماء الزوار أو بريدهم الإلكتروني أو أرقام هواتفهم، ولا نرسل أي رسائل دعائية." data-i18n-en="This website does not require an account or login. We do not have any database or server storing personal information such as your name, email, or phone number. We do not send marketing messages or share data with anyone.">
+<p data-i18n-ar="موقع وقف عبدالله العجلان موقع تعريفي وثابت بالكامل؛ لا يتطلب تسجيل الدخول أو إنشاء حساب، ولا يمتلك أي خوادم أو قواعد بيانات لتخزين أسماء الزوار أو بريدهم الإلكتروني أو أرقام هواتفهم، ولا نرسل أي رسائل دعائية." data-i18n-en="This website does not require an account or login. We do not have any database or server storing personal information such as your name, email, or phone number. We do not send marketing messages or share data with anyone.">
                 موقع وقف عبدالله العجلان موقع تعريفي وثابت بالكامل؛ لا يتطلب تسجيل الدخول أو إنشاء حساب، ولا يمتلك أي خوادم أو قواعد بيانات لتخزين أسماء الزوار أو بريدهم الإلكتروني أو أرقام هواتفهم، ولا نرسل أي رسائل دعائية.
               </p>
-            </div>
-          </div>
-
-          <!-- Key Statement 2: LocalStorage for Prayer States -->
-          <div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 2rem;">
-            <div style="width: 44px; height: 44px; border-radius: var(--radius-sm); background-color: var(--gold-glow); color: var(--gold-accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                <line x1="8" y1="21" x2="16" y2="21"/>
-                <line x1="12" y1="17" x2="12" y2="21"/>
-              </svg>
-            </div>
-            <div>
-              <h3 style="margin-bottom: 0.5rem;" data-i18n-ar="حفظ التفضيلات على جهازك فقط (التخزين المحلي)" data-i18n-en="Your Choices Stay on Your Device">
+</div>
+</div>
+<!-- Key Statement 2: LocalStorage for Prayer States -->
+<div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 2rem;">
+<div style="width: 44px; height: 44px; border-radius: var(--radius-sm); background-color: var(--gold-glow); color: var(--gold-accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+<svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="24">
+<rect height="14" rx="2" ry="2" width="20" x="2" y="3"></rect>
+<line x1="8" x2="16" y1="21" y2="21"></line>
+<line x1="12" x2="12" y1="17" y2="21"></line>
+</svg>
+</div>
+<div>
+<h3 data-i18n-ar="حفظ التفضيلات على جهازك فقط (التخزين المحلي)" data-i18n-en="Your Choices Stay on Your Device" style="margin-bottom: 0.5rem;">
                 حفظ التفضيلات على جهازك فقط (التخزين المحلي)
               </h3>
-              <p data-i18n-ar="ميزة «دعوتُ له» واختيار اللغة (العربية أو الإنجليزية) تُحفظ فقط داخل متصفح جهازك باستخدام التخزين المحلي (LocalStorage). هذه المعلومات خاصة بك وحدك، ولا تنتقل إلى أي خادم خارجي، ويمكنك مسحها في أي وقت بمسح سجل المتصفح." data-i18n-en="When you click 'I Prayed for Him' or choose a language (Arabic or English), this choice is saved only on your own device using local storage. It is never sent to any outside server, and you can clear it anytime by clearing your browser data.">
+<p data-i18n-ar="ميزة «دعوتُ له» واختيار اللغة (العربية أو الإنجليزية) تُحفظ فقط داخل متصفح جهازك باستخدام التخزين المحلي (LocalStorage). هذه المعلومات خاصة بك وحدك، ولا تنتقل إلى أي خادم خارجي، ويمكنك مسحها في أي وقت بمسح سجل المتصفح." data-i18n-en="When you click 'I Prayed for Him' or choose a language (Arabic or English), this choice is saved only on your own device using local storage. It is never sent to any outside server, and you can clear it anytime by clearing your browser data.">
                 ميزة «دعوتُ له» واختيار اللغة (العربية أو الإنجليزية) تُحفظ فقط داخل متصفح جهازك باستخدام التخزين المحلي (LocalStorage). هذه المعلومات خاصة بك وحدك، ولا تنتقل إلى أي خادم خارجي، ويمكنك مسحها في أي وقت بمسح سجل المتصفح.
               </p>
-            </div>
-          </div>
-
-          <div style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-            <span style="font-size: 0.85rem; color: var(--text-muted);" data-i18n-ar="تاريخ التحديث: مايو ٢٠٢٦" data-i18n-en="Last updated: May 2026">
+</div>
+</div>
+<div style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+<span data-i18n-ar="تاريخ التحديث: مايو ٢٠٢٦" data-i18n-en="Last updated: May 2026" style="font-size: 0.85rem; color: var(--text-muted);">
               تاريخ التحديث: مايو ٢٠٢٦
             </span>
-            <a href="index.html" class="btn btn-primary btn-sm" data-i18n-ar="العودة للصفحة الرئيسية" data-i18n-en="Back to Home">
+<a class="btn btn-primary btn-sm" data-i18n-ar="العودة للصفحة الرئيسية" data-i18n-en="Back to Home" href="index.html">
               العودة للصفحة الرئيسية
             </a>
-          </div>
-
-          <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-            <h3 style="margin-bottom: 0.5rem;" data-i18n-ar="خدمات خارجية" data-i18n-en="Third-party services">خدمات خارجية</h3>
-            <p data-i18n-ar="قد يتصل الموقع بخدمات خارجية عند الحاجة، مثل Google Fonts وLeaflet وOpenStreetMap وخرائط Google وخرائط Apple وQuran.com وخدمة تلاوات القرآن الصوتية. قد تستقبل هذه الخدمات بيانات الاتصال الأساسية مثل عنوان IP وفقاً لسياساتها الخاصة. يمكنك مراجعة سياسات الخصوصية الخاصة بها." data-i18n-en="The website may connect to third-party services when needed, including Google Fonts, Leaflet, OpenStreetMap, Google Maps, Apple Maps, Quran.com, and Quran audio services. These services may receive basic connection data such as your IP address under their own policies. Please review their privacy policies.">قد يتصل الموقع بخدمات خارجية عند الحاجة، مثل Google Fonts وLeaflet وOpenStreetMap وخرائط Google وخرائط Apple وQuran.com وخدمة تلاوات القرآن الصوتية. قد تستقبل هذه الخدمات بيانات الاتصال الأساسية مثل عنوان IP وفقاً لسياساتها الخاصة. يمكنك مراجعة سياسات الخصوصية الخاصة بها.</p>
-          </div>
-
-        </div>
-      </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <div class="brand-logo">
-              <div class="brand-emblem">
-            <img src="./assets/newlogo.jpg" alt="Abdullah Alajlan Endowment" />
-          </div>
-              <div class="brand-text">
-                <span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Charity">وقف عبدالله العجلان</span>
-                <span class="brand-sub" data-i18n-ar="صدقة جارية ودعاء مستمر" data-i18n-en="Ongoing charity and sincere prayers">صدقة جارية ودعاء مستمر</span>
-              </div>
-            </div>
-            <p data-i18n-ar="وقف خيري يهدف إلى إحياء ذكرى الفقيد رحمه الله من خلال سقيا الماء، وبناء المساجد، ورعاية الأيتام والمحتاجين." data-i18n-en="A non-profit charity created in memory of Abdullah Alajlan to support clean water, build mosques, and care for orphans and people in need.">
+</div>
+<div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+<h3 data-i18n-ar="خدمات خارجية" data-i18n-en="Third-party services" style="margin-bottom: 0.5rem;">خدمات خارجية</h3>
+<p data-i18n-ar="قد يتصل الموقع بخدمات خارجية عند الحاجة، مثل Google Fonts وLeaflet وOpenStreetMap وخرائط Google وخرائط Apple وQuran.com وخدمة تلاوات القرآن الصوتية. قد تستقبل هذه الخدمات بيانات الاتصال الأساسية مثل عنوان IP وفقاً لسياساتها الخاصة. يمكنك مراجعة سياسات الخصوصية الخاصة بها." data-i18n-en="The website may connect to third-party services when needed, including Google Fonts, Leaflet, OpenStreetMap, Google Maps, Apple Maps, Quran.com, and Quran audio services. These services may receive basic connection data such as your IP address under their own policies. Please review their privacy policies.">قد يتصل الموقع بخدمات خارجية عند الحاجة، مثل Google Fonts وLeaflet وOpenStreetMap وخرائط Google وخرائط Apple وQuran.com وخدمة تلاوات القرآن الصوتية. قد تستقبل هذه الخدمات بيانات الاتصال الأساسية مثل عنوان IP وفقاً لسياساتها الخاصة. يمكنك مراجعة سياسات الخصوصية الخاصة بها.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="site-footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<div class="brand-logo">
+<div class="brand-emblem">
+<img alt="Abdullah Alajlan Endowment" src="./assets/newlogo.jpg"/>
+</div>
+<div class="brand-text">
+<span class="brand-name" data-i18n-ar="وقف عبدالله العجلان" data-i18n-en="Abdullah Alajlan Charity">وقف عبدالله العجلان</span>
+<span class="brand-sub" data-i18n-ar="صدقة جارية ودعاء مستمر" data-i18n-en="Ongoing charity and sincere prayers">صدقة جارية ودعاء مستمر</span>
+</div>
+</div>
+<p data-i18n-ar="وقف خيري يهدف إلى إحياء ذكرى الفقيد رحمه الله من خلال سقيا الماء، وبناء المساجد، ورعاية الأيتام والمحتاجين." data-i18n-en="A non-profit charity created in memory of Abdullah Alajlan to support clean water, build mosques, and care for orphans and people in need.">
               وقف خيري يهدف إلى إحياء ذكرى الفقيد رحمه الله من خلال سقيا الماء، وبناء المساجد، ورعاية الأيتام والمحتاجين.
             </p>
-          </div>
+</div>
+<div class="footer-col">
+<h4 data-i18n-ar="صفحات الموقع" data-i18n-en="Quick Links">صفحات الموقع</h4>
+<ul class="footer-links">
+<li><a data-i18n-ar="الرئيسية" data-i18n-en="Home" href="index.html">الرئيسية</a></li>
+<li><a data-i18n-ar="موقع القبر والزيارة" data-i18n-en="Grave Location" href="grave-locator.html">موقع القبر والزيارة</a></li>
+<li><a data-i18n-ar="ادعُ له بالرحمة" data-i18n-en="Pray for Him" href="pray.html">ادعُ له بالرحمة</a></li>
+<li><a data-i18n-ar="مركز المعرفة" data-i18n-en="Knowledge Hub" href="knowledge-hub.html">مركز المعرفة</a></li>
+<li><a data-i18n-ar="المساهمة والتبرع" data-i18n-en="Donate" href="donate.html">المساهمة والتبرع</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4 data-i18n-ar="معلومات وروابط" data-i18n-en="Helpful Links">معلومات وروابط</h4>
+<ul class="footer-links">
+<li><a data-i18n-ar="سياسة الخصوصية" data-i18n-en="Privacy Policy" href="privacy.html">سياسة الخصوصية</a></li>
+<li><a data-i18n-ar="آداب زيارة القبور" data-i18n-en="Visiting Manners" href="knowledge-hub.html#etiquette">آداب زيارة القبور</a></li>
+</ul>
+</div>
 
-          <div class="footer-col">
-            <h4 data-i18n-ar="صفحات الموقع" data-i18n-en="Quick Links">صفحات الموقع</h4>
-            <ul class="footer-links">
-              <li><a href="index.html" data-i18n-ar="الرئيسية" data-i18n-en="Home">الرئيسية</a></li>
-              <li><a href="grave-locator.html" data-i18n-ar="موقع القبر والزيارة" data-i18n-en="Grave Location">موقع القبر والزيارة</a></li>
-              <li><a href="pray.html" data-i18n-ar="ادعُ له بالرحمة" data-i18n-en="Pray for Him">ادعُ له بالرحمة</a></li>
-              <li><a href="knowledge-hub.html" data-i18n-ar="مركز المعرفة" data-i18n-en="Knowledge Hub">مركز المعرفة</a></li>
-              <li><a href="donate.html" data-i18n-ar="المساهمة والتبرع" data-i18n-en="Donate">المساهمة والتبرع</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-col">
-            <h4 data-i18n-ar="معلومات وروابط" data-i18n-en="Helpful Links">معلومات وروابط</h4>
-            <ul class="footer-links">
-              <li><a href="privacy.html" data-i18n-ar="سياسة الخصوصية" data-i18n-en="Privacy Policy">سياسة الخصوصية</a></li>
-              <li><a href="knowledge-hub.html#etiquette" data-i18n-ar="آداب زيارة القبور" data-i18n-en="Visiting Manners">آداب زيارة القبور</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-col">
-            <h4 data-i18n-ar="الجهات المشرفة والشركاء" data-i18n-en="Supervising Entities & Partners">الجهات المشرفة والشركاء</h4>
-            <div class="partner-badges">
-              <div class="partner-badge" title="الهيئة العامة للأوقاف">
-                <img src="./assets/logo_awqaf.svg" alt="الهيئة العامة للأوقاف - AWQAF" class="partner-badge-img" />
-              </div>
-
-              <div class="partner-badge" title="المركز الوطني لتنمية القطاع غير الربحي">
-                <img src="./assets/logo_ncnp.svg" alt="المركز الوطني لتنمية القطاع غير الربحي" class="partner-badge-img" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <div data-i18n-ar="جميع الحقوق محفوظة © 2026 وقف عبدالله محمد العجلان رحمه الله." data-i18n-en="All Rights Reserved © 2026 Abdullah Mohammed Alajlan Charity.">
+</div>
+<div class="footer-bottom">
+<div data-i18n-ar="جميع الحقوق محفوظة © 2026 وقف عبدالله محمد العجلان رحمه الله." data-i18n-en="All Rights Reserved © 2026 Abdullah Mohammed Alajlan Charity.">
             جميع الحقوق محفوظة © 2026 وقف عبدالله محمد العجلان رحمه الله.
           </div>
-          <div style="font-size: 0.82rem; color: var(--gold-accent);" data-i18n-ar="اللهم اجعل هذا العمل خالصاً لوجهك الكريم وثواباً لفقيدنا" data-i18n-en="O Allah, accept this work sincerely and reward our deceased">
+<div data-i18n-ar="اللهم اجعل هذا العمل خالصاً لوجهك الكريم وثواباً لفقيدنا" data-i18n-en="O Allah, accept this work sincerely and reward our deceased" style="font-size: 0.82rem; color: var(--gold-accent);">
             اللهم اجعل هذا العمل خالصاً لوجهك الكريم وثواباً لفقيدنا
           </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="./js/i18n.js"></script>
-    <script src="./js/common.js"></script>
-  </body>
+</div>
+</div>
+</footer>
+<!-- Scripts -->
+<script src="./js/i18n.js"></script>
+<script src="./js/common.js"></script>
+</body>
 </html>
