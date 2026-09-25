@@ -259,34 +259,63 @@
 
     updatePrayerButtonUI();
 
-    prayBtn.addEventListener('click', (e) => {
+    prayBtn.addEventListener('click', async (e) => {
       e.preventDefault();
 
-      // Check if already prayed
       const alreadyPrayed = localStorage.getItem(PRAYED_KEY) === 'true';
+      if (alreadyPrayed) return;
 
-      if (!alreadyPrayed) {
-        // Save state strictly to LocalStorage - NO backend/API call
-        localStorage.setItem(PRAYED_KEY, 'true');
+      const nameInput = document.getElementById('pray-name-input');
+      const messageInput = document.getElementById('pray-message-input');
+      const name = nameInput ? nameInput.value.trim() : '';
+      const message = messageInput ? messageInput.value.trim() : '';
+      const verse = QURAN_VERSES[currentVerseIndex];
+      const isArabic = (window.i18n ? window.i18n.getLang() : 'ar') === 'ar';
 
-        // Optional inputs
-        const nameInput = document.getElementById('pray-name-input');
-        const messageInput = document.getElementById('pray-message-input');
-        if (nameInput || messageInput) {
-          const note = {
-            name: nameInput ? nameInput.value.trim() : '',
-            message: messageInput ? messageInput.value.trim() : '',
-            timestamp: new Date().toISOString()
-          };
-          localStorage.setItem(PRAYER_NOTE_KEY, JSON.stringify(note));
+      prayBtn.disabled = true;
+      let toastMessage = isArabic ? 'تقبّل الله دعاءكم وكتب أجركم' : 'May Allah accept your prayer and reward you';
+
+      try {
+        const res = await fetch('/api/prayers', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, message, verse: verse.key })
+        });
+
+        if (res.status === 429) {
+          // Rate-limited: let them retry shortly, don't mark as prayed yet.
+          prayBtn.disabled = false;
+          if (window.showToast) {
+            window.showToast(isArabic
+              ? 'محاولات كثيرة خلال وقت قصير. يرجى الانتظار قليلاً ثم إعادة المحاولة.'
+              : 'Too many attempts in a short time. Please wait a moment and try again.');
+          }
+          return;
         }
-
-        const isArabic = (window.i18n ? window.i18n.getLang() : 'ar') === 'ar';
-        if (window.showToast) {
-          window.showToast(isArabic ? 'تقبّل الله دعاءكم وكتب أجركم' : 'May Allah accept your prayer and reward you');
-        }
+        // Any other outcome (success, or a duplicate/server hiccup) still
+        // proceeds to the local "prayed" state below: this button's job is
+        // to acknowledge the visitor's own act of prayer, which shouldn't
+        // hinge on a backend blip. The cloud copy is a bonus, not the
+        // source of truth for this person's own confirmation.
+      } catch (err) {
+        console.warn('Could not reach prayer storage; recorded locally only.', err);
       }
 
+      localStorage.setItem(PRAYED_KEY, 'true');
+      if (name || message) {
+        localStorage.setItem(PRAYER_NOTE_KEY, JSON.stringify({
+          name,
+          message,
+          verse: verse.key,
+          timestamp: new Date().toISOString()
+        }));
+      }
+
+      if (window.showToast) {
+        window.showToast(toastMessage);
+      }
+
+      prayBtn.disabled = false;
       updatePrayerButtonUI();
     });
   }
@@ -310,8 +339,8 @@
       if (prayStatusEl) {
         prayStatusEl.style.display = 'block';
         prayStatusEl.textContent = isArabic
-          ? 'تم حفظ تأكيد دعائك على جهازك. تقبّل الله منكم وجعله في ميزان حسناته.'
-          : 'Your prayer was saved on your device. May Allah accept your prayer and reward you.';
+          ? 'تم تسجيل دعائك. تقبّل الله منكم وجعله في ميزان حسناته.'
+          : 'Your prayer has been recorded. May Allah accept your prayer and reward you.';
       }
     } else {
       prayBtn.classList.remove('prayed-state');
