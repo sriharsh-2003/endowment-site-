@@ -525,7 +525,10 @@ html[dir="ltr"] .mobile-drawer {
   text-align: center;
   overflow: hidden;
   background:
-    linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    linear-gradient(180deg, rgba(250, 248, 243, 0.86) 0%, rgba(250, 248, 243, 0.8) 65%, var(--bg-primary) 100%),
+    url('/assets/grand_mosque_bg.jpg');
+  background-size: cover, cover;
+  background-position: center, center 30%;
   border-bottom: 2px solid var(--warm-gold);
 }
 
@@ -580,17 +583,11 @@ html[dir="ltr"] .mobile-drawer {
   position: relative;
   padding: 3.5rem 0 3rem;
   text-align: center;
-  background: 
-    linear-gradient(
-      90deg, 
-      rgba(250, 248, 243, 0.62) 0%, 
-      rgba(232, 221, 206, 0.42) 50%, 
-      rgba(250, 248, 243, 0.62) 100%
-    ), 
-    url('/assets/saudi_heritage_pattern.svg'),
-    url('/assets/palm-garden.jpg');
-  background-size: auto, 420px 420px, cover;
-  background-position: center, center, center 20%;
+  background:
+    linear-gradient(180deg, rgba(250, 248, 243, 0.86) 0%, rgba(250, 248, 243, 0.8) 65%, var(--bg-primary) 100%),
+    url('/assets/grand_mosque_bg.jpg');
+  background-size: cover, cover;
+  background-position: center, center 30%;
   border-bottom: 2px solid var(--warm-gold);
   margin-bottom: 2.5rem;
 }
@@ -1176,7 +1173,7 @@ html[dir="ltr"] .mobile-drawer {
   position: absolute;
   inset: 0;
   z-index: -1;
-  opacity: 0.25;
+  opacity: 0.15;
   background-image:
     linear-gradient(45deg, transparent 46%, var(--warm-gold) 47%, var(--warm-gold) 53%, transparent 54%),
     linear-gradient(-45deg, transparent 46%, var(--warm-gold) 47%, var(--warm-gold) 53%, transparent 54%);
@@ -1454,10 +1451,8 @@ html[dir="ltr"] .footer-col h4::after {
   background-color: rgba(244, 239, 230, 0.65);
   border-top: 1px solid var(--border-gold-subtle);
   border-bottom: 1px solid var(--border-gold-subtle);
-  background-image: 
-    url('/assets/saudi_heritage_pattern.svg'),
+  background-image:
     radial-gradient(circle at 50% 50%, rgba(194, 168, 130, 0.08) 0%, transparent 60%);
-  background-size: 480px 480px, auto;
 }
 
 .heritage-grid {

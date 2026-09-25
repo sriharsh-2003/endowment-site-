@@ -89,7 +89,7 @@
           ${isArabic ? GRAVE_TITLE_AR : GRAVE_TITLE_EN}
         </strong>
         <span style="color: #4a5568; font-size: 12px;">
-          ${isArabic ? 'المقبرة — القطاع الشرقي' : 'Cemetery — Eastern Sector'}
+          ${isArabic ? 'المقبرة، القطاع الشرقي' : 'Cemetery, Eastern Sector'}
         </span>
       </div>
     `;
