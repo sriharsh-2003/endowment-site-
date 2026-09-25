@@ -110,7 +110,10 @@
 <label class="form-label" data-i18n-ar="البريد الإلكتروني (لإرسال إيصال التبرع)" data-i18n-en="Email (to send your donation receipt)" for="donation-email">البريد الإلكتروني (لإرسال إيصال التبرع)</label>
 <input class="form-input" data-i18n-placeholder-ar="name@example.com" data-i18n-placeholder-en="name@example.com" id="donation-email" placeholder="name@example.com" type="email"/>
 </div>
-<button class="btn btn-primary btn-lg" data-i18n-ar="المتابعة إلى الدفع" data-i18n-en="Continue to payment" style="width: 100%;" type="button">المتابعة إلى الدفع</button>
+<button class="btn btn-primary btn-lg" data-i18n-ar="تسجيل رغبتي في التبرع" data-i18n-en="Submit my donation request" id="donation-submit-btn" style="width: 100%;" type="button">تسجيل رغبتي في التبرع</button>
+<p id="donation-status-message" style="margin-top: 1rem; font-size: 0.92rem; text-align: center; display: none;">
+<!-- Rendered by js/donate.js -->
+</p>
 </div>
 </div>
 <div class="card" style="margin-top: 1.5rem; padding: 2rem;">
@@ -173,6 +176,7 @@
 </footer>
 <script src="./js/i18n.js"></script>
 <script src="./js/common.js"></script>
+<script src="./js/donate.js"></script>
 <script>
       document.querySelectorAll('[data-copy]').forEach((button) => {
         button.addEventListener('click', async () => {
