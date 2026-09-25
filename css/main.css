@@ -723,7 +723,7 @@ html[dir="ltr"] .mobile-drawer {
    ========================================================================== */
 .visitation-section {
   padding: 4.5rem 0;
-  background-color: var(--bg-secondary);
+  background-color: rgba(244, 239, 230, 0.4);
 }
 
 .testimonials-section {
