@@ -127,14 +127,10 @@
 </a>
 <audio id="quran-audio" preload="none"></audio>
 </div>
-<!-- Button to select random Quran verse -->
-<div style="margin-top: 1.5rem;">
-<button aria-label="Select another Quran verse" class="btn btn-outline btn-sm" id="random-verse-btn">
-<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16">
-<path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"></path>
-</svg>
-<span data-i18n-ar="اختيار آية أخرى" data-i18n-en="Show Another Verse">اختيار آية أخرى</span>
-</button>
+<!-- Curated verse selector -->
+<div class="form-group" style="margin-top: 1.5rem; text-align: start;">
+<label class="form-label" data-i18n-ar="اختر آية من الآيات المختارة" data-i18n-en="Choose from the curated verses" for="verse-select">اختر آية من الآيات المختارة</label>
+<select aria-label="Choose a Quran verse" class="form-select" id="verse-select"></select>
 </div>
 </div>
 <!-- Interaction Form & The Core Button -->

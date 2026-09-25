@@ -9,32 +9,32 @@
 
   const QURAN_VERSES = [
     {
-      ar: 'رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ',
-      en: 'Our Lord, forgive me and my parents and the believers the Day the account is established.',
-      refAr: 'سورة إبراهيم: ٤١',
-      refEn: 'Surah Ibrahim: 41',
-      key: '14:41'
+      ar: 'رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ',
+      en: 'Our Lord, give us good in this world and good in the Hereafter, and protect us from the punishment of the Fire.',
+      refAr: 'سورة البقرة: ٢٠١',
+      refEn: 'Surah Al-Baqarah: 201',
+      key: '2:201'
     },
     {
-      ar: 'رَبِّ اغْفِرْ وَارْحَمْ وَأَنتَ خَيْرُ الرَّاحِمِينَ',
-      en: 'My Lord, forgive and have mercy, and You are the best of the merciful.',
-      refAr: 'سورة المؤمنون: ١١٨',
-      refEn: 'Surah Al-Mu’minun: 118',
-      key: '23:118'
+      ar: 'رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً ۚ إِنَّكَ أَنتَ الْوَهَّابُ',
+      en: 'Our Lord, let not our hearts deviate after You have guided us, and grant us mercy from Yourself. Indeed, You are the Bestower.',
+      refAr: 'سورة آل عمران: ٨',
+      refEn: 'Surah Ali ‘Imran: 8',
+      key: '3:8'
     },
     {
-      ar: 'وَقُل رَّبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا',
-      en: 'And say, "My Lord, have mercy upon them as they brought me up [when I was] small."',
-      refAr: 'سورة الإسراء: ٢٤',
-      refEn: 'Surah Al-Isra: 24',
-      key: '17:24'
+      ar: 'رَبَّنَا إِنَّنَا آمَنَّا فَاغْفِرْ لَنَا ذُنُوبَنَا وَقِنَا عَذَابَ النَّارِ',
+      en: 'Our Lord, indeed we have believed, so forgive us our sins and protect us from the punishment of the Fire.',
+      refAr: 'سورة آل عمران: ١٦',
+      refEn: 'Surah Ali ‘Imran: 16',
+      key: '3:16'
     },
     {
-      ar: 'وَالَّذِينَ جَاءُوا مِن بَعْدِهِمْ يَقُولُونَ رَبَّنَا اغْفِرْ لَنَا وَلِإِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالإِيمَانِ',
-      en: 'And those who came after them say, "Our Lord, forgive us and our brothers who preceded us in faith."',
-      refAr: 'سورة الحشر: ١٠',
-      refEn: 'Surah Al-Hashr: 10',
-      key: '59:10'
+      ar: 'رَبَّنَا وَآتِنَا مَا وَعَدتَّنَا عَلَىٰ رُسُلِكَ وَلَا تُخْزِنَا يَوْمَ الْقِيَامَةِ ۗ إِنَّكَ لَا تُخْلِفُ الْمِيعَادَ',
+      en: 'Our Lord, and grant us what You promised us through Your messengers and do not disgrace us on the Day of Resurrection.',
+      refAr: 'سورة آل عمران: ١٩٤',
+      refEn: 'Surah Ali ‘Imran: 194',
+      key: '3:194'
     },
     {
       ar: 'إِنَّ رَحْمَتَ اللَّهِ قَرِيبٌ مِّنَ الْمُحْسِنِينَ',
@@ -44,11 +44,53 @@
       key: '7:56'
     },
     {
-      ar: 'رَبَّنَا وَآتِنَا مَا وَعَدتَّنَا عَلَىٰ رُسُلِكَ وَلَا تُخْزِنَا يَوْمَ الْقِيَامَةِ ۗ إِنَّكَ لَا تُخْلِفُ الْمِيعَادَ',
-      en: 'Our Lord, and grant us what You promised us through Your messengers and do not disgrace us on the Day of Resurrection.',
-      refAr: 'سورة آل عمران: ١٩٤',
-      refEn: 'Surah Ali ‘Imran: 194',
-      key: '3:194'
+      ar: 'رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِن ذُرِّيَّتِي ۚ رَبَّنَا وَتَقَبَّلْ دُعَاءِ',
+      en: 'My Lord, make me an establisher of prayer, and from my descendants. Our Lord, and accept my supplication.',
+      refAr: 'سورة إبراهيم: ٤٠',
+      refEn: 'Surah Ibrahim: 40',
+      key: '14:40'
+    },
+    {
+      ar: 'رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ',
+      en: 'Our Lord, forgive me and my parents and the believers the Day the account is established.',
+      refAr: 'سورة إبراهيم: ٤١',
+      refEn: 'Surah Ibrahim: 41',
+      key: '14:41'
+    },
+    {
+      ar: 'وَقُل رَّبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا',
+      en: 'And say, "My Lord, have mercy upon them as they brought me up [when I was] small."',
+      refAr: 'سورة الإسراء: ٢٤',
+      refEn: 'Surah Al-Isra: 24',
+      key: '17:24'
+    },
+    {
+      ar: 'رَبِّ اغْفِرْ وَارْحَمْ وَأَنتَ خَيْرُ الرَّاحِمِينَ',
+      en: 'My Lord, forgive and have mercy, and You are the best of the merciful.',
+      refAr: 'سورة المؤمنون: ١١٨',
+      refEn: 'Surah Al-Mu’minun: 118',
+      key: '23:118'
+    },
+    {
+      ar: 'رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِي أَنْعَمْتَ عَلَيَّ وَعَلَىٰ وَالِدَيَّ وَأَنْ أَعْمَلَ صَالِحًا تَرْضَاهُ وَأَصْلِحْ لِي فِي ذُرِّيَّتِي ۖ إِنِّي تُبْتُ إِلَيْكَ وَإِنِّي مِنَ الْمُسْلِمِينَ',
+      en: 'My Lord, enable me to be grateful for Your favor which You have bestowed upon me and upon my parents, and to do righteousness of which You approve, and make righteous for me my descendants. Indeed, I have turned to You, and indeed, I am of the Muslims.',
+      refAr: 'سورة الأحقاف: ١٥',
+      refEn: 'Surah Al-Ahqaf: 15',
+      key: '46:15'
+    },
+    {
+      ar: 'وَالَّذِينَ جَاءُوا مِن بَعْدِهِمْ يَقُولُونَ رَبَّنَا اغْفِرْ لَنَا وَلِإِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالإِيمَانِ',
+      en: 'And those who came after them say, "Our Lord, forgive us and our brothers who preceded us in faith."',
+      refAr: 'سورة الحشر: ١٠',
+      refEn: 'Surah Al-Hashr: 10',
+      key: '59:10'
+    },
+    {
+      ar: 'رَّبِّ اغْفِرْ لِي وَلِوَالِدَيَّ وَلِمَن دَخَلَ بَيْتِيَ مُؤْمِنًا وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ',
+      en: 'My Lord, forgive me and my parents and whoever enters my house a believer, and the believing men and believing women.',
+      refAr: 'سورة نوح: ٢٨',
+      refEn: 'Surah Nuh: 28',
+      key: '71:28'
     }
   ];
 
@@ -63,6 +105,7 @@
 
     // Re-render verse translation if language changes
     window.addEventListener('languageChanged', () => {
+      populateVerseSelect();
       renderCurrentVerse();
       updateAudioButtonUI(false);
       updatePrayerButtonUI();
@@ -70,19 +113,42 @@
   });
 
   function initVerseSelector() {
-    const randomBtn = document.getElementById('random-verse-btn');
-    if (randomBtn) {
-      randomBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        let nextIndex;
-        do {
-          nextIndex = Math.floor(Math.random() * QURAN_VERSES.length);
-        } while (nextIndex === currentVerseIndex && QURAN_VERSES.length > 1);
-        currentVerseIndex = nextIndex;
-        renderCurrentVerse();
-        playSelectedVerse();
-      });
+    const select = document.getElementById('verse-select');
+    if (!select) return;
+
+    populateVerseSelect();
+
+    select.addEventListener('change', () => {
+      const nextIndex = parseInt(select.value, 10);
+      if (Number.isNaN(nextIndex) || nextIndex === currentVerseIndex) return;
+      currentVerseIndex = nextIndex;
+      stopAudio();
+      renderCurrentVerse();
+      // Intentionally no playSelectedVerse() call here: selecting a verse
+      // must never auto-start audio. Playback only ever starts from an
+      // explicit click on the "Play recitation" button.
+    });
+  }
+
+  function populateVerseSelect() {
+    const select = document.getElementById('verse-select');
+    if (!select) return;
+    const currentLang = window.i18n ? window.i18n.getLang() : (localStorage.getItem('preferred_lang') || 'ar');
+    const isArabic = currentLang === 'ar';
+
+    select.innerHTML = QURAN_VERSES.map((verse, index) => {
+      const label = isArabic ? verse.refAr : verse.refEn;
+      return `<option value="${index}">${label}</option>`;
+    }).join('');
+    select.value = String(currentVerseIndex);
+  }
+
+  function stopAudio() {
+    const audio = document.getElementById('quran-audio');
+    if (audio && !audio.paused) {
+      audio.pause();
     }
+    updateAudioButtonUI(false);
   }
 
   function renderCurrentVerse() {
