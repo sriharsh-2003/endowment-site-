@@ -127,10 +127,24 @@
 </a>
 <audio id="quran-audio" preload="none"></audio>
 </div>
-<!-- Curated verse selector -->
-<div class="form-group" style="margin-top: 1.5rem; text-align: start;">
-<label class="form-label" data-i18n-ar="اختر آية من الآيات المختارة" data-i18n-en="Choose from the curated verses" for="verse-select">اختر آية من الآيات المختارة</label>
-<select aria-label="Choose a Quran verse" class="form-select" id="verse-select"></select>
+<!-- Curated verse carousel -->
+<div style="margin-top: 1.5rem; text-align: start;">
+<span class="form-label" data-i18n-ar="اختر آية من الآيات المختارة" data-i18n-en="Choose from the curated verses" style="display: block;">اختر آية من الآيات المختارة</span>
+<div class="verse-carousel-wrap">
+<button aria-label="Previous verse" class="verse-carousel-arrow verse-carousel-arrow--prev" type="button">
+<svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="18">
+<polyline points="15 18 9 12 15 6"></polyline>
+</svg>
+</button>
+<div class="verse-carousel-mask">
+<div aria-label="Choose a Quran verse" class="verse-carousel" id="verse-carousel" role="listbox"></div>
+</div>
+<button aria-label="Next verse" class="verse-carousel-arrow verse-carousel-arrow--next" type="button">
+<svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="18">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</button>
+</div>
 </div>
 </div>
 <!-- Interaction Form & The Core Button -->

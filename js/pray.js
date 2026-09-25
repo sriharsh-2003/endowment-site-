@@ -105,7 +105,7 @@
 
     // Re-render verse translation if language changes
     window.addEventListener('languageChanged', () => {
-      populateVerseSelect();
+      populateVerseCarousel();
       renderCurrentVerse();
       updateAudioButtonUI(false);
       updatePrayerButtonUI();
@@ -113,34 +113,140 @@
   });
 
   function initVerseSelector() {
-    const select = document.getElementById('verse-select');
-    if (!select) return;
+    const carousel = document.getElementById('verse-carousel');
+    if (!carousel) return;
 
-    populateVerseSelect();
-
-    select.addEventListener('change', () => {
-      const nextIndex = parseInt(select.value, 10);
-      if (Number.isNaN(nextIndex) || nextIndex === currentVerseIndex) return;
-      currentVerseIndex = nextIndex;
-      stopAudio();
-      renderCurrentVerse();
-      // Intentionally no playSelectedVerse() call here: selecting a verse
-      // must never auto-start audio. Playback only ever starts from an
-      // explicit click on the "Play recitation" button.
-    });
+    populateVerseCarousel();
+    initCarouselDrag(carousel);
+    initCarouselWheel(carousel);
+    initCarouselArrows(carousel);
   }
 
-  function populateVerseSelect() {
-    const select = document.getElementById('verse-select');
-    if (!select) return;
+  function populateVerseCarousel() {
+    const carousel = document.getElementById('verse-carousel');
+    if (!carousel) return;
     const currentLang = window.i18n ? window.i18n.getLang() : (localStorage.getItem('preferred_lang') || 'ar');
     const isArabic = currentLang === 'ar';
 
-    select.innerHTML = QURAN_VERSES.map((verse, index) => {
+    carousel.innerHTML = QURAN_VERSES.map((verse, index) => {
       const label = isArabic ? verse.refAr : verse.refEn;
-      return `<option value="${index}">${label}</option>`;
+      const isActive = index === currentVerseIndex;
+      return `<button type="button" class="verse-chip${isActive ? ' is-active' : ''}" role="option" aria-selected="${isActive}" data-index="${index}">${label}</button>`;
     }).join('');
-    select.value = String(currentVerseIndex);
+
+    carousel.querySelectorAll('.verse-chip').forEach((chip) => {
+      chip.addEventListener('click', () => {
+        if (carousel.dataset.dragged === 'true') return; // ignore the click a drag ends with
+        selectVerse(parseInt(chip.dataset.index, 10));
+      });
+    });
+
+    updateCarouselArrowState();
+  }
+
+  function selectVerse(index) {
+    if (Number.isNaN(index) || index === currentVerseIndex) return;
+    currentVerseIndex = index;
+    stopAudio();
+    renderCurrentVerse();
+    // Intentionally no playSelectedVerse() call here: selecting a verse
+    // must never auto-start audio. Playback only ever starts from an
+    // explicit click on the "Play recitation" button.
+
+    const carousel = document.getElementById('verse-carousel');
+    if (!carousel) return;
+    carousel.querySelectorAll('.verse-chip').forEach((chip) => {
+      const isActive = parseInt(chip.dataset.index, 10) === index;
+      chip.classList.toggle('is-active', isActive);
+      chip.setAttribute('aria-selected', String(isActive));
+      if (isActive) chip.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    });
+  }
+
+  // Click-and-drag scrolling for mouse/trackpad users (touch already works
+  // natively via the browser's own horizontal scroll on overflow-x).
+  function initCarouselDrag(carousel) {
+    let isDown = false;
+    let startX = 0;
+    let startScroll = 0;
+    let moved = false;
+
+    const onDown = (e) => {
+      isDown = true;
+      moved = false;
+      carousel.classList.add('is-dragging');
+      startX = e.pageX;
+      startScroll = carousel.scrollLeft;
+    };
+    const onMove = (e) => {
+      if (!isDown) return;
+      const delta = e.pageX - startX;
+      if (Math.abs(delta) > 4) moved = true;
+      carousel.scrollLeft = startScroll - delta;
+    };
+    const endDrag = () => {
+      if (!isDown) return;
+      isDown = false;
+      carousel.classList.remove('is-dragging');
+      carousel.dataset.dragged = moved ? 'true' : 'false';
+      // Clear the drag flag after the click event that follows mouseup has
+      // had a chance to see it, so a real drag doesn't also select a chip.
+      setTimeout(() => { carousel.dataset.dragged = 'false'; }, 0);
+    };
+
+    carousel.addEventListener('mousedown', onDown);
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', endDrag);
+    carousel.addEventListener('mouseleave', () => { if (isDown) endDrag(); });
+  }
+
+  // Let a vertical mouse wheel / trackpad gesture scroll the row
+  // horizontally while the pointer is hovering over it.
+  function initCarouselWheel(carousel) {
+    carousel.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return; // already horizontal, let it be
+      e.preventDefault();
+      carousel.scrollLeft += e.deltaY;
+    }, { passive: false });
+  }
+
+  function initCarouselArrows(carousel) {
+    const wrap = carousel.closest('.verse-carousel-wrap');
+    if (!wrap) return;
+    const prevBtn = wrap.querySelector('.verse-carousel-arrow--prev');
+    const nextBtn = wrap.querySelector('.verse-carousel-arrow--next');
+
+    const scrollStep = (towardNext) => {
+      const chip = carousel.querySelector('.verse-chip');
+      const step = chip ? chip.getBoundingClientRect().width + 10 : 160;
+      // In RTL, scrollLeft's valid range is [-(max), 0]: 0 is the start
+      // (first/"prev" chip) and -(max) is the end (last/"next" chip) -
+      // the opposite sign convention from LTR's [0, max]. Read the
+      // computed direction rather than assume, so this keeps working if
+      // the language (and therefore dir) ever changes.
+      const isRtl = getComputedStyle(carousel).direction === 'rtl';
+      const sign = isRtl ? -1 : 1;
+      const dir = towardNext ? sign : -sign;
+      carousel.scrollBy({ left: dir * step * 2, behavior: 'smooth' });
+    };
+
+    if (prevBtn) prevBtn.addEventListener('click', () => scrollStep(false));
+    if (nextBtn) nextBtn.addEventListener('click', () => scrollStep(true));
+    carousel.addEventListener('scroll', () => updateCarouselArrowState(), { passive: true });
+  }
+
+  function updateCarouselArrowState() {
+    const carousel = document.getElementById('verse-carousel');
+    const wrap = carousel && carousel.closest('.verse-carousel-wrap');
+    if (!wrap) return;
+    const prevBtn = wrap.querySelector('.verse-carousel-arrow--prev');
+    const nextBtn = wrap.querySelector('.verse-carousel-arrow--next');
+    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+    // Math.abs normalizes both the LTR (0..max) and RTL (-max..0) ranges
+    // to a single "how far from the start" measure.
+    const scrolled = Math.abs(carousel.scrollLeft);
+    if (prevBtn) prevBtn.disabled = scrolled <= 2;
+    if (nextBtn) nextBtn.disabled = scrolled >= maxScroll - 2;
   }
 
   function stopAudio() {
