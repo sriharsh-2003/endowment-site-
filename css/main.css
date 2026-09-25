@@ -525,10 +525,10 @@ html[dir="ltr"] .mobile-drawer {
   text-align: center;
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(250, 248, 243, 0.86) 0%, rgba(250, 248, 243, 0.8) 65%, var(--bg-primary) 100%),
+    linear-gradient(180deg, rgba(250, 248, 243, 0.58) 0%, rgba(250, 248, 243, 0.42) 55%, var(--bg-primary) 100%),
     url('/assets/grand_mosque_bg.jpg');
   background-size: cover, cover;
-  background-position: center, center 30%;
+  background-position: center, center bottom;
   border-bottom: 2px solid var(--warm-gold);
 }
 
@@ -584,10 +584,10 @@ html[dir="ltr"] .mobile-drawer {
   padding: 3.5rem 0 3rem;
   text-align: center;
   background:
-    linear-gradient(180deg, rgba(250, 248, 243, 0.86) 0%, rgba(250, 248, 243, 0.8) 65%, var(--bg-primary) 100%),
+    linear-gradient(180deg, rgba(250, 248, 243, 0.58) 0%, rgba(250, 248, 243, 0.42) 55%, var(--bg-primary) 100%),
     url('/assets/grand_mosque_bg.jpg');
   background-size: cover, cover;
-  background-position: center, center 30%;
+  background-position: center, center bottom;
   border-bottom: 2px solid var(--warm-gold);
   margin-bottom: 2.5rem;
 }
@@ -1057,30 +1057,6 @@ html[dir="ltr"] .mobile-drawer {
   flex-wrap: wrap;
 }
 
-/* Gravestone memorial on the prayer page */
-.gravestone-card {
-  margin: 0 0 2rem;
-  overflow: hidden;
-  border: 1px solid var(--border-gold-subtle);
-  border-radius: var(--radius-lg);
-  background-color: var(--bg-card);
-  box-shadow: var(--shadow-lg);
-  text-align: center;
-}
-
-.gravestone-image {
-  display: block;
-  width: 100%;
-  max-height: 520px;
-  object-fit: cover;
-}
-
-.gravestone-card figcaption {
-  padding: 0.9rem 1rem 1rem;
-  color: var(--gold-accent);
-  font-weight: 700;
-}
-
 /* ==========================================================================
    Knowledge Hub (Articles)
    ========================================================================== */
@@ -1452,7 +1428,11 @@ html[dir="ltr"] .footer-col h4::after {
   border-top: 1px solid var(--border-gold-subtle);
   border-bottom: 1px solid var(--border-gold-subtle);
   background-image:
-    radial-gradient(circle at 50% 50%, rgba(194, 168, 130, 0.08) 0%, transparent 60%);
+    radial-gradient(circle at 50% 50%, rgba(244, 239, 230, 0.35) 0%, transparent 65%),
+    url('/assets/saudi_heritage_pattern.svg');
+  background-position: center, center;
+  background-size: auto, 360px 360px;
+  background-repeat: no-repeat, repeat;
 }
 
 .heritage-grid {
