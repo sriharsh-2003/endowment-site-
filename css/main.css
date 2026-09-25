@@ -1427,12 +1427,6 @@ html[dir="ltr"] .footer-col h4::after {
   background-color: rgba(244, 239, 230, 0.65);
   border-top: 1px solid var(--border-gold-subtle);
   border-bottom: 1px solid var(--border-gold-subtle);
-  background-image:
-    radial-gradient(circle at 50% 50%, rgba(244, 239, 230, 0.35) 0%, transparent 65%),
-    url('/assets/saudi_heritage_pattern.svg');
-  background-position: center, center;
-  background-size: auto, 360px 360px;
-  background-repeat: no-repeat, repeat;
 }
 
 .heritage-grid {
