@@ -1036,6 +1036,84 @@ html[dir="ltr"] .mobile-drawer {
   transform: translateY(-1px) scale(1.04);
 }
 
+/* Autoscrolling testimony feed (recent prayers, verse + message only) */
+.testimony-feed-section {
+  padding: 3.5rem 0 4.5rem;
+}
+
+.testimony-marquee-mask {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+}
+
+.testimony-marquee-track {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  animation: testimony-marquee-scroll linear infinite;
+  animation-duration: var(--marquee-duration, 45s);
+}
+
+.testimony-marquee-track:hover,
+.testimony-marquee-track.is-paused {
+  animation-play-state: paused;
+}
+
+@keyframes testimony-marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.testimony-card {
+  flex-shrink: 0;
+  width: 300px;
+  padding: 1.5rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.testimony-card-verse-ref {
+  display: inline-block;
+  margin-bottom: 0.7rem;
+  padding: 0.25rem 0.7rem;
+  background-color: var(--gold-glow-subtle);
+  color: var(--gold-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+}
+
+.testimony-card-message {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+}
+
+.testimony-feed-loading,
+.testimony-feed-empty {
+  padding: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimony-marquee-track {
+    animation: none;
+  }
+  .testimony-marquee-mask {
+    overflow-x: auto;
+  }
+}
+
 .pray-action-box {
   max-width: 620px;
   margin: 0 auto;

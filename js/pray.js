@@ -94,6 +94,14 @@
     }
   ];
 
+  // Exposed so other scripts on this page (the testimony feed) can look up
+  // a verse's localized reference label from its "surah:ayah" key without
+  // duplicating this list.
+  window.QURAN_VERSES_BY_KEY = QURAN_VERSES.reduce((map, verse) => {
+    map[verse.key] = verse;
+    return map;
+  }, {});
+
   let currentVerseIndex = 0;
   let verseRequestId = 0;
 

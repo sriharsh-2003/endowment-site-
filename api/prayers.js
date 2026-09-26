@@ -26,6 +26,12 @@
 //   { id, name, verse, message, createdAt }
 //   name and message are optional. verse is one of the 12 curated keys
 //   from js/pray.js's QURAN_VERSES (e.g. "14:41").
+//
+// GET ?feed=1&limit=15 returns a privacy-safe subset for public display:
+// only entries with a message, name always stripped server-side (never
+// sent over the wire in this mode), newest first, capped at `limit`.
+// Plain GET (no query) is unchanged and returns everything, name included -
+// kept for a future admin/moderation view, not used by the public site.
 
 import crypto from "node:crypto";
 
@@ -76,6 +82,25 @@ export default async function handler(req, res) {
 
   if (req.method === "GET") {
     try {
+      const isFeed = req.query && (req.query.feed === "1" || req.query.feed === "true");
+
+      if (isFeed) {
+        // Public display feed for the site: only entries that actually have
+        // a message (a bare "I prayed" with no words isn't a "testimony" to
+        // show), name always stripped regardless of what was submitted -
+        // this is enforced here, not left to the frontend to hide, so the
+        // network response itself never carries a name for this mode.
+        const limit = Math.min(parseInt((req.query && req.query.limit) || "15", 10) || 15, 50);
+        const raw = await redis(["LRANGE", LIST_KEY, "0", String(Math.max(limit * 5, 150) - 1)]);
+        const feed = (raw || [])
+          .map((item) => { try { return JSON.parse(item); } catch { return null; } })
+          .filter((p) => p && typeof p.message === "string" && p.message.length > 0)
+          .slice(0, limit)
+          .map((p) => ({ verse: p.verse, message: p.message, createdAt: p.createdAt }));
+        res.status(200).json({ prayers: feed, count: feed.length });
+        return;
+      }
+
       const raw = await redis(["LRANGE", LIST_KEY, "0", "-1"]);
       const prayers = (raw || []).map((item) => JSON.parse(item));
       res.status(200).json({ prayers, count: prayers.length });
