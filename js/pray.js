@@ -106,6 +106,13 @@
   let verseRequestId = 0;
 
   document.addEventListener('DOMContentLoaded', () => {
+    // Guard the whole pray-page initialization on the presence of its
+    // verse carousel: this file is also included on index.html purely to
+    // expose window.QURAN_VERSES_BY_KEY for the testimony feed there, and
+    // should be a complete no-op otherwise (in particular, never fire the
+    // Quran.com network fetch below when there's no verse UI to fill).
+    if (!document.getElementById('verse-carousel')) return;
+
     initVerseSelector();
     initQuranAudio();
     initPrayerButton();

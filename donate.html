@@ -66,73 +66,21 @@
 </div>
 </div>
 </section>
-<div class="container" style="max-width: 900px; padding: 3rem 1rem 5rem;">
-<div class="card card-gold-accent" style="padding: 2rem;">
-<div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap;">
-<span class="badge badge-gold" data-i18n-ar="# شارك في الأجر الجاري" data-i18n-en="# Take part in the ongoing reward"># شارك في الأجر الجاري</span>
+<div class="container" style="max-width: 700px; padding: 3rem 1rem 6rem;">
+<div class="card card-gold-accent" style="padding: 3rem 2rem; text-align: center;">
+<div style="width: 64px; height: 64px; margin: 0 auto 1.25rem; border-radius: var(--radius-full); background-color: var(--gold-glow); color: var(--gold-dark); display: flex; align-items: center; justify-content: center;">
+<svg fill="none" height="30" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="30">
+<circle cx="12" cy="12" r="10"></circle>
+<polyline points="12 6 12 12 16 14"></polyline>
+</svg>
 </div>
-<p data-i18n-ar="كل إسهام يساهم في مشاريع الوقف الخيري المخصصة باسمه، لتستمر ثمار الخير في العطاء، إن شاء الله." data-i18n-en="Every contribution goes toward endowment projects dedicated in his name, continuing to bring benefit to others, God willing." style="margin: 0 0 1.5rem; font-size: 1.06rem; line-height: 1.8; color: var(--text-secondary);">
-            كل إسهام يساهم في مشاريع الوقف الخيري المخصصة باسمه، لتستمر ثمار الخير في العطاء، إن شاء الله.
-          </p>
-<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
-<div>
-<div style="font-size: clamp(2.1rem, 2.8vw, 3.2rem); font-weight: 800; line-height: 1.1; color: var(--primary-forest);">SAR 0</div>
-<div data-i18n-ar="من أصل هدف قدره ٢٠٠,٠٠٠ ريال" data-i18n-en="of a SAR 200,000 target" style="margin-top: 0.3rem; color: var(--text-secondary); font-weight: 500;">من أصل هدف قدره ٢٠٠,٠٠٠ ريال</div>
-</div>
-<div style="font-size: clamp(1.8rem, 2.5vw, 2.4rem); font-weight: 800; color: var(--primary-forest);">0%</div>
-</div>
-<div style="margin-top: 1rem; background: rgba(194, 168, 130, 0.18); border: 1px solid rgba(194, 168, 130, 0.4); border-radius: 999px; overflow: hidden; height: 14px;">
-<div style="width: 0%; height: 100%; background: linear-gradient(90deg, #c9a861 0%, #7f9d77 100%);"></div>
-</div>
-<div style="margin-top: 0.75rem; color: var(--text-secondary); font-size: 0.9rem;">
-<span data-i18n-ar="المبلغ المحصل، يتم تحديثه يدوياً" data-i18n-en="Raised amount, last updated by hand">المبلغ المحصل، يتم تحديثه يدوياً</span>
-</div>
-<a href="https://father-charity-site.vercel.app/knowledge-hub.html" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; color: var(--primary-forest); font-weight: 700; text-decoration: none;">
-<span aria-hidden="true">→</span> <span data-i18n-ar="تصفح مركز المعرفة" data-i18n-en="Browse the knowledge hub">تصفح مركز المعرفة</span>
-</a>
-<div style="margin-top: 2rem;">
-<h3 data-i18n-ar="ساهم الآن" data-i18n-en="Give now" style="margin: 0 0 1rem; font-size: 1.6rem; color: var(--primary-forest);">ساهم الآن</h3>
-<div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem;">
-<button aria-pressed="false" class="btn btn-secondary donation-preset" data-amount="100" data-i18n-ar="١٠٠ ريال" data-i18n-en="SAR 100" style="min-width: 110px;" type="button">١٠٠ ريال</button>
-<button aria-pressed="false" class="btn btn-secondary donation-preset" data-amount="500" data-i18n-ar="٥٠٠ ريال" data-i18n-en="SAR 500" style="min-width: 110px;" type="button">٥٠٠ ريال</button>
-<button aria-pressed="false" class="btn btn-secondary donation-preset" data-amount="1000" data-i18n-ar="١٬٠٠٠ ريال" data-i18n-en="SAR 1,000" style="min-width: 110px;" type="button">١٬٠٠٠ ريال</button>
-<button aria-pressed="false" class="btn btn-secondary donation-preset" data-amount="5000" data-i18n-ar="٥٬٠٠٠ ريال" data-i18n-en="SAR 5,000" style="min-width: 110px;" type="button">٥٬٠٠٠ ريال</button>
-</div>
-<div class="form-group" style="margin-bottom: 1rem;">
-<label class="form-label" data-i18n-ar="المبلغ" data-i18n-en="Amount" for="donation-amount">المبلغ</label>
-<input class="form-input" data-i18n-placeholder-ar="أدخل المبلغ بالريال السعودي" data-i18n-placeholder-en="Enter amount in SAR" id="donation-amount" min="10" placeholder="أدخل المبلغ بالريال السعودي" step="10" type="number" value="100"/>
-</div>
-<div class="form-group" style="margin-bottom: 1rem;">
-<label class="form-label" data-i18n-ar="الاسم (اختياري)" data-i18n-en="Name (optional)" for="donation-name">الاسم (اختياري)</label>
-<input class="form-input" data-i18n-placeholder-ar="اسمك" data-i18n-placeholder-en="Your name" id="donation-name" placeholder="اسمك" type="text"/>
-</div>
-<div class="form-group" style="margin-bottom: 1.5rem;">
-<label class="form-label" data-i18n-ar="البريد الإلكتروني (لإرسال إيصال التبرع)" data-i18n-en="Email (to send your donation receipt)" for="donation-email">البريد الإلكتروني (لإرسال إيصال التبرع)</label>
-<input class="form-input" data-i18n-placeholder-ar="name@example.com" data-i18n-placeholder-en="name@example.com" id="donation-email" placeholder="name@example.com" type="email"/>
-</div>
-<button class="btn btn-primary btn-lg" data-i18n-ar="تسجيل رغبتي في التبرع" data-i18n-en="Submit my donation request" id="donation-submit-btn" style="width: 100%;" type="button">تسجيل رغبتي في التبرع</button>
-<p id="donation-status-message" style="margin-top: 1rem; font-size: 0.92rem; text-align: center; display: none;">
-<!-- Rendered by js/donate.js -->
-</p>
-</div>
-</div>
-<div class="card" style="margin-top: 1.5rem; padding: 2rem;">
-<h3 data-i18n-ar="البيانات البنكية" data-i18n-en="Bank details" style="margin: 0 0 1rem; color: var(--primary-forest);">البيانات البنكية</h3>
-<p data-i18n-ar="ستُنشر بيانات التحويل البنكي بعد التحقق والاعتماد الرسمي." data-i18n-en="Verified bank-transfer details will be published after official approval." style="margin: 0 0 1.25rem; color: var(--text-secondary); line-height: 1.7;">ستُنشر بيانات التحويل البنكي بعد التحقق والاعتماد الرسمي.</p>
-<div style="display: grid; gap: 0.85rem;">
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.9rem 1rem; background: rgba(255,255,255,0.4); flex-wrap: wrap;">
-<div data-i18n-ar="البنك: سيتم الإعلان لاحقاً" data-i18n-en="Bank: To be announced">البنك: سيتم الإعلان لاحقاً</div>
-</div>
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.9rem 1rem; background: rgba(255,255,255,0.4); flex-wrap: wrap;">
-<div data-i18n-ar="اسم الحساب: سيتم الإعلان لاحقاً" data-i18n-en="Account name: To be announced">اسم الحساب: سيتم الإعلان لاحقاً</div>
-</div>
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.9rem 1rem; background: rgba(255,255,255,0.4); flex-wrap: wrap;">
-<div data-i18n-ar="رقم الآيبان: سيتم الإعلان لاحقاً" data-i18n-en="IBAN: To be announced">رقم الآيبان: سيتم الإعلان لاحقاً</div>
-</div>
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.9rem 1rem; background: rgba(255,255,255,0.4); flex-wrap: wrap;">
-<div data-i18n-ar="رمز سويفت: سيتم الإعلان لاحقاً" data-i18n-en="SWIFT: To be announced">رمز سويفت: سيتم الإعلان لاحقاً</div>
-</div>
-</div>
+<h2 data-i18n-ar="صفحة التبرع قيد الإعداد" data-i18n-en="Donation Page Coming Soon" style="margin-bottom: 0.75rem;">
+              صفحة التبرع قيد الإعداد
+            </h2>
+<p data-i18n-ar="نعمل حالياً على إعداد وسيلة تبرع رسمية وآمنة، وسيتم تفعيل هذه الصفحة قريباً بإذن الله. نشكر لكم تفكيركم بالمساهمة في هذا الوقف، وجزاكم الله خيراً على نيتكم الطيبة." data-i18n-en="We are currently preparing a proper, secure way to donate, and this page will be enabled soon, God willing. Thank you for considering a contribution to this endowment, and may Allah reward you for your good intention." style="color: var(--text-secondary); max-width: 480px; margin: 0 auto;">
+              نعمل حالياً على إعداد وسيلة تبرع رسمية وآمنة، وسيتم تفعيل هذه الصفحة قريباً بإذن الله. نشكر لكم تفكيركم بالمساهمة في هذا الوقف، وجزاكم الله خيراً على نيتكم الطيبة.
+            </p>
+<a class="btn btn-primary" data-i18n-ar="العودة إلى الرئيسية" data-i18n-en="Back to Home" href="index.html" style="margin-top: 1.75rem; display: inline-flex;">العودة إلى الرئيسية</a>
 </div>
 </div>
 </main>
@@ -163,7 +111,6 @@
 <h4 data-i18n-ar="معلومات وخصوصية" data-i18n-en="Information">معلومات وخصوصية</h4>
 <ul class="footer-links">
 <li><a data-i18n-ar="سياسة الخصوصية" data-i18n-en="Privacy Policy" href="privacy.html">سياسة الخصوصية</a></li>
-<li><a data-i18n-ar="آداب زيارة القبور" data-i18n-en="Visiting Etiquette" href="knowledge-hub.html#etiquette">آداب زيارة القبور</a></li>
 </ul>
 </div>
 
@@ -176,7 +123,6 @@
 </footer>
 <script src="./js/i18n.js"></script>
 <script src="./js/common.js"></script>
-<script src="./js/donate.js"></script>
 <script>
       document.querySelectorAll('[data-copy]').forEach((button) => {
         button.addEventListener('click', async () => {
