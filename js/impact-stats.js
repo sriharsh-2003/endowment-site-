@@ -1,17 +1,21 @@
 /**
  * Impact stats (js/impact-stats.js)
  *
- * The "Prayers for Him" counter (#impact-prayers) is wired to the real
- * count from /api/prayers - the same storage the pray page writes to.
+ * Both stats shown here are wired to real data from /api/prayers - the
+ * same storage the pray page writes to:
+ *   - "Prayers for Him" (#impact-prayers): total entries (every click of
+ *     the pray button, whether or not a message was written).
+ *   - "Written Prayers Shared" (#impact-testimonies): messageCount, i.e.
+ *     how many of those also included a written testimony. This is a
+ *     genuinely different number from the first one, not a duplicate.
  *
- * The other three stat cards ("Shares & Community Visits", "Water & Basic
- * Needs", "Ongoing charity") have no feature behind them anywhere in this
- * codebase (no share button exists, and the other two are project-level
+ * The other stats this section used to show ("Shares & Community
+ * Visits", "Water & Basic Needs", "Ongoing charity projects") were
+ * removed rather than left as fabricated placeholders: no share button
+ * exists anywhere in this codebase, and the other two are project-level
  * figures nobody's code can compute - they'd need to come from the
- * family's own project reports). They're intentionally left showing
- * "Not available" rather than a fabricated number. If a real source for
- * any of them shows up later (e.g. a share button gets built), wire it in
- * here the same way.
+ * family's own project reports. If a real source for any of them shows up
+ * later, add a stat here the same way rather than guessing a number.
  */
 (function () {
   'use strict';
@@ -28,28 +32,38 @@
     }
   }
 
-  async function loadPrayerCount() {
-    const el = document.getElementById('impact-prayers');
-    if (!el) return;
+  async function loadImpactStats() {
+    const prayersEl = document.getElementById('impact-prayers');
+    const testimoniesEl = document.getElementById('impact-testimonies');
+    if (!prayersEl && !testimoniesEl) return;
 
     try {
       const res = await fetch('/api/prayers');
       if (!res.ok) throw new Error(`Prayers count request failed: ${res.status}`);
       const data = await res.json();
-      const count = typeof data.count === 'number' ? data.count : 0;
-      el.textContent = formatCount(count, isArabicNow());
-      el.dataset.loaded = 'true';
+      const isArabic = isArabicNow();
+
+      if (prayersEl) {
+        const count = typeof data.count === 'number' ? data.count : 0;
+        prayersEl.textContent = formatCount(count, isArabic);
+        prayersEl.dataset.loaded = 'true';
+      }
+      if (testimoniesEl) {
+        const messageCount = typeof data.messageCount === 'number' ? data.messageCount : 0;
+        testimoniesEl.textContent = formatCount(messageCount, isArabic);
+        testimoniesEl.dataset.loaded = 'true';
+      }
     } catch (err) {
-      console.warn('Could not load the prayer count; leaving the placeholder as-is.', err);
-      // Leave the existing "Not available" text in place - no fake number.
+      console.warn('Could not load impact stats; leaving the placeholders as-is.', err);
+      // Leave the existing "Not available" text in place - no fake numbers.
     }
   }
 
-  document.addEventListener('DOMContentLoaded', loadPrayerCount);
+  document.addEventListener('DOMContentLoaded', loadImpactStats);
   window.addEventListener('languageChanged', () => {
     const el = document.getElementById('impact-prayers');
     if (el && el.dataset.loaded === 'true') {
-      loadPrayerCount();
+      loadImpactStats();
     }
   });
 })();

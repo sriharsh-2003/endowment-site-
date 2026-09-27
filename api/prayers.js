@@ -31,7 +31,9 @@
 // only entries with a message, name always stripped server-side (never
 // sent over the wire in this mode), newest first, capped at `limit`.
 // Plain GET (no query) is unchanged and returns everything, name included -
-// kept for a future admin/moderation view, not used by the public site.
+// kept for a future admin/moderation view, not used by the public site -
+// plus messageCount (how many of those entries have a written message),
+// used for the homepage's "written prayers" stat.
 
 import crypto from "node:crypto";
 
@@ -103,7 +105,8 @@ export default async function handler(req, res) {
 
       const raw = await redis(["LRANGE", LIST_KEY, "0", "-1"]);
       const prayers = (raw || []).map((item) => JSON.parse(item));
-      res.status(200).json({ prayers, count: prayers.length });
+      const messageCount = prayers.filter((p) => typeof p.message === "string" && p.message.length > 0).length;
+      res.status(200).json({ prayers, count: prayers.length, messageCount });
     } catch (err) {
       res.status(500).json({ error: "Could not load prayers." });
     }
