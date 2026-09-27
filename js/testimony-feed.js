@@ -10,7 +10,8 @@
   'use strict';
 
   const FEED_LIMIT = 15;
-  const PIXELS_PER_SECOND = 40; // consistent scroll speed regardless of how many cards there are
+  const SECONDS_PER_CARD = 4.5; // count-based, not measured - see renderFeed() for why
+  const MIN_DURATION_SECONDS = 16;
   let cachedFeed = null;
 
   function isArabicNow() {
@@ -41,6 +42,7 @@
     const wrap = document.getElementById('testimony-feed-wrap');
     if (!track || !wrap) return;
     const isArabic = isArabicNow();
+    track.style.animation = ''; // clear any previous empty-state override before deciding what to render
 
     if (!cachedFeed || cachedFeed.length === 0) {
       track.style.animation = 'none';
@@ -54,14 +56,17 @@
     const cardsHtml = cachedFeed.map((entry) => buildCardHtml(entry, isArabic)).join('');
     track.innerHTML = cardsHtml + cardsHtml;
 
-    // Speed should feel the same whether there are 3 cards or 15, so base
-    // the animation duration on the actual rendered width of one set.
-    requestAnimationFrame(() => {
-      const oneSetWidth = track.scrollWidth / 2;
-      const duration = Math.max(oneSetWidth / PIXELS_PER_SECOND, 10);
-      track.style.setProperty('--marquee-duration', `${duration}s`);
-      track.style.animation = '';
-    });
+    // Duration is based on how many cards there are, not on a measured
+    // pixel width. Measuring track.scrollWidth right after setting
+    // innerHTML (even inside requestAnimationFrame) races against layout
+    // and web-font loading - the width read back can be smaller than the
+    // final rendered width, producing a duration that doesn't match the
+    // real content and a visible stutter/jump at the loop point. Every
+    // card has a fixed CSS width, so scaling duration by count gives the
+    // same "consistent speed" result without depending on measurement
+    // timing at all.
+    const duration = Math.max(cachedFeed.length * SECONDS_PER_CARD, MIN_DURATION_SECONDS);
+    track.style.setProperty('--marquee-duration', `${duration}s`);
   }
 
   async function loadFeed() {

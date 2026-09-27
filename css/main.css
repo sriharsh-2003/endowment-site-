@@ -1036,7 +1036,9 @@ html[dir="ltr"] .mobile-drawer {
   display: flex;
   gap: 1.25rem;
   width: max-content;
-  animation: testimony-marquee-scroll linear infinite;
+  animation-name: testimony-marquee-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
   animation-duration: var(--marquee-duration, 45s);
 }
 

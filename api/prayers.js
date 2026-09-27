@@ -19,13 +19,19 @@
 //   UPSTASH_REDIS_REST_URL / UPSTASH_REDIS_REST_TOKEN  (manual Upstash setup)
 //
 // Also set, by hand, in Vercel's Environment Variables:
-//   ADMIN_TOKEN   (a long random secret; not wired to any admin UI yet in
-//   this repo, reserved for a moderation view later)
+//   ADMIN_TOKEN   (a long random secret, shared with /api/visits and
+//   /api/donations; used by admin-visits.html's "Manage Prayers" section
+//   to edit/delete entries)
 //
 // DATA SHAPE: one JSON string per prayer in a single Redis list:
-//   { id, name, verse, message, createdAt }
+//   { id, name, verse, message, createdAt, editedAt? }
 //   name and message are optional. verse is one of the 12 curated keys
-//   from js/pray.js's QURAN_VERSES (e.g. "14:41").
+//   from js/pray.js's QURAN_VERSES (e.g. "14:41"). editedAt is only present
+//   after an admin edit via PATCH.
+//
+// PATCH ?id=... (admin only, X-Admin-Token header): update message/verse/
+// name on an existing entry in place, used for correcting or removing
+// inappropriate content from a testimony without deleting the whole entry.
 //
 // GET ?feed=1&limit=15 returns a privacy-safe subset for public display:
 // only entries with a message, name always stripped server-side (never
@@ -163,6 +169,60 @@ export default async function handler(req, res) {
       res.status(201).json({ prayer: entry });
     } catch (err) {
       res.status(500).json({ error: "Could not save the prayer." });
+    }
+    return;
+  }
+
+  if (req.method === "PATCH") {
+    const token = req.headers["x-admin-token"];
+    if (!ADMIN_TOKEN || !token || token !== ADMIN_TOKEN) {
+      res.status(401).json({ error: "Unauthorized." });
+      return;
+    }
+
+    const id = (req.query && req.query.id) || "";
+    if (!id) {
+      res.status(400).json({ error: "Missing id." });
+      return;
+    }
+
+    const body = req.body || {};
+
+    try {
+      const raw = await redis(["LRANGE", LIST_KEY, "0", "-1"]);
+      let index = -1;
+      let existing = null;
+      for (let i = 0; i < (raw || []).length; i++) {
+        try {
+          const parsed = JSON.parse(raw[i]);
+          if (parsed.id === id) {
+            index = i;
+            existing = parsed;
+            break;
+          }
+        } catch {
+          // skip unparseable entries
+        }
+      }
+      if (index === -1) {
+        res.status(404).json({ error: "Not found." });
+        return;
+      }
+
+      const updated = { ...existing };
+      if (typeof body.message === "string") updated.message = body.message.trim().slice(0, MAX_MESSAGE_LENGTH) || null;
+      if (typeof body.verse === "string") updated.verse = body.verse.trim().slice(0, MAX_VERSE_LENGTH) || null;
+      if (typeof body.name === "string") updated.name = body.name.trim().slice(0, MAX_NAME_LENGTH) || null;
+      updated.editedAt = new Date().toISOString();
+
+      // LSET replaces in place at the found index, preserving this entry's
+      // position in the list rather than moving it (which LREM+LPUSH would
+      // do). Small race window between LRANGE and LSET if something else
+      // writes concurrently, acceptable for a low-traffic admin tool.
+      await redis(["LSET", LIST_KEY, String(index), JSON.stringify(updated)]);
+      res.status(200).json({ prayer: updated });
+    } catch (err) {
+      res.status(500).json({ error: "Could not update the prayer." });
     }
     return;
   }

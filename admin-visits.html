@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="noindex, nofollow" name="robots"/>
-<title>إدارة مواعيد الزيارة | وقف عبدالله العجلان</title>
+<title>الإدارة | وقف عبدالله العجلان</title>
 <link href="./css/tokens.css" rel="stylesheet"/>
 <link href="./css/main.css" rel="stylesheet"/>
 <link href="./assets/newlogo.jpg" rel="icon" type="image/jpeg"/>
@@ -24,6 +24,15 @@
   .admin-list-item-desc { font-size: 0.85rem; color: var(--text-secondary); }
   .admin-delete-btn { background: none; border: 1px solid #c0392b; color: #c0392b; border-radius: var(--radius-sm); padding: 0.4rem 0.8rem; font-size: 0.82rem; cursor: pointer; white-space: nowrap; }
   .admin-delete-btn:hover { background-color: #c0392b; color: #fff; }
+  .admin-edit-btn { background: none; border: 1px solid var(--border-gold); color: var(--gold-dark); border-radius: var(--radius-sm); padding: 0.4rem 0.8rem; font-size: 0.82rem; cursor: pointer; white-space: nowrap; }
+  .admin-edit-btn:hover { background-color: var(--gold-glow); }
+  .admin-save-btn { background-color: var(--primary-forest); color: #fff; border: none; border-radius: var(--radius-sm); padding: 0.4rem 0.9rem; font-size: 0.82rem; cursor: pointer; white-space: nowrap; }
+  .admin-cancel-btn { background: none; border: 1px solid var(--border-color); color: var(--text-secondary); border-radius: var(--radius-sm); padding: 0.4rem 0.8rem; font-size: 0.82rem; cursor: pointer; white-space: nowrap; }
+  .testimony-item-meta { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.35rem; }
+  .testimony-item-message { font-size: 0.92rem; color: var(--text-primary); line-height: 1.6; }
+  .testimony-edit-fields textarea { width: 100%; min-height: 80px; padding: 0.6rem; border: 1px solid var(--border-gold); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.9rem; margin-bottom: 0.5rem; }
+  .testimony-edit-fields select { width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.85rem; margin-bottom: 0.5rem; }
+  .testimony-actions { display: flex; gap: 0.5rem; margin-top: 0.6rem; flex-wrap: wrap; }
   .admin-status { margin-top: 0.75rem; font-size: 0.88rem; }
   .admin-hidden { display: none !important; }
   @media (max-width: 560px) { .admin-row { grid-template-columns: 1fr; } }
@@ -34,7 +43,7 @@
 
   <!-- Token gate -->
   <div class="admin-card" id="token-gate">
-    <h1 class="admin-title">إدارة مواعيد الزيارة</h1>
+    <h1 class="admin-title">إدارة الموقع</h1>
     <p style="color: var(--text-secondary); margin-bottom: 1rem;">أدخل رمز الإدارة (ADMIN_TOKEN) للمتابعة. يُحفظ في هذا المتصفح فقط لهذه الجلسة.</p>
     <div class="admin-field">
       <label for="admin-token-input">رمز الإدارة</label>
@@ -80,6 +89,16 @@
     <div class="admin-card">
       <h2 class="admin-title" style="font-size: 1.3rem;">المواعيد الحالية</h2>
       <div id="visits-list">
+        <p style="color: var(--text-muted);">جارِ التحميل...</p>
+      </div>
+    </div>
+
+    <div class="admin-card">
+      <h2 class="admin-title" style="font-size: 1.3rem;">إدارة الدعوات المكتوبة</h2>
+      <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: -1rem; margin-bottom: 1.25rem;">
+        هذه هي الدعوات التي كتب فيها الزوار رسالة، وهي ما يظهر في شريط «أحدث الدعوات المشاركة» على الرئيسية. الاسم هنا يظهر لك فقط للإدارة ولا يُعرض أبداً على الموقع العام.
+      </p>
+      <div id="testimonies-list">
         <p style="color: var(--text-muted);">جارِ التحميل...</p>
       </div>
     </div>
