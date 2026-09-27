@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="noindex, nofollow" name="robots"/>
+<title>إدارة مواعيد الزيارة | وقف عبدالله العجلان</title>
+<link href="./css/tokens.css" rel="stylesheet"/>
+<link href="./css/main.css" rel="stylesheet"/>
+<link href="./assets/newlogo.jpg" rel="icon" type="image/jpeg"/>
+<style>
+  body { background-color: var(--bg-secondary); min-height: 100vh; }
+  .admin-wrap { max-width: 720px; margin: 0 auto; padding: 3rem 1.25rem 5rem; }
+  .admin-card { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2rem; margin-bottom: 1.5rem; box-shadow: var(--shadow-sm); }
+  .admin-title { margin-bottom: 1.5rem; color: var(--primary-forest); }
+  .admin-field { margin-bottom: 1rem; }
+  .admin-field label { display: block; margin-bottom: 0.4rem; font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; }
+  .admin-field input, .admin-field textarea { width: 100%; padding: 0.7rem 0.9rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.95rem; background-color: var(--bg-primary); color: var(--text-primary); }
+  .admin-field textarea { min-height: 70px; resize: vertical; }
+  .admin-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .admin-list-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); margin-bottom: 0.75rem; }
+  .admin-list-item-date { font-weight: 700; color: var(--gold-dark); white-space: nowrap; }
+  .admin-list-item-title { font-weight: 600; margin-bottom: 0.2rem; }
+  .admin-list-item-desc { font-size: 0.85rem; color: var(--text-secondary); }
+  .admin-delete-btn { background: none; border: 1px solid #c0392b; color: #c0392b; border-radius: var(--radius-sm); padding: 0.4rem 0.8rem; font-size: 0.82rem; cursor: pointer; white-space: nowrap; }
+  .admin-delete-btn:hover { background-color: #c0392b; color: #fff; }
+  .admin-status { margin-top: 0.75rem; font-size: 0.88rem; }
+  .admin-hidden { display: none !important; }
+  @media (max-width: 560px) { .admin-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="admin-wrap">
+
+  <!-- Token gate -->
+  <div class="admin-card" id="token-gate">
+    <h1 class="admin-title">إدارة مواعيد الزيارة</h1>
+    <p style="color: var(--text-secondary); margin-bottom: 1rem;">أدخل رمز الإدارة (ADMIN_TOKEN) للمتابعة. يُحفظ في هذا المتصفح فقط لهذه الجلسة.</p>
+    <div class="admin-field">
+      <label for="admin-token-input">رمز الإدارة</label>
+      <input id="admin-token-input" type="password"/>
+    </div>
+    <button class="btn btn-primary" id="unlock-btn" type="button">دخول</button>
+    <p class="admin-status" id="gate-status"></p>
+  </div>
+
+  <!-- Main admin UI, hidden until unlocked -->
+  <div class="admin-hidden" id="admin-main">
+
+    <div class="admin-card">
+      <h2 class="admin-title" style="font-size: 1.3rem;">إضافة موعد زيارة جديد</h2>
+      <div class="admin-field">
+        <label for="new-date">التاريخ</label>
+        <input id="new-date" type="date"/>
+      </div>
+      <div class="admin-row">
+        <div class="admin-field">
+          <label for="new-title-ar">العنوان (عربي)</label>
+          <input id="new-title-ar" type="text"/>
+        </div>
+        <div class="admin-field">
+          <label for="new-title-en">العنوان (إنجليزي)</label>
+          <input id="new-title-en" type="text"/>
+        </div>
+      </div>
+      <div class="admin-row">
+        <div class="admin-field">
+          <label for="new-desc-ar">الوصف (عربي)</label>
+          <textarea id="new-desc-ar"></textarea>
+        </div>
+        <div class="admin-field">
+          <label for="new-desc-en">الوصف (إنجليزي)</label>
+          <textarea id="new-desc-en"></textarea>
+        </div>
+      </div>
+      <button class="btn btn-primary" id="add-visit-btn" type="button">إضافة الموعد</button>
+      <p class="admin-status" id="add-status"></p>
+    </div>
+
+    <div class="admin-card">
+      <h2 class="admin-title" style="font-size: 1.3rem;">المواعيد الحالية</h2>
+      <div id="visits-list">
+        <p style="color: var(--text-muted);">جارِ التحميل...</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="./js/admin-visits.js"></script>
+</body>
+</html>

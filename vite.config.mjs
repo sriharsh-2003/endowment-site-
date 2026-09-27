@@ -23,6 +23,7 @@ export default defineConfig(() => {
           knowledgeHub: path.resolve(rootDir, 'knowledge-hub.html'),
           donate: path.resolve(rootDir, 'donate.html'),
           privacy: path.resolve(rootDir, 'privacy.html'),
+          adminVisits: path.resolve(rootDir, 'admin-visits.html'),
         },
       },
     },

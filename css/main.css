@@ -733,38 +733,6 @@ html[dir="ltr"] .mobile-drawer {
   background-color: rgba(244, 239, 230, 0.22);
 }
 
-.testimonials-section {
-  padding: 4.5rem 0;
-  background-color: var(--bg-primary);
-}
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-}
-
-.testimonial-card {
-  padding: 1.5rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-}
-
-.testimonial-card blockquote {
-  margin: 0 0 1rem;
-  color: var(--text-secondary);
-  line-height: 1.8;
-}
-
-.testimonial-card cite {
-  color: var(--gold-dark);
-  font-size: 0.9rem;
-  font-style: normal;
-  font-weight: 700;
-}
-
 .section-header {
   text-align: center;
   max-width: 640px;
@@ -796,6 +764,15 @@ html[dir="ltr"] .mobile-drawer {
   border-color: var(--border-gold);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+}
+
+.visitation-loading,
+.visitation-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
 }
 
 .visitation-date-badge {
