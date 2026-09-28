@@ -1040,9 +1040,17 @@ html[dir="ltr"] .mobile-drawer {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-duration: var(--marquee-duration, 45s);
+  /* Held at the start until the section reaches the viewport edge
+     (see js/testimony-feed.js), so the loop is already moving when it appears. */
+  animation-play-state: paused;
 }
 
-.testimony-marquee-track:hover,
+.testimony-marquee-track.is-running {
+  animation-play-state: running;
+}
+
+/* Hover pause must win over is-running */
+.testimony-marquee-track.is-running:hover,
 .testimony-marquee-track.is-paused {
   animation-play-state: paused;
 }
@@ -1050,6 +1058,17 @@ html[dir="ltr"] .mobile-drawer {
 @keyframes testimony-marquee-scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+
+/* In RTL the track is anchored to the right edge and overflows to the left,
+   so it has to travel to the right for the duplicated set to loop seamlessly. */
+[dir="rtl"] .testimony-marquee-track {
+  animation-name: testimony-marquee-scroll-rtl;
+}
+
+@keyframes testimony-marquee-scroll-rtl {
+  from { transform: translateX(0); }
+  to { transform: translateX(50%); }
 }
 
 .testimony-card {

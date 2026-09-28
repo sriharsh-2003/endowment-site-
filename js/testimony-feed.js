@@ -69,6 +69,24 @@
     track.style.setProperty('--marquee-duration', `${duration}s`);
   }
 
+  // Start the loop as soon as the section's edge enters the viewport (plus a
+  // small head start), instead of waiting for it to be centered on screen.
+  function watchVisibility() {
+    const track = document.getElementById('testimony-feed-track');
+    const wrap = document.getElementById('testimony-feed-wrap');
+    if (!track || !wrap) return;
+    if (!('IntersectionObserver' in window)) {
+      track.classList.add('is-running');
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        track.classList.toggle('is-running', entry.isIntersecting);
+      });
+    }, { threshold: 0, rootMargin: '0px 0px 150px 0px' });
+    observer.observe(wrap);
+  }
+
   async function loadFeed() {
     try {
       const res = await fetch(`/api/prayers?feed=1&limit=${FEED_LIMIT}`);
@@ -82,6 +100,9 @@
     renderFeed();
   }
 
-  document.addEventListener('DOMContentLoaded', loadFeed);
+  document.addEventListener('DOMContentLoaded', () => {
+    watchVisibility();
+    loadFeed();
+  });
   window.addEventListener('languageChanged', renderFeed);
 })();
