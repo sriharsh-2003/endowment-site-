@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="noindex, nofollow" name="robots"/>
-<title>الإدارة | وقف عبدالله العجلان</title>
+<title data-i18n-ar="الإدارة | وقف عبدالله العجلان" data-i18n-en="Admin | Abdullah Alajlan Endowment">الإدارة | وقف عبدالله العجلان</title>
 <link href="./css/tokens.css" rel="stylesheet"/>
 <link href="./css/main.css" rel="stylesheet"/>
 <link href="./assets/newlogo.jpg" rel="icon" type="image/jpeg"/>
@@ -36,21 +36,33 @@
   .testimony-actions { display: flex; gap: 0.5rem; margin-top: 0.6rem; flex-wrap: wrap; }
   .admin-status { margin-top: 0.75rem; font-size: 0.88rem; }
   .admin-hidden { display: none !important; }
+  .admin-topbar { display: flex; justify-content: flex-end; margin-bottom: 1rem; }
   @media (max-width: 560px) { .admin-row { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 <div class="admin-wrap">
 
+  <div class="admin-topbar">
+    <button aria-label="Switch Language" class="lang-toggle-btn" id="lang-toggle-btn" type="button">
+      <svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+        <path d="M2 12h20"></path>
+      </svg>
+      <span id="lang-toggle-text">English</span>
+    </button>
+  </div>
+
   <!-- Token gate -->
   <div class="admin-card" id="token-gate">
-    <h1 class="admin-title">إدارة الموقع</h1>
-    <p style="color: var(--text-secondary); margin-bottom: 1rem;">أدخل رمز الإدارة (ADMIN_TOKEN) للمتابعة. يُحفظ في هذا المتصفح فقط لهذه الجلسة.</p>
+    <h1 class="admin-title" data-i18n-ar="إدارة الموقع" data-i18n-en="Site Administration">إدارة الموقع</h1>
+    <p data-i18n-ar="أدخل رمز الإدارة (ADMIN_TOKEN) للمتابعة. يُحفظ في هذا المتصفح فقط لهذه الجلسة." data-i18n-en="Enter the admin token (ADMIN_TOKEN) to continue. It is kept in this browser tab only, for this session." style="color: var(--text-secondary); margin-bottom: 1rem;">أدخل رمز الإدارة (ADMIN_TOKEN) للمتابعة. يُحفظ في هذا المتصفح فقط لهذه الجلسة.</p>
     <div class="admin-field">
-      <label for="admin-token-input">رمز الإدارة</label>
+      <label data-i18n-ar="رمز الإدارة" data-i18n-en="Admin token" for="admin-token-input">رمز الإدارة</label>
       <input id="admin-token-input" type="password"/>
     </div>
-    <button class="btn btn-primary" id="unlock-btn" type="button">دخول</button>
+    <button class="btn btn-primary" data-i18n-ar="دخول" data-i18n-en="Unlock" id="unlock-btn" type="button">دخول</button>
     <p class="admin-status" id="gate-status"></p>
   </div>
 
@@ -58,65 +70,66 @@
   <div class="admin-hidden" id="admin-main">
 
     <div class="admin-card">
-      <h2 class="admin-title" style="font-size: 1.3rem;">إضافة موعد زيارة جديد</h2>
+      <h2 class="admin-title" data-i18n-ar="إضافة موعد زيارة جديد" data-i18n-en="Add a new visiting date" style="font-size: 1.3rem;">إضافة موعد زيارة جديد</h2>
       <div class="admin-field">
-        <label for="new-date">التاريخ</label>
+        <label data-i18n-ar="التاريخ" data-i18n-en="Date" for="new-date">التاريخ</label>
         <input id="new-date" type="date"/>
       </div>
       <div class="admin-row">
         <div class="admin-field">
-          <label for="new-title-ar">العنوان (عربي)</label>
+          <label data-i18n-ar="العنوان (عربي)" data-i18n-en="Title (Arabic)" for="new-title-ar">العنوان (عربي)</label>
           <input id="new-title-ar" type="text"/>
         </div>
         <div class="admin-field">
-          <label for="new-title-en">العنوان (إنجليزي)</label>
+          <label data-i18n-ar="العنوان (إنجليزي)" data-i18n-en="Title (English)" for="new-title-en">العنوان (إنجليزي)</label>
           <input id="new-title-en" type="text"/>
         </div>
       </div>
       <div class="admin-row">
         <div class="admin-field">
-          <label for="new-desc-ar">الوصف (عربي)</label>
+          <label data-i18n-ar="الوصف (عربي)" data-i18n-en="Description (Arabic)" for="new-desc-ar">الوصف (عربي)</label>
           <textarea id="new-desc-ar"></textarea>
         </div>
         <div class="admin-field">
-          <label for="new-desc-en">الوصف (إنجليزي)</label>
+          <label data-i18n-ar="الوصف (إنجليزي)" data-i18n-en="Description (English)" for="new-desc-en">الوصف (إنجليزي)</label>
           <textarea id="new-desc-en"></textarea>
         </div>
       </div>
-      <button class="btn btn-primary" id="add-visit-btn" type="button">إضافة الموعد</button>
+      <button class="btn btn-primary" data-i18n-ar="إضافة الموعد" data-i18n-en="Add date" id="add-visit-btn" type="button">إضافة الموعد</button>
       <p class="admin-status" id="add-status"></p>
     </div>
 
     <div class="admin-card">
-      <h2 class="admin-title" style="font-size: 1.3rem;">المواعيد الحالية</h2>
+      <h2 class="admin-title" data-i18n-ar="المواعيد الحالية" data-i18n-en="Current visiting dates" style="font-size: 1.3rem;">المواعيد الحالية</h2>
       <div id="visits-list">
-        <p style="color: var(--text-muted);">جارِ التحميل...</p>
+        <p data-i18n-ar="جارِ التحميل..." data-i18n-en="Loading..." style="color: var(--text-muted);">جارِ التحميل...</p>
       </div>
     </div>
 
     <div class="admin-card">
-      <h2 class="admin-title" style="font-size: 1.3rem;">إدارة الدعوات المكتوبة</h2>
-      <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: -1rem; margin-bottom: 1.25rem;">
+      <h2 class="admin-title" data-i18n-ar="إدارة الدعوات المكتوبة" data-i18n-en="Manage written prayers" style="font-size: 1.3rem;">إدارة الدعوات المكتوبة</h2>
+      <p data-i18n-ar="هذه هي الدعوات التي كتب فيها الزوار رسالة، وهي ما يظهر في شريط «أحدث الدعوات المشاركة» على الرئيسية. الاسم هنا يظهر لك فقط للإدارة ولا يُعرض أبداً على الموقع العام." data-i18n-en="These are the prayers where visitors wrote a message, which is what appears in the &quot;Recently Shared Prayers&quot; strip on the homepage. The name shown here is visible to you only, and is never displayed on the public site." style="color: var(--text-secondary); font-size: 0.85rem; margin-top: -1rem; margin-bottom: 1.25rem;">
         هذه هي الدعوات التي كتب فيها الزوار رسالة، وهي ما يظهر في شريط «أحدث الدعوات المشاركة» على الرئيسية. الاسم هنا يظهر لك فقط للإدارة ولا يُعرض أبداً على الموقع العام.
       </p>
       <div id="testimonies-list">
-        <p style="color: var(--text-muted);">جارِ التحميل...</p>
+        <p data-i18n-ar="جارِ التحميل..." data-i18n-en="Loading..." style="color: var(--text-muted);">جارِ التحميل...</p>
       </div>
     </div>
 
     <div class="admin-card">
-      <h2 class="admin-title" style="font-size: 1.3rem;">إدارة طلبات التبرع</h2>
-      <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: -1rem; margin-bottom: 1rem;">
+      <h2 class="admin-title" data-i18n-ar="إدارة طلبات التبرع" data-i18n-en="Manage donation requests" style="font-size: 1.3rem;">إدارة طلبات التبرع</h2>
+      <p data-i18n-ar="هذه طلبات نوايا التبرع فقط، لا توجد أي عملية دفع فعلية بعد. هذا القسم للإدارة فقط، ولا تُعرض هذه البيانات في أي مكان على الموقع العام." data-i18n-en="These are donation intents only; no actual payment has taken place. This section is for administration only, and this data is not shown anywhere on the public site." style="color: var(--text-secondary); font-size: 0.85rem; margin-top: -1rem; margin-bottom: 1rem;">
         هذه طلبات نوايا التبرع فقط، لا توجد أي عملية دفع فعلية بعد. هذا القسم للإدارة فقط، ولا تُعرض هذه البيانات في أي مكان على الموقع العام.
       </p>
       <p id="donations-total" style="font-weight: 700; color: var(--gold-dark); margin-bottom: 1rem;"></p>
       <div id="donations-list">
-        <p style="color: var(--text-muted);">جارِ التحميل...</p>
+        <p data-i18n-ar="جارِ التحميل..." data-i18n-en="Loading..." style="color: var(--text-muted);">جارِ التحميل...</p>
       </div>
     </div>
 
   </div>
 </div>
+<script src="./js/i18n.js"></script>
 <script src="./js/admin-visits.js"></script>
 </body>
 </html>
