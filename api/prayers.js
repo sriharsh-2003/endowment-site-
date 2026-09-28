@@ -36,10 +36,11 @@
 // GET ?feed=1&limit=15 returns a privacy-safe subset for public display:
 // only entries with a message, name always stripped server-side (never
 // sent over the wire in this mode), newest first, capped at `limit`.
-// Plain GET (no query) is unchanged and returns everything, name included -
-// kept for a future admin/moderation view, not used by the public site -
-// plus messageCount (how many of those entries have a written message),
-// used for the homepage's "written prayers" stat.
+// Plain GET (no query) returns only { count, messageCount } to the public
+// (used by the homepage stats). The full list, name included, is returned
+// only when the request carries the admin token, for the admin page's
+// "Manage Written Prayers" section. messageCount is how many entries have
+// a written message, used for the homepage's "written prayers" stat.
 
 import crypto from "node:crypto";
 
@@ -112,6 +113,15 @@ export default async function handler(req, res) {
       const raw = await redis(["LRANGE", LIST_KEY, "0", "-1"]);
       const prayers = (raw || []).map((item) => JSON.parse(item));
       const messageCount = prayers.filter((p) => typeof p.message === "string" && p.message.length > 0).length;
+
+      // The full list includes visitors' names, so only the admin token
+      // unlocks it. Everyone else (e.g. the homepage stats) gets counts only.
+      const token = req.headers["x-admin-token"];
+      const isAdminCaller = Boolean(ADMIN_TOKEN) && token === ADMIN_TOKEN;
+      if (!isAdminCaller) {
+        res.status(200).json({ count: prayers.length, messageCount });
+        return;
+      }
       res.status(200).json({ prayers, count: prayers.length, messageCount });
     } catch (err) {
       res.status(500).json({ error: "Could not load prayers." });

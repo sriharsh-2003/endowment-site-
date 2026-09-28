@@ -15,9 +15,13 @@
 // extra setup is needed beyond what prayers already requires.
 //
 // DATA SHAPE: one JSON string per entry in a single Redis list:
-//   { id, name, email, amount, currency, createdAt }
+//   { id, name, email, amount, currency, createdAt, editedAt? }
 //   name and email are optional. amount is a positive number. currency is
 //   always "SAR" for now (the only option offered on the form).
+//
+// GET, PATCH ?id=... (admin only), and DELETE ?id=... (admin only) all back
+// admin-visits.html's "Manage Donation Requests" section - this data is
+// intentionally never fetched or shown anywhere on the public site.
 
 import crypto from "node:crypto";
 
@@ -70,6 +74,14 @@ export default async function handler(req, res) {
   }
 
   if (req.method === "GET") {
+    // Admin only: donation requests contain donor names/emails/amounts and
+    // must never be publicly readable. Nothing on the public site calls
+    // this endpoint with GET.
+    const token = req.headers["x-admin-token"];
+    if (!ADMIN_TOKEN || !token || token !== ADMIN_TOKEN) {
+      res.status(401).json({ error: "Unauthorized." });
+      return;
+    }
     try {
       const raw = await redis(["LRANGE", LIST_KEY, "0", "-1"]);
       const donations = (raw || []).map((item) => JSON.parse(item));
@@ -141,6 +153,70 @@ export default async function handler(req, res) {
       res.status(201).json({ donation: entry });
     } catch (err) {
       res.status(500).json({ error: "Could not save the donation request." });
+    }
+    return;
+  }
+
+  if (req.method === "PATCH") {
+    const token = req.headers["x-admin-token"];
+    if (!ADMIN_TOKEN || !token || token !== ADMIN_TOKEN) {
+      res.status(401).json({ error: "Unauthorized." });
+      return;
+    }
+
+    const id = (req.query && req.query.id) || "";
+    if (!id) {
+      res.status(400).json({ error: "Missing id." });
+      return;
+    }
+
+    const body = req.body || {};
+
+    try {
+      const raw = await redis(["LRANGE", LIST_KEY, "0", "-1"]);
+      let index = -1;
+      let existing = null;
+      for (let i = 0; i < (raw || []).length; i++) {
+        try {
+          const parsed = JSON.parse(raw[i]);
+          if (parsed.id === id) {
+            index = i;
+            existing = parsed;
+            break;
+          }
+        } catch {
+          // skip unparseable entries
+        }
+      }
+      if (index === -1) {
+        res.status(404).json({ error: "Not found." });
+        return;
+      }
+
+      const updated = { ...existing };
+      if (body.amount !== undefined) {
+        const amount = typeof body.amount === "number" ? body.amount : parseFloat(body.amount);
+        if (!Number.isFinite(amount) || amount < MIN_AMOUNT || amount > MAX_AMOUNT) {
+          res.status(400).json({ error: "Invalid amount." });
+          return;
+        }
+        updated.amount = Math.round(amount * 100) / 100;
+      }
+      if (typeof body.name === "string") updated.name = body.name.trim().slice(0, MAX_NAME_LENGTH) || null;
+      if (typeof body.email === "string") {
+        const email = body.email.trim();
+        if (email && (!EMAIL_RE.test(email) || email.length > MAX_EMAIL_LENGTH)) {
+          res.status(400).json({ error: "Invalid email." });
+          return;
+        }
+        updated.email = email || null;
+      }
+      updated.editedAt = new Date().toISOString();
+
+      await redis(["LSET", LIST_KEY, String(index), JSON.stringify(updated)]);
+      res.status(200).json({ donation: updated });
+    } catch (err) {
+      res.status(500).json({ error: "Could not update the donation." });
     }
     return;
   }

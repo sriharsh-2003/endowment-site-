@@ -1,9 +1,12 @@
 /**
- * Admin: manage visiting dates and testimonies (js/admin-visits.js)
+ * Admin: manage visiting dates, testimonies, and donation requests
+ * (js/admin-visits.js)
  *
  * A simple, unlisted admin page (not linked from the site nav) for the
- * family to add/remove entries in /api/visits, and edit/remove written
- * prayers (testimonies) in /api/prayers, without touching code. The
+ * family to add/remove entries in /api/visits, edit/remove written prayers
+ * (testimonies) in /api/prayers, and view/edit/remove donation requests in
+ * /api/donations, without touching code. Donation data appears ONLY here,
+ * never on the public site. The
  * ADMIN_TOKEN is asked for once and kept in sessionStorage only (cleared
  * when the browser tab closes) - it is sent as an X-Admin-Token header on
  * every write, which the API checks against the real ADMIN_TOKEN env var.
@@ -213,6 +216,119 @@
     }
   }
 
+  // ---- Donation requests (admin-only view; never shown on the public site) ----
+
+  function formatAmount(n) {
+    try {
+      return new Intl.NumberFormat('ar-SA-u-nu-arab', { maximumFractionDigits: 2 }).format(n);
+    } catch {
+      return String(n);
+    }
+  }
+
+  function renderDonationsList(donations, total) {
+    const container = document.getElementById('donations-list');
+    const totalEl = document.getElementById('donations-total');
+    if (totalEl) {
+      totalEl.textContent = donations.length
+        ? `إجمالي المبالغ المسجلة (نوايا فقط): ${formatAmount(total)} ريال، من ${formatAmount(donations.length)} طلب`
+        : '';
+    }
+    if (!donations.length) {
+      container.innerHTML = '<p style="color: var(--text-muted);">لا توجد طلبات تبرع بعد.</p>';
+      return;
+    }
+    container.innerHTML = donations.map((d) => `
+      <div class="admin-list-item" data-id="${escapeHtml(d.id)}" style="flex-direction: column; align-items: stretch;">
+        <div class="donation-view" data-id="${escapeHtml(d.id)}">
+          <div class="testimony-item-meta">
+            ${escapeHtml(formatDateTime(d.createdAt))}
+            ${d.editedAt ? ' &middot; (مُعدَّل)' : ''}
+          </div>
+          <div class="testimony-item-message">
+            <strong>${escapeHtml(formatAmount(d.amount))} ${escapeHtml(d.currency || 'SAR')}</strong>
+            &middot; ${d.name ? escapeHtml(d.name) : 'بدون اسم'}
+            &middot; ${d.email ? escapeHtml(d.email) : 'بدون بريد'}
+          </div>
+          <div class="testimony-actions">
+            <button class="admin-edit-btn" data-id="${escapeHtml(d.id)}" type="button">تعديل</button>
+            <button class="admin-delete-btn" data-id="${escapeHtml(d.id)}" data-kind="donation" type="button">حذف</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    container.querySelectorAll('.admin-edit-btn').forEach((btn) => {
+      btn.addEventListener('click', () => enterDonationEditMode(btn.dataset.id, donations, total));
+    });
+    container.querySelectorAll('.admin-delete-btn[data-kind="donation"]').forEach((btn) => {
+      btn.addEventListener('click', () => deleteDonation(btn.dataset.id));
+    });
+  }
+
+  function enterDonationEditMode(id, donations) {
+    const entry = donations.find((d) => d.id === id);
+    if (!entry) return;
+    const viewEl = document.querySelector(`.donation-view[data-id="${CSS.escape(id)}"]`);
+    if (!viewEl) return;
+
+    viewEl.innerHTML = `
+      <div class="testimony-edit-fields">
+        <input class="donation-edit-amount" min="1" placeholder="المبلغ" step="any" type="number" value="${escapeHtml(String(entry.amount))}"/>
+        <input class="donation-edit-name" placeholder="الاسم (اختياري)" type="text" value="${escapeHtml(entry.name || '')}"/>
+        <input class="donation-edit-email" placeholder="البريد الإلكتروني (اختياري)" type="email" value="${escapeHtml(entry.email || '')}"/>
+      </div>
+      <div class="testimony-actions">
+        <button class="admin-save-btn" type="button">حفظ</button>
+        <button class="admin-cancel-btn" type="button">إلغاء</button>
+      </div>
+    `;
+
+    viewEl.querySelector('.admin-save-btn').addEventListener('click', () => saveDonation(id));
+    viewEl.querySelector('.admin-cancel-btn').addEventListener('click', () => loadDonationsList());
+  }
+
+  async function saveDonation(id) {
+    const viewEl = document.querySelector(`.donation-view[data-id="${CSS.escape(id)}"]`);
+    if (!viewEl) return;
+    const amount = parseFloat(viewEl.querySelector('.donation-edit-amount').value);
+    const name = viewEl.querySelector('.donation-edit-name').value.trim();
+    const email = viewEl.querySelector('.donation-edit-email').value.trim();
+
+    if (!Number.isFinite(amount) || amount <= 0) {
+      alert('يرجى إدخال مبلغ صحيح أكبر من صفر.');
+      return;
+    }
+
+    const { ok, data } = await apiRequest('PATCH', `/api/donations?id=${encodeURIComponent(id)}`, { amount, name, email });
+    if (ok) {
+      loadDonationsList();
+    } else {
+      alert('تعذّر الحفظ: ' + (data.error || 'خطأ غير معروف'));
+    }
+  }
+
+  async function deleteDonation(id) {
+    if (!confirm('هل تريد حذف طلب التبرع هذا؟ لا يمكن التراجع عن هذا الإجراء.')) return;
+    const { ok, data } = await apiRequest('DELETE', `/api/donations?id=${encodeURIComponent(id)}`);
+    if (ok) {
+      loadDonationsList();
+    } else {
+      alert('تعذّر الحذف: ' + (data.error || 'خطأ غير معروف'));
+    }
+  }
+
+  async function loadDonationsList() {
+    const { ok, data } = await apiRequest('GET', '/api/donations');
+    if (ok && Array.isArray(data.donations)) {
+      const donations = data.donations.slice().sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      const total = typeof data.total === 'number' ? data.total : donations.reduce((s, d) => s + (d.amount || 0), 0);
+      renderDonationsList(donations, total);
+    } else {
+      document.getElementById('donations-list').innerHTML = '<p style="color: #c0392b;">تعذّر تحميل طلبات التبرع.</p>';
+    }
+  }
+
   async function deleteVisit(id) {
     if (!confirm('هل تريد حذف هذا الموعد؟')) return;
     const { ok, data } = await apiRequest('DELETE', `/api/visits?id=${encodeURIComponent(id)}`);
@@ -281,6 +397,7 @@
     document.getElementById('admin-main').classList.remove('admin-hidden');
     loadVisitsList();
     loadTestimoniesList();
+    loadDonationsList();
   }
 
   document.addEventListener('DOMContentLoaded', () => {

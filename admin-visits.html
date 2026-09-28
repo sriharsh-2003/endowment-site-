@@ -32,6 +32,7 @@
   .testimony-item-message { font-size: 0.92rem; color: var(--text-primary); line-height: 1.6; }
   .testimony-edit-fields textarea { width: 100%; min-height: 80px; padding: 0.6rem; border: 1px solid var(--border-gold); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.9rem; margin-bottom: 0.5rem; }
   .testimony-edit-fields select { width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.85rem; margin-bottom: 0.5rem; }
+  .testimony-edit-fields input { width: 100%; padding: 0.5rem 0.6rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.9rem; margin-bottom: 0.5rem; background-color: var(--bg-primary); color: var(--text-primary); }
   .testimony-actions { display: flex; gap: 0.5rem; margin-top: 0.6rem; flex-wrap: wrap; }
   .admin-status { margin-top: 0.75rem; font-size: 0.88rem; }
   .admin-hidden { display: none !important; }
@@ -99,6 +100,17 @@
         هذه هي الدعوات التي كتب فيها الزوار رسالة، وهي ما يظهر في شريط «أحدث الدعوات المشاركة» على الرئيسية. الاسم هنا يظهر لك فقط للإدارة ولا يُعرض أبداً على الموقع العام.
       </p>
       <div id="testimonies-list">
+        <p style="color: var(--text-muted);">جارِ التحميل...</p>
+      </div>
+    </div>
+
+    <div class="admin-card">
+      <h2 class="admin-title" style="font-size: 1.3rem;">إدارة طلبات التبرع</h2>
+      <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: -1rem; margin-bottom: 1rem;">
+        هذه طلبات نوايا التبرع فقط، لا توجد أي عملية دفع فعلية بعد. هذا القسم للإدارة فقط، ولا تُعرض هذه البيانات في أي مكان على الموقع العام.
+      </p>
+      <p id="donations-total" style="font-weight: 700; color: var(--gold-dark); margin-bottom: 1rem;"></p>
+      <div id="donations-list">
         <p style="color: var(--text-muted);">جارِ التحميل...</p>
       </div>
     </div>
