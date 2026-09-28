@@ -1036,6 +1036,9 @@ html[dir="ltr"] .mobile-drawer {
   display: flex;
   gap: 1.25rem;
   width: max-content;
+  /* Trailing gap so each half is exactly N x (card + gap): translating by
+     50% then lands precisely on the start of the repeated block (no jump). */
+  padding-inline-end: 1.25rem;
   animation-name: testimony-marquee-scroll;
   animation-timing-function: linear;
   animation-iteration-count: infinite;

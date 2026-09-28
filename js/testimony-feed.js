@@ -12,6 +12,7 @@
   const FEED_LIMIT = 15;
   const SECONDS_PER_CARD = 4.5; // count-based, not measured - see renderFeed() for why
   const MIN_DURATION_SECONDS = 16;
+  const CARD_STEP_PX = 320; // 300px card + 20px gap (keep in sync with css/main.css)
   let cachedFeed = null;
 
   function isArabicNow() {
@@ -52,20 +53,25 @@
       return;
     }
 
-    // Render the set twice back-to-back so translateX(-50%) loops seamlessly.
-    const cardsHtml = cachedFeed.map((entry) => buildCardHtml(entry, isArabic)).join('');
-    track.innerHTML = cardsHtml + cardsHtml;
+    // Seamless loop: the track shows the same block of cards twice and
+    // translates by exactly half, so one block must be at least as wide as
+    // the visible area. With only a few testimonies a single block is
+    // narrower than the screen, which leaves an empty gap that snaps back
+    // at the loop point. So the base set is repeated until one block is
+    // wider than the viewport. Card width and gap are fixed in CSS, so
+    // this is pure arithmetic and needs no layout measurement.
+    const cardsPerBlock = Math.max(
+      cachedFeed.length,
+      Math.ceil((window.innerWidth + CARD_STEP_PX) / CARD_STEP_PX)
+    );
+    let blockHtml = '';
+    for (let i = 0; i < cardsPerBlock; i++) {
+      blockHtml += buildCardHtml(cachedFeed[i % cachedFeed.length], isArabic);
+    }
+    track.innerHTML = blockHtml + blockHtml;
 
-    // Duration is based on how many cards there are, not on a measured
-    // pixel width. Measuring track.scrollWidth right after setting
-    // innerHTML (even inside requestAnimationFrame) races against layout
-    // and web-font loading - the width read back can be smaller than the
-    // final rendered width, producing a duration that doesn't match the
-    // real content and a visible stutter/jump at the loop point. Every
-    // card has a fixed CSS width, so scaling duration by count gives the
-    // same "consistent speed" result without depending on measurement
-    // timing at all.
-    const duration = Math.max(cachedFeed.length * SECONDS_PER_CARD, MIN_DURATION_SECONDS);
+    // Speed stays constant regardless of how many cards there are.
+    const duration = Math.max(cardsPerBlock * SECONDS_PER_CARD, MIN_DURATION_SECONDS);
     track.style.setProperty('--marquee-duration', `${duration}s`);
   }
 
@@ -105,4 +111,12 @@
     loadFeed();
   });
   window.addEventListener('languageChanged', renderFeed);
+
+  // Re-fill the row when the window width changes enough to need more cards.
+  let lastWidth = window.innerWidth;
+  window.addEventListener('resize', () => {
+    if (Math.abs(window.innerWidth - lastWidth) < 100) return;
+    lastWidth = window.innerWidth;
+    renderFeed();
+  });
 })();
