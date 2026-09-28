@@ -510,9 +510,14 @@
   // ---------------------------------------------------------------------
   // Unlock / init
   // ---------------------------------------------------------------------
-  async function unlock() {
-    const token = document.getElementById('admin-token-input').value.trim();
-    if (!token) return setStatus('gate-status', 'gateEnterToken', 'error');
+  // useStoredToken: true when auto-unlocking on page load from the token
+  // saved for this tab's session (there is nothing typed in the input then).
+  async function unlock(useStoredToken) {
+    const token = useStoredToken ? getToken() : document.getElementById('admin-token-input').value.trim();
+    if (!token) {
+      if (!useStoredToken) setStatus('gate-status', 'gateEnterToken', 'error');
+      return;
+    }
     sessionStorage.setItem(TOKEN_KEY, token);
 
     setStatus('gate-status', 'gateVerifying', 'neutral');
@@ -521,11 +526,19 @@
     // was accepted (the request was authorized, the fake id just doesn't exist).
     const probe = await apiRequest('DELETE', '/api/visits?id=__token_check__');
     if (probe.status === 401) {
-      setStatus('gate-status', 'gateWrongToken', 'error');
       sessionStorage.removeItem(TOKEN_KEY);
+      if (useStoredToken) {
+        // A stale saved token isn't the user's mistake; just show the gate.
+        delete statuses['gate-status'];
+        document.getElementById('gate-status').textContent = '';
+      } else {
+        setStatus('gate-status', 'gateWrongToken', 'error');
+      }
       return;
     }
 
+    delete statuses['gate-status'];
+    document.getElementById('gate-status').textContent = '';
     document.getElementById('token-gate').classList.add('admin-hidden');
     document.getElementById('admin-main').classList.remove('admin-hidden');
     loadVisitsList();
@@ -545,15 +558,15 @@
   });
 
   document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('unlock-btn').addEventListener('click', unlock);
+    document.getElementById('unlock-btn').addEventListener('click', () => unlock(false));
     document.getElementById('admin-token-input').addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') unlock();
+      if (e.key === 'Enter') unlock(false);
     });
     document.getElementById('add-visit-btn').addEventListener('click', addVisit);
 
     // If a token is already stashed in this tab's session, skip the gate.
     if (getToken()) {
-      unlock();
+      unlock(true);
     }
   });
 })();
